@@ -1,4 +1,5 @@
-import "./Rodape.css";
+import React from "react";
+import "./rodape.css";
 import logo from "./logo/ig.png";
 
 export default function Rodape() {
