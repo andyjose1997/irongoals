@@ -1,0 +1,446 @@
+.formacaoContainer {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.formacaoTituloArea {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.formacaoTituloPrincipal {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -1px;
+}
+
+.formacaoSubtituloPrincipal {
+    margin-top: 12px;
+    font-size: 1.05rem;
+    color: #64748b;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.formacaoBotaoAdicionar {
+    width: 100%;
+    height: 72px;
+    border: none;
+    border-radius: 24px;
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow:
+        0 15px 35px rgba(37,
+            99,
+            235,
+            .25);
+    transition: .3s;
+}
+
+.formacaoBotaoAdicionar:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 25px 45px rgba(37,
+            99,
+            235,
+            .35);
+}
+
+.formacaoFormularioCard {
+    margin-top: 25px;
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 35px;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 20px 50px rgba(15,
+            23,
+            42,
+            .08);
+}
+
+.formacaoFormularioTitulo {
+    margin: 0 0 30px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #0f172a;
+    text-align: center;
+}
+
+.formacaoFormularioGrid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(280px,
+                1fr));
+    gap: 22px;
+}
+
+.formacaoCampoGrupo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formacaoLabelCampo {
+    font-size: .85rem;
+    font-weight: 800;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+.formacaoInputCampo {
+    width: 100%;
+    height: 58px;
+    padding: 0 18px;
+    border-radius: 18px;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: .95rem;
+    transition: .25s;
+    box-sizing: border-box;
+}
+
+.formacaoInputCampo:hover {
+    border-color: #cbd5e1;
+}
+
+.formacaoInputCampo:focus {
+    outline: none;
+    background: #ffffff;
+    border-color: #2563eb;
+    box-shadow:
+        0 0 0 6px rgba(37,
+            99,
+            235,
+            .12);
+}
+
+.formacaoTextareaCampo {
+    min-height: 160px;
+    padding: 18px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+.formacaoAcoesFormulario {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+}
+
+.formacaoBotaoSalvar,
+.formacaoBotaoCancelar,
+.formacaoBotaoEditar,
+.formacaoBotaoApagar {
+    height: 54px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: .95rem;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.formacaoBotaoSalvar {
+    flex: 2;
+    color: white;
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+    box-shadow:
+        0 12px 30px rgba(37,
+            99,
+            235,
+            .25);
+}
+
+.formacaoBotaoSalvar:hover {
+    transform: translateY(-3px);
+}
+
+.formacaoBotaoCancelar {
+    flex: 1;
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.formacaoBotaoCancelar:hover {
+    background: #e2e8f0;
+}
+
+.formacaoListaContainer {
+    margin-top: 32px;
+    display: grid;
+    gap: 24px;
+}
+
+.formacaoCardItem {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    border-radius: 28px;
+    background:
+        linear-gradient(145deg,
+            #ffffff,
+            #f8fafc);
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 12px 30px rgba(15,
+            23,
+            42,
+            .08),
+        0 35px 90px rgba(15,
+            23,
+            42,
+            .06);
+    transition: .28s ease;
+}
+
+.formacaoCardItem:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 18px 45px rgba(15,
+            23,
+            42,
+            .12),
+        0 40px 100px rgba(37,
+            99,
+            235,
+            .10);
+}
+
+.formacaoCardLinhaDecorativa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background:
+        linear-gradient(180deg,
+            #2563eb,
+            #60a5fa);
+}
+
+.formacaoCardTopo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.formacaoCardInfoPrincipal {
+    flex: 1;
+}
+
+.formacaoCursoTexto {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.formacaoInstituicaoTexto {
+    margin: 6px 0 0;
+    color: #2563eb;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.formacaoNivelBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg,
+            #dbeafe,
+            #eff6ff);
+    border: 1px solid #bfdbfe;
+    color: #1d4ed8;
+    font-size: .82rem;
+    font-weight: 800;
+}
+
+.formacaoResumoGrid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(220px,
+                1fr));
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.formacaoResumoItem {
+    padding: 15px 16px;
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg,
+            #f8fafc,
+            #f1f5f9);
+    border: 1px solid #e2e8f0;
+}
+
+.formacaoResumoLabel {
+    display: block;
+    margin-bottom: 6px;
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.formacaoDescricaoBox {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            #ffffff,
+            #f8fafc);
+    border: 1px solid #e2e8f0;
+}
+
+.formacaoDescricaoLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.formacaoDescricaoTexto {
+    margin: 0;
+    line-height: 1.7;
+    color: #334155;
+    white-space: pre-wrap;
+}
+
+.formacaoAcoesCard {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.formacaoBotaoEditar {
+    flex: 1;
+    background:
+        linear-gradient(135deg,
+            #3b82f6,
+            #2563eb);
+    color: white;
+}
+
+.formacaoBotaoApagar {
+    flex: 1;
+    background:
+        linear-gradient(135deg,
+            #ef4444,
+            #dc2626);
+    color: white;
+}
+
+.formacaoBotaoEditar:hover,
+.formacaoBotaoApagar:hover {
+    transform: translateY(-2px);
+}
+
+.formacaoVazioCard {
+    padding: 52px 30px;
+    text-align: center;
+    border-radius: 26px;
+    border: 2px dashed #cbd5e1;
+    background:
+        linear-gradient(145deg,
+            #ffffff,
+            #f8fafc);
+}
+
+.formacaoVazioIcone {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background:
+        linear-gradient(135deg,
+            #dbeafe,
+            #eff6ff);
+    font-size: 1.8rem;
+}
+
+.formacaoVazioTitulo {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.formacaoVazioTexto {
+    max-width: 420px;
+    margin: 8px auto 0;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+
+    .formacaoCardTopo {
+        flex-direction: column;
+    }
+
+    .formacaoAcoesCard {
+        flex-direction: column;
+    }
+
+    .formacaoAcoesFormulario {
+        flex-direction: column;
+    }
+
+    .formacaoFormularioCard {
+        padding: 24px;
+    }
+
+}
+
+.formacaoDescricaoLink {
+
+    color: #2563eb;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    word-break: break-word;
+
+}
+
+.formacaoDescricaoLink:hover {
+
+    text-decoration: underline;
+
+}

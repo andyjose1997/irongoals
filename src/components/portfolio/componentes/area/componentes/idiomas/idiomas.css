@@ -1,0 +1,293 @@
+.idiomasContainer {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.idiomasTituloArea {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.idiomasTituloPrincipal {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -1px;
+}
+
+.idiomasSubtituloPrincipal {
+    margin-top: 12px;
+    font-size: 1.05rem;
+    color: #64748b;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.idiomasBotaoAdicionar {
+    width: 100%;
+    height: 72px;
+    border: none;
+    border-radius: 24px;
+    background: linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 35px;
+    cursor: pointer;
+    box-shadow:
+        0 15px 35px rgba(37,
+            99,
+            235,
+            .25);
+    transition: .3s;
+}
+
+.idiomasBotaoAdicionar:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 25px 50px rgba(37,
+            99,
+            235,
+            .35);
+}
+
+.idiomasFormularioContainer {
+    background: #ffffff;
+    border-radius: 32px;
+    margin-bottom: 20px;
+    padding: 35px;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 25px 60px rgba(15,
+            23,
+            42,
+            .08);
+}
+
+.idiomasInputCampo {
+    width: 100%;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 15px 18px;
+    font-size: .95rem;
+    background: #f8fafc;
+    color: #0f172a;
+    transition: .25s;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+}
+
+.idiomasInputCampo:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow:
+        0 0 0 5px rgba(37,
+            99,
+            235,
+            .12);
+}
+
+.idiomasFormularioAcoes {
+    display: flex;
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.idiomasBotaoSalvar,
+.idiomasBotaoCancelar {
+    min-width: 170px;
+    height: 56px;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: .95rem;
+    font-weight: 700;
+    transition: all .25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.idiomasBotaoSalvar {
+    color: #ffffff;
+    background: linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+    box-shadow:
+        0 12px 30px rgba(37,
+            99,
+            235,
+            .25);
+}
+
+.idiomasBotaoSalvar:hover {
+    transform: translateY(-3px);
+}
+
+.idiomasBotaoCancelar {
+    color: #334155;
+    background: #ffffff;
+    border: 1px solid #dbe3ee;
+}
+
+.idiomasListaContainer {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(370px,
+                1fr));
+    gap: 24px;
+}
+
+.idiomasCardItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 28px;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg,
+            #ffffff 0%,
+            #fafcff 100%);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    transition: .35s;
+    box-shadow:
+        0 8px 25px rgba(15,
+            23,
+            42,
+            .04);
+}
+
+.idiomasCardItem:hover {
+    transform: translateY(-8px);
+    border-color:
+        rgba(37,
+            99,
+            235,
+            .25);
+    box-shadow:
+        0 30px 60px rgba(15,
+            23,
+            42,
+            .12);
+}
+
+.idiomasCardItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background:
+        linear-gradient(90deg,
+            #2563eb,
+            #4f46e5,
+            #7c3aed);
+}
+
+.idiomasCardTopo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.idiomasNomeIdioma {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.idiomasNivelBadge {
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 800;
+    color: #2563eb;
+    background:
+        rgba(37,
+            99,
+            235,
+            .12);
+}
+
+.idiomasAcoes {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.idiomasBotaoEditar {
+    background: #013cbd;
+    color: #ffffff;
+}
+
+.idiomasBotaoExcluir {
+    background: #970303;
+    color: #ffffff;
+}
+
+.idiomasBotaoEditar,
+.idiomasBotaoExcluir,
+.idiomasBotaoExcluirConfirmar {
+    flex: 1;
+    height: 52px;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    font-size: .92rem;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.idiomasBotaoEditar:hover,
+.idiomasBotaoExcluir:hover {
+    transform: translateY(-2px);
+}
+
+.idiomasBotaoExcluirConfirmar {
+    color: #ffffff;
+    border: none;
+    background:
+        linear-gradient(135deg,
+            #ef4444,
+            #dc2626);
+}
+
+.idiomasVazioCard {
+    grid-column: 1/-1;
+    padding: 50px;
+    text-align: center;
+    border-radius: 28px;
+    border: 2px dashed #cbd5e1;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+    .idiomasListaContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .idiomasFormularioAcoes {
+        flex-direction: column;
+    }
+
+    .idiomasAcoes {
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,111 @@
+.painelContainer {
+
+    display: flex;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+}
+
+.painelBotoesLateral {
+
+    width: 25%;
+
+    min-width: 280px;
+
+    padding: 30px;
+
+    background: #0f172a;
+
+    color: white;
+
+}
+
+.painelAreaPrincipal {
+
+    width: 75%;
+
+    padding: 40px;
+
+    background: #f8fafc;
+
+}
+
+.painelBotoesTitulo {
+
+    margin: 0;
+
+    font-size: 28px;
+
+}
+
+.painelBotoesSubtitulo {
+
+    margin-top: 8px;
+
+    opacity: .7;
+
+}
+
+.painelBotoesMenu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 35px;
+
+}
+
+.painelBotaoItem {
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px 18px;
+
+    background: #1e293b;
+
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: .2s;
+
+}
+
+.painelBotaoItem:hover {
+
+    background: #2563eb;
+
+}
+
+@media (max-width: 900px) {
+
+    .painelContainer {
+
+        flex-direction: column;
+
+    }
+
+    .painelBotoesLateral {
+
+        width: 100%;
+
+        min-width: auto;
+
+    }
+
+    .painelAreaPrincipal {
+
+        width: 100%;
+
+    }
+
+}

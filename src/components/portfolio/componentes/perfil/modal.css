@@ -1,0 +1,302 @@
+.modalFotoPerfilOverlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(15,
+            23,
+            42,
+            0.75);
+
+    backdrop-filter:
+        blur(8px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 999999;
+
+    animation:
+        modalFotoPerfilFadeIn .25s ease;
+
+}
+
+.modalFotoPerfilCard {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    background:
+        #ffffff;
+
+    border-radius: 28px;
+
+    padding: 32px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    box-shadow:
+        0 25px 60px rgba(15,
+            23,
+            42,
+            0.18);
+
+    border:
+        1px solid #e5e7eb;
+
+    animation:
+        modalFotoPerfilCardEntrada .25s ease;
+
+}
+
+.modalFotoPerfilCard h2 {
+
+    margin: 0;
+
+    font-size: 1.6rem;
+
+    font-weight: 700;
+
+    color:
+        #0f172a;
+
+}
+
+.modalFotoPerfilCard input[type="file"] {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border:
+        2px dashed #cbd5e1;
+
+    border-radius: 18px;
+
+    background:
+        #f8fafc;
+
+    cursor: pointer;
+
+    transition:
+        .25s;
+
+}
+
+.modalFotoPerfilCard input[type="file"]:hover {
+
+    border-color:
+        #2563eb;
+
+    background:
+        #eff6ff;
+
+}
+
+.modalFotoPerfilBotoes {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+.modalFotoPerfilCancelar {
+
+    border: none;
+
+    padding:
+        12px 22px;
+
+    border-radius: 14px;
+
+    background:
+        #e2e8f0;
+
+    color:
+        #334155;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        .25s;
+
+}
+
+.modalFotoPerfilCancelar:hover {
+
+    background:
+        #cbd5e1;
+
+}
+
+.modalFotoPerfilSalvar {
+
+    border: none;
+
+    padding:
+        12px 22px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #1d4ed8);
+
+    color:
+        #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        .25s;
+
+}
+
+.modalFotoPerfilSalvar:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 24px rgba(37,
+            99,
+            235,
+            0.25);
+
+}
+
+.modalFotoPerfilSalvar:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+@keyframes modalFotoPerfilFadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+@keyframes modalFotoPerfilCardEntrada {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px) scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+
+    }
+
+}
+
+.modalFotoPerfilPreviewArea {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+.modalFotoPerfilPreviewImagem {
+
+    width: 220px;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 30px rgba(15,
+            23,
+            42,
+            0.15);
+
+}
+
+.modalFotoPerfilSelecionar {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background:
+        #2563eb;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.modalFotoPerfilSelecionar:hover {
+
+    background:
+        #1d4ed8;
+
+}

@@ -1,0 +1,102 @@
+.igHeaderPrincipalContainer {
+    width: 100%;
+    height: 90px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1px solid #ececec;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.igHeaderMarcaArea {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.igHeaderLogoImagem {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.igHeaderTituloSistema {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.igHeaderMenuNavegacao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.igHeaderBotaoMenu {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 10px 14px;
+    border-radius: 10px;
+}
+
+.igHeaderBotaoMenu:hover {
+    background: #f3f4f6;
+}
+
+.igHeaderBotaoLoginDestaque {
+    border: none;
+    cursor: pointer;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: #2563eb;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+.igHeaderBotaoLoginDestaque:hover {
+    transform: translateY(-2px);
+}
+
+.igHeaderPerfilUsuarioArea {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 999px;
+    transition: 0.3s;
+}
+
+.igHeaderPerfilUsuarioArea:hover {
+    background: #2564eb9f !important;
+
+}
+
+.igHeaderFotoUsuario {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5e7eb;
+}
+
+.igHeaderNomeUsuario {
+    color: #1f2937;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}

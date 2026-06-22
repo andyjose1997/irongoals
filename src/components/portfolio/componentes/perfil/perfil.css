@@ -1,0 +1,378 @@
+.portfolioPaginaContainer {
+    width: 100%;
+    padding: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.12),
+        0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.portfolioCabecalhoArea {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    background:
+        linear-gradient(135deg,
+            #0f172a 0%,
+            #1e293b 40%,
+            #334155 100%);
+}
+
+.portfolioCabecalhoArea::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right,
+            rgba(255, 255, 255, 0.12),
+            transparent 35%);
+    pointer-events: none;
+}
+
+.portfolioFotoPerfil {
+    position: relative;
+    z-index: 2;
+
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 6px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        0 0 0 8px rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s;
+}
+
+.portfolioFotoPerfil:hover {
+    transform: scale(1.04);
+}
+
+.portfolioInformacoesUsuario {
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.portfolioNomeUsuario {
+    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1px;
+}
+
+.portfolioEmailUsuario {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+}
+
+.portfolioAcoesDireita {
+    display: flex;
+    gap: 15px;
+    align-self: flex-start;
+    position: relative;
+    z-index: 2;
+}
+
+.portfolioBotaoInicio,
+.portfolioBotaoLogout {
+    border: none;
+    cursor: pointer;
+
+    height: 48px;
+    padding: 0 24px;
+
+    border-radius: 14px;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.portfolioBotaoInicio {
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg,
+            #3b82f6,
+            #2563eb);
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+.portfolioBotaoInicio:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.45);
+}
+
+.portfolioBotaoLogout {
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg,
+            #ef4444,
+            #dc2626);
+
+    box-shadow:
+        0 10px 25px rgba(220, 38, 38, 0.35);
+}
+
+.portfolioBotaoLogout:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(220, 38, 38, 0.45);
+}
+
+.portfolioCarregandoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 300px;
+
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.portfolioSkeletonContainer {
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow:
+        0 20px 60px rgba(15, 23, 42, 0.12),
+        0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.portfolioSkeletonCabecalho {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+
+    background:
+        linear-gradient(135deg,
+            #0f172a 0%,
+            #1e293b 40%,
+            #334155 100%);
+}
+
+.portfolioSkeletonFoto,
+.portfolioSkeletonLinha,
+.portfolioSkeletonBotao {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolioSkeletonFoto::before,
+.portfolioSkeletonLinha::before,
+.portfolioSkeletonBotao::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent);
+
+    transform: translateX(-100%);
+    animation: portfolioSkeletonAnimacao 1.5s infinite;
+}
+
+.portfolioSkeletonFoto {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.portfolioSkeletonInformacoes {
+    flex: 1;
+}
+
+.portfolioSkeletonLinha {
+    height: 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    margin-bottom: 14px;
+}
+
+.portfolioSkeletonNome {
+    width: 280px;
+    height: 32px;
+}
+
+.portfolioSkeletonEmail {
+    width: 220px;
+}
+
+.portfolioSkeletonIdade {
+    width: 120px;
+}
+
+.portfolioSkeletonBotoes {
+    display: flex;
+    gap: 15px;
+}
+
+.portfolioSkeletonBotao {
+    width: 120px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes portfolioSkeletonAnimacao {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.portfolioAcoesDireita {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.portfolioAcoesLinha {
+    display: flex;
+    gap: 12px;
+}
+
+.portfolioAcoesLinha button {
+    flex: 1;
+}
+
+.portfolioBotaoPortfolioPublico {
+    width: 100%;
+}
+
+.portfolioAcoesDireita {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.portfolioBotaoPortfolioPublico {
+    width: 100%;
+
+    height: 44px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    color: white;
+
+    background:
+        linear-gradient(135deg,
+            #10b981,
+            #059669);
+
+    transition: .25s;
+
+    box-shadow:
+        0 10px 20px rgba(16, 185, 129, .25);
+}
+
+.portfolioBotaoPortfolioPublico:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.portfolioBotaoPainelAdmin {
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+
+    background: #1f2937;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(0,
+            0,
+            0,
+            0.15);
+
+}
+
+.portfolioBotaoPainelAdmin:hover {
+
+    transform: translateY(-2px);
+
+    background: #111827;
+
+}
+
+.portfolioBotaoPainelAdmin:active {
+
+    transform: translateY(0);
+
+}
+
+.portfolioBotaoPainelAdmin:focus {
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(31,
+            41,
+            55,
+            0.25);
+
+}
+
+.portfolioBotaoPortfolioPublico:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 30px rgba(16, 185, 129, .35);
+}

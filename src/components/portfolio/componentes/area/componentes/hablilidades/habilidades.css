@@ -1,0 +1,556 @@
+.habilidadesContainer {
+    width: 95%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+.habilidadesTituloArea {
+    margin-bottom: 35px;
+
+    text-align: center;
+}
+
+.habilidadesTituloPrincipal {
+    margin: 0;
+
+    font-size: 2.4rem;
+
+    font-weight: 900;
+
+    color: #0f172a;
+
+    letter-spacing: -1px;
+}
+
+.habilidadesSubtituloPrincipal {
+    margin-top: 12px;
+
+    font-size: 1.05rem;
+
+    color: #64748b;
+
+    max-width: 700px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    line-height: 1.7;
+}
+
+.habilidadesBotaoAdicionar {
+    width: 100%;
+
+    height: 72px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+
+    color: #fff;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+    margin-bottom: 35px;
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, .25);
+
+    transition: .3s;
+}
+
+.habilidadesBotaoAdicionar:hover {
+    transform:
+        translateY(-4px);
+    box-shadow:
+        0 25px 50px rgba(37,
+            99,
+            235,
+            0.35);
+}
+
+.habilidadesFormularioContainer {
+    background: #ffffff;
+    border-radius: 32px;
+    margin-bottom: 20px;
+    padding: 35px;
+    border: 1px solid #e2e8f0;
+    box-shadow:
+        0 25px 60px rgba(15,
+            23,
+            42,
+            0.08);
+}
+
+.habilidadesFormularioGrid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(280px,
+                1fr));
+    gap: 22px;
+}
+
+.habilidadesCampoGrupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.habilidadesLabelCampo {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.habilidadesInputCampo,
+.habilidadesTextareaCampo {
+    width: 100%;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 15px 18px;
+    font-size: 0.95rem;
+    background: #f8fafc;
+    color: #0f172a;
+    transition: 0.25s;
+    box-sizing: border-box;
+}
+
+.habilidadesInputCampo:focus,
+.habilidadesTextareaCampo:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow:
+        0 0 0 5px rgba(37,
+            99,
+            235,
+            0.12);
+}
+
+.habilidadesTextareaCampo {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.habilidadesAcoesFormulario {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.habilidadesAcoesFormulario {
+    display: flex;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.habilidadesBotaoSalvar,
+.habilidadesBotaoCancelar {
+
+    min-width: 170px;
+
+    height: 56px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    transition: all .25s ease;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.habilidadesBotaoSalvar {
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+
+    box-shadow:
+        0 12px 30px rgba(37,
+            99,
+            235,
+            0.25);
+}
+
+.habilidadesBotaoSalvar:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 20px 40px rgba(37,
+            99,
+            235,
+            0.35);
+}
+
+.habilidadesBotaoSalvar:active {
+
+    transform:
+        translateY(0);
+}
+
+.habilidadesBotaoCancelar {
+
+    color: #334155;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe3ee;
+
+    box-shadow:
+        0 6px 20px rgba(15,
+            23,
+            42,
+            0.04);
+}
+
+.habilidadesBotaoCancelar:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color: #cbd5e1;
+
+    background: #f8fafc;
+
+    box-shadow:
+        0 15px 30px rgba(15,
+            23,
+            42,
+            0.08);
+}
+
+.habilidadesBotaoCancelar:active {
+
+    transform:
+        translateY(0);
+}
+
+.habilidadesListaContainer {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(370px,
+                1fr));
+    gap: 24px;
+}
+
+.habilidadesCardItem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 28px;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg,
+            #ffffff 0%,
+            #fafcff 100%);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    transition: 0.35s;
+    box-shadow:
+        0 8px 25px rgba(15,
+            23,
+            42,
+            0.04);
+}
+
+.habilidadesCardItem:hover {
+    transform:
+        translateY(-8px);
+    border-color:
+        rgba(37,
+            99,
+            235,
+            0.25);
+    box-shadow:
+        0 30px 60px rgba(15,
+            23,
+            42,
+            0.12);
+}
+
+.habilidadesCardLinhaDecorativa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background:
+        linear-gradient(90deg,
+            #2563eb,
+            #4f46e5,
+            #7c3aed);
+}
+
+.habilidadesCardTopo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.habilidadesCabecalhoInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.habilidadesTitulo {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.habilidadesNivelBadge {
+    width: fit-content;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: .5px;
+    color: #2563eb;
+    background:
+        rgba(37,
+            99,
+            235,
+            0.12);
+}
+
+.habilidadesInformacoesGrid {
+    display: grid;
+    grid-template-columns:
+        repeat(2,
+            1fr);
+    gap: 14px;
+}
+
+.habilidadesInfoBox {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 15px;
+    border-radius: 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.habilidadesInfoLabel {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+.habilidadesInfoValor {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.habilidadesDescricaoBox {
+    padding: 18px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg,
+            #f8fafc,
+            #eff6ff);
+    border: 1px solid #dbeafe;
+}
+
+.habilidadesDescricaoTitulo {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #2563eb;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.habilidadesDescricaoTexto {
+    color: #334155;
+    line-height: 1.7;
+}
+
+.habilidadesCardAcoes {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: auto;
+
+}
+
+.habilidadesBotaoEditar {
+    background-color: #013cbd;
+    color: #dbe3ee;
+
+}
+
+.habilidadesBotaoExcluir {
+    background-color: #970303;
+    color: #dbe3ee !important;
+
+}
+
+.habilidadesBotaoEditar,
+.habilidadesBotaoExcluir,
+.habilidadesBotaoExcluirConfirmar {
+
+    flex: 1;
+
+    height: 52px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e2e8f0;
+
+
+    cursor: pointer;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: all .25s ease;
+
+    backdrop-filter: blur(12px);
+
+}
+
+
+.habilidadesBotaoEditar:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #2563eb;
+    font-weight: bolder;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(37,
+            99,
+            235,
+            0.10);
+
+}
+
+.habilidadesBotaoExcluir {
+
+    color: #64748b;
+
+}
+
+.habilidadesBotaoExcluir:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #ef4444;
+
+    color: #ef4444;
+
+    box-shadow:
+        0 10px 30px rgba(239,
+            68,
+            68,
+            0.10);
+
+}
+
+.habilidadesBotaoExcluirConfirmar {
+
+    color: #ffffff;
+
+    border: none;
+
+    background:
+        linear-gradient(135deg,
+            #ef4444,
+            #dc2626);
+
+    box-shadow:
+        0 12px 25px rgba(239,
+            68,
+            68,
+            0.25);
+
+}
+
+.habilidadesBotaoExcluirConfirmar:hover {
+
+    transform:
+        translateY(-2px) scale(1.02);
+
+    box-shadow:
+        0 18px 35px rgba(239,
+            68,
+            68,
+            0.35);
+
+}
+
+.habilidadesVazioCard {
+    grid-column: 1/-1;
+    padding: 50px;
+    text-align: center;
+    border-radius: 28px;
+    border: 2px dashed #cbd5e1;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+    .habilidadesListaContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .habilidadesInformacoesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .habilidadesAcoesFormulario {
+        flex-direction: column;
+    }
+
+    .habilidadesCardAcoes {
+        flex-direction: column;
+    }
+}

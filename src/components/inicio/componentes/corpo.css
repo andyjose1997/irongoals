@@ -1,0 +1,102 @@
+.igCorpoPrincipalContainer {
+    width: 100%;
+}
+
+.igCorpoHeroSection {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.igCorpoHeroTitulo {
+    max-width: 900px;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 25px;
+}
+
+.igCorpoHeroDescricao {
+    max-width: 700px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #6b7280;
+    margin-bottom: 40px;
+}
+
+.igCorpoHeroBotoesArea {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.igCorpoBotaoPrincipal {
+    border: none;
+    background: #2563eb;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.igCorpoBotaoSecundario {
+    border: 2px solid #2563eb;
+    background: transparent;
+    color: #2563eb;
+    padding: 16px 32px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.igCorpoComoFuncionaSection {
+    padding: 100px 20px;
+    background: #f8fafc;
+}
+
+.igCorpoTituloSecao {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    color: #1f2937;
+}
+
+.igCorpoCardsGrid {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.igCorpoCardInfo {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.igCorpoCardIcone {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.igCorpoCardInfo h3 {
+    margin-bottom: 15px;
+    color: #1f2937;
+}
+
+.igCorpoCardInfo p {
+    color: #6b7280;
+    line-height: 1.7;
+}

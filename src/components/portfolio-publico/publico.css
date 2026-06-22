@@ -1,0 +1,959 @@
+.portfolioPublicoContainer {
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.portfolioPublicoHero {
+
+    background:
+        linear-gradient(135deg,
+            #0f172a 0%,
+            #1e293b 100%);
+
+    border-radius: 32px;
+
+    padding: 50px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow:
+        0 25px 60px rgba(15,
+            23,
+            42,
+            0.18);
+
+}
+
+.portfolioPublicoHero::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+
+    right: -100px;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,
+            255,
+            255,
+            0.04);
+
+}
+
+.portfolioPublicoHeroConteudo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 40px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.portfolioPublicoHeroFoto {
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 30px;
+
+    object-fit: cover;
+
+    border: 5px solid rgba(255,
+            255,
+            255,
+            0.12);
+
+    flex-shrink: 0;
+
+}
+
+.portfolioPublicoHeroTexto {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.portfolioPublicoHeroTexto h1 {
+
+    color: white;
+
+    font-size: 3rem;
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+}
+
+.portfolioPublicoHeroTexto h2 {
+
+    color: #60a5fa;
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+
+}
+
+.portfolioPublicoHeroTexto p {
+
+    color:
+        rgba(255,
+            255,
+            255,
+            0.85);
+
+    line-height: 1.8;
+
+    max-width: 900px;
+
+}
+
+/* ========================= */
+/* CONTATOS */
+/* ========================= */
+
+.portfolioPublicoContatoRapido {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 10px;
+
+}
+
+.portfolioPublicoContatoRapido span,
+.portfolioPublicoContatoRapido a {
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,
+            255,
+            255,
+            0.08);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: .9rem;
+
+    transition: .25s;
+
+}
+
+.portfolioPublicoContatoRapido a:hover {
+
+    background:
+        rgba(255,
+            255,
+            255,
+            0.18);
+
+}
+
+/* ========================= */
+/* BLOCOS */
+/* ========================= */
+
+.portfolioPublicoResumo,
+.portfolioPublicoHabilidades,
+.portfolioPublicoExperiencias,
+.portfolioPublicoFormacoes,
+.portfolioPublicoInformacoes {
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 15px 40px rgba(15,
+            23,
+            42,
+            0.06);
+
+}
+
+.portfolioPublicoResumo h2,
+.portfolioPublicoHabilidades h2,
+.portfolioPublicoExperiencias h2,
+.portfolioPublicoFormacoes h2,
+.portfolioPublicoInformacoes h2 {
+
+    font-size: 1.8rem;
+
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin-bottom: 25px;
+
+}
+
+.portfolioPublicoResumo p {
+
+    color: #475569;
+
+    line-height: 1.8;
+
+}
+
+/* ========================= */
+/* HABILIDADES */
+/* ========================= */
+
+.portfolioPublicoSkillGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(240px,
+                1fr));
+
+    gap: 18px;
+
+}
+
+.portfolioPublicoSkillGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(240px,
+                1fr));
+
+    gap: 18px;
+
+    align-items: start;
+
+}
+
+.portfolioPublicoSkillCard {
+
+    align-self: start;
+
+}
+
+.portfolioPublicoSkillCard {
+
+    background:
+        linear-gradient(135deg,
+            #ffffff,
+            #ffffff);
+
+    color: rgb(0, 0, 0);
+    border: 0.5px solid black;
+    border-radius: 24px;
+
+    padding: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    transition: .25s;
+
+}
+
+.portfolioPublicoSkillCard:hover {
+
+    transform:
+        translateY(-5px);
+
+}
+
+.portfolioPublicoSkillCard h3 {
+
+    font-size: 1.1rem;
+
+    font-weight: 800;
+
+}
+
+.portfolioPublicoSkillCard span {
+
+    font-size: .9rem;
+
+    opacity: .9;
+
+}
+
+.portfolioPublicoSkillCard p {
+
+    font-size: .85rem;
+
+    opacity: .8;
+
+}
+
+/* ========================= */
+/* EXPERIÊNCIAS */
+/* ========================= */
+
+.portfolioPublicoExperiencias {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.portfolioPublicoProjetoCard {
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 24px;
+
+    padding: 25px;
+
+    transition: .25s;
+
+}
+
+.portfolioPublicoProjetoCard:hover {
+
+    border-color: #2563eb;
+
+    transform:
+        translateY(-3px);
+
+}
+
+.portfolioPublicoProjetoCard h3 {
+
+    font-size: 1.3rem;
+
+    color: #0f172a;
+
+    margin-bottom: 8px;
+
+    font-weight: 800;
+
+}
+
+.portfolioPublicoProjetoCard h4 {
+
+    color: #2563eb;
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+
+}
+
+.portfolioPublicoProjetoCard small {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    color: #64748b;
+
+}
+
+.portfolioPublicoProjetoCard p {
+
+    color: #475569;
+
+    line-height: 1.8;
+
+}
+
+/* ========================= */
+/* FORMAÇÕES */
+/* ========================= */
+
+.portfolioPublicoFormacaoGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(280px,
+                1fr));
+
+    gap: 20px;
+
+}
+
+.portfolioPublicoFormacaoCard {
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 24px;
+
+    padding: 25px;
+
+    transition: .25s;
+
+}
+
+.portfolioPublicoFormacaoCard:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(37,
+            99,
+            235,
+            0.3);
+
+}
+
+.portfolioPublicoFormacaoCard h3 {
+
+    font-size: 1.1rem;
+
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin-bottom: 10px;
+
+}
+
+.portfolioPublicoFormacaoCard p {
+
+    color: #64748b;
+
+    margin-bottom: 15px;
+
+}
+
+.portfolioPublicoFormacaoCard span {
+
+    display: inline-flex;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    font-size: .85rem;
+
+    font-weight: 700;
+
+}
+
+/* ========================= */
+/* INFO */
+/* ========================= */
+
+.portfolioPublicoInfoGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(220px,
+                1fr));
+
+    gap: 18px;
+
+}
+
+.portfolioPublicoInfoGrid div {
+
+    background: #f8fafc;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+
+}
+
+.portfolioPublicoInfoGrid strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #64748b;
+
+    text-transform: uppercase;
+
+    font-size: .8rem;
+
+    letter-spacing: 1px;
+
+}
+
+.portfolioPublicoInfoGrid p {
+
+    color: #0f172a;
+
+    font-weight: 700;
+
+}
+
+
+.portfolioPublicoCidade {
+
+    margin-top: -8px;
+
+    font-size: 1rem;
+
+    font-weight: 400;
+
+    color: rgba(255,
+            255,
+            255,
+            0.85);
+
+}
+
+.portfolioPublicoIdiomas h2 {
+    margin-bottom: 20px;
+}
+
+.portfolioPublicoIdiomasGrid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,
+            minmax(220px,
+                1fr));
+
+    gap: 20px;
+
+}
+
+.portfolioPublicoIdiomaCard {
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 10px 25px rgba(15,
+            23,
+            42,
+            0.05);
+
+}
+
+.portfolioPublicoIdiomaCard h3 {
+
+    margin: 0 0 12px;
+
+    color: #0f172a;
+
+    font-size: 1.2rem;
+
+}
+
+.portfolioPublicoIdiomaCard span {
+
+    display: inline-flex;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(37,
+            99,
+            235,
+            0.12);
+
+    color: #2563eb;
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+}
+
+.portfolioPublicoCompartilharModal {
+
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 520px;
+
+    max-width: 94vw;
+
+    background: #ffffff;
+
+    border-radius: 32px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 40px 120px rgba(0, 0, 0, .22);
+
+    z-index: 999999;
+
+}
+
+.portfolioPublicoCompartilharFechar {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .15);
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+.portfolioPublicoCompartilharTopo {
+
+    padding: 40px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #1d4ed8);
+
+    color: white;
+
+}
+
+.portfolioPublicoCompartilharFoto {
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+
+    margin-bottom: 18px;
+
+    border: 4px solid rgba(255, 255, 255, .25);
+
+}
+
+.portfolioPublicoCompartilharTopo h2 {
+
+    font-size: 1.8rem;
+
+    margin-bottom: 0px;
+
+    font-weight: 800;
+
+}
+
+.portfolioPublicoCompartilharTopo p {
+
+    opacity: .9;
+
+}
+
+.portfolioPublicoCompartilharQrArea {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 30px;
+
+}
+
+.portfolioPublicoCompartilharLinkArea {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 0 30px;
+
+}
+
+.portfolioPublicoCompartilharInput {
+
+    flex: 1;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 14px;
+
+    background: #f8fafc;
+
+}
+
+.portfolioPublicoCompartilharCopiar {
+
+    width: 60px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+.portfolioPublicoCompartilharRedes {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    padding: 25px 30px;
+
+}
+
+.portfolioPublicoRedeBotao {
+
+    height: 54px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    background: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.portfolioPublicoRedeBotao:hover {
+
+    background: #f8fafc;
+
+}
+
+.portfolioPublicoCompartilharPrincipal {
+
+    width: calc(100% - 60px);
+
+    margin: 0 30px 30px;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #1d4ed8);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+.portfolioPublicoBotaoCompartilhar {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 70px;
+
+    height: 70px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #1d4ed8);
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 20px 50px rgba(37, 99, 235, .35);
+
+    z-index: 9999;
+
+}
+
+.portfolioPublicoTituloComAcao {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+}
+
+.portfolioPublicoExpandirBotao {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    transition: .2s;
+
+}
+
+.portfolioPublicoExpandirBotao:hover {
+
+    background: #dbeafe;
+
+    transform: scale(1.05);
+
+}
+
+.portfolioPublicoSkillSucesso {
+
+    margin-top: 12px;
+
+    padding-top: 12px;
+
+    border-top:
+        1px solid rgba(255,
+            255,
+            255,
+            .15);
+
+}
+
+.portfolioPublicoSkillSucesso strong {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: .75rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    opacity: .8;
+
+}
+
+.portfolioPublicoSkillSucesso p {
+
+    margin: 0;
+
+    font-size: .9rem;
+
+    line-height: 1.5;
+
+    opacity: .95;
+
+}
