@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Corpo.css";
+import "./corpo.css";
 
 export default function Corpo() {
 

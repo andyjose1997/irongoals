@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../../config";
-import "./Header.css";
+import "./header.css";
 import logoIronGoals from "./logo/ig.png";
 
 export default function Header() {
