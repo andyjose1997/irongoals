@@ -4,7 +4,7 @@ import Rodape from "./componentes/rodape";
 import Card from "./login/card";
 import { GoogleLogin } from "@react-oauth/google";
 import { API_URL } from "../../config";
-import "./Login.css";
+import "./login.css";
 
 export default function Login() {
 
