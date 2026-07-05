@@ -1,27 +1,203 @@
-import React from "react";
-import "./card.css"
-export default function Card() {
-    return (
-        <section className="igLoginCardInformacoes">
+import React, {
+    useEffect,
+    useState
+} from "react";
 
-            <h2 className="igLoginNumerosTitulo">
+import {
+    API_URL
+} from "../../../config";
+
+import "./card.css";
+
+export default function Card() {
+
+    const [
+        estatisticas,
+        setEstatisticas
+    ] = useState(null);
+
+    useEffect(() => {
+
+        carregarEstatisticas();
+
+    }, []);
+    const carregando =
+        estatisticas === null;
+    async function carregarEstatisticas() {
+
+        try {
+
+            const resposta =
+                await fetch(
+                    `${API_URL}/estatisticas`
+                );
+
+            const dados =
+                await resposta.json();
+
+            setEstatisticas(
+                dados
+            );
+
+        }
+
+        catch {
+
+            setEstatisticas(
+                {}
+            );
+
+        }
+
+    }
+
+
+
+    const itens = carregando
+
+        ? [
+
+            {
+                valor: "...",
+                texto: "Empresas que podem receber seu perfil"
+            },
+
+            {
+                valor: "...",
+                texto: "Usuários cadastrados"
+            },
+
+            {
+                valor: "...",
+                texto: "Perfis visualizados por empresas"
+            },
+
+            {
+                valor: "...",
+                texto: "Entrevistas realizadas pela plataforma"
+            }
+
+        ]
+
+        : [
+
+            {
+
+                valor:
+                    estatisticas.empresas,
+
+                texto:
+                    "Empresas que podem receber seu perfil"
+
+            },
+
+            {
+
+                valor:
+                    estatisticas.usuarios,
+
+                texto:
+                    "Usuários cadastrados"
+
+            },
+
+            {
+
+                valor:
+                    estatisticas.visualizacoes,
+
+                texto:
+                    "Perfis visualizados por empresas"
+
+            },
+
+            {
+
+                valor:
+                    estatisticas.entrevistas,
+
+                texto:
+                    "Entrevistas realizadas pela plataforma"
+
+            }
+
+        ].filter(
+
+            item => item.valor > 0
+
+        );
+
+    return (
+
+        <section
+            className="igLoginCardInformacoes"
+        >
+
+            <h2
+                className="igLoginNumerosTitulo"
+            >
+
                 Aumente sua visibilidade profissional
+
             </h2>
 
-            <div className="igLoginNumeroBox">
-                <strong>1.247</strong>
-                <span>Usuários cadastrados</span>
-            </div>
+            {
 
-            <div className="igLoginNumeroBox">
-                <strong>382</strong>
-                <span>Empresas recebendo perfis profissionais</span>
-            </div>
+                itens.map(
 
-            <p className="igLoginTextoInfo">
-                Crie seu perfil profissional e permita que empresas compatíveis encontrem você.
+                    item => (
+
+                        <div
+                            key={
+                                item.texto
+                            }
+                            className="igLoginNumeroBox"
+                        >
+
+                            <strong>
+
+                                {
+
+                                    carregando
+
+                                        ? "..."
+
+                                        : Number(
+                                            item.valor
+                                        ).toLocaleString(
+                                            "pt-BR"
+                                        )
+
+                                }
+
+                            </strong>
+
+                            <span>
+
+                                {
+                                    item.texto
+                                }
+
+                            </span>
+
+                        </div>
+
+                    )
+
+                )
+
+            }
+
+            <p
+                className="igLoginTextoInfo"
+            >
+
+                Crie gratuitamente seu perfil profissional e permita que empresas compatíveis encontrem você.
+
             </p>
 
         </section>
+
     );
+
 }

@@ -19,6 +19,9 @@ import Portfolio from "./components/portfolio/portfolio";
 import Termos from "./components/termos/termos";
 import Painel from "./components/verifica/painel";
 import PainelVerificado from "./components/painel/painel";
+import Empresas from "./components/empresas/empresa";
+
+
 function VerificarTermos() {
 
   const [carregando, setCarregando] =
@@ -174,6 +177,14 @@ export default function App() {
           path="/painel"
           element={<Painel />}
         />
+        <Route
+          path="/empresa/e/:id"
+          element={<Empresas />}
+        />
+
+
+
+
       </Routes>
 
     </BrowserRouter>

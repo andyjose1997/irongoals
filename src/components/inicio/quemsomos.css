@@ -1,0 +1,365 @@
+.quemSomosPagina {
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* HERO */
+
+.quemSomosHero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at top right, #2f6fff 0%, transparent 35%),
+        radial-gradient(circle at bottom left, #7bb5ff 0%, transparent 40%),
+        linear-gradient(135deg, #06162f, #0453e7);
+    overflow: hidden;
+    border-radius: 40px;
+    margin: 20px;
+}
+
+.quemSomosHero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.quemSomosHeroOverlay {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
+
+.quemSomosHeroConteudo {
+    max-width: 1200px;
+    margin: auto;
+    padding: 120px 40px;
+    color: white;
+}
+
+.quemSomosHeroMini {
+    display: inline-block;
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, .15);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.quemSomosHero h1 {
+    margin-top: 30px;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.05;
+    max-width: 850px;
+}
+
+.quemSomosHero p {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    line-height: 1.9;
+    max-width: 760px;
+    opacity: .95;
+}
+
+.quemSomosHeroBotao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 45px;
+    padding: 18px 35px;
+    border-radius: 14px;
+    background: white;
+    color: #0b3b91;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+}
+
+.quemSomosHeroBotao:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+}
+
+/* MISSÃO */
+
+.quemSomosMissao {
+    max-width: 1200px;
+    margin: auto;
+    padding: 120px 40px;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.quemSomosMissao span {
+    color: #2563eb;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.quemSomosMissao h2 {
+    margin: 20px 0 35px;
+    font-size: 3rem;
+    color: #0f172a;
+    line-height: 1.15;
+}
+
+.quemSomosMissao p {
+    color: #64748b;
+    line-height: 2;
+    margin-bottom: 22px;
+    font-size: 1.05rem;
+}
+
+.quemSomosMissaoDireita {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.quemSomosNumero {
+    background: white;
+    padding: 40px;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .07);
+    transition: .3s;
+}
+
+.quemSomosNumero:hover {
+    transform: translateY(-8px);
+}
+
+.quemSomosNumero h3 {
+    color: #2563eb;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.quemSomosNumero p {
+    margin: 0;
+}
+
+/* DIFERENCIAIS */
+
+.quemSomosDiferenciais {
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 40px 120px;
+}
+
+.quemSomosDiferenciais h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #0f172a;
+    margin-bottom: 60px;
+}
+
+.quemSomosCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+}
+
+.quemSomosCard {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    transition: .35s;
+    box-shadow: 0 15px 45px rgba(15, 23, 42, .06);
+    border: 1px solid #eef2f7;
+}
+
+.quemSomosCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 80px rgba(37, 99, 235, .15);
+}
+
+.quemSomosIcone {
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #2563eb, #4f8cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.quemSomosCard h3 {
+    color: #0f172a;
+    margin-bottom: 18px;
+    font-size: 1.35rem;
+}
+
+.quemSomosCard p {
+    line-height: 1.9;
+    color: #64748b;
+}
+
+/* TIMELINE */
+
+.quemSomosFluxo {
+    background: white;
+    padding: 120px 40px;
+}
+
+.quemSomosFluxo h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #0f172a;
+    margin-bottom: 80px;
+}
+
+.quemSomosTimeline {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.quemSomosEtapa {
+    flex: 1;
+    text-align: center;
+}
+
+.quemSomosEtapa div:first-child {
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #4f8cff);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 15px 40px rgba(37, 99, 235, .3);
+}
+
+.quemSomosEtapa h3 {
+    margin: 30px 0 15px;
+    color: #0f172a;
+}
+
+.quemSomosEtapa p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.quemSomosLinha {
+    flex: .4;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(to right, #2563eb, #7cb4ff);
+}
+
+/* FUNDADOR */
+
+.quemSomosFundador {
+    max-width: 1250px;
+    margin: auto;
+    padding: 130px 40px;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.quemSomosFundadorFoto {
+    display: flex;
+    justify-content: center;
+}
+
+.quemSomosFundadorFoto img {
+    width: 380px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 35px;
+    box-shadow: 0 40px 90px rgba(15, 23, 42, .2);
+}
+
+.quemSomosFundadorTexto span {
+    color: #2563eb;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.quemSomosFundadorTexto h2 {
+    margin: 20px 0 35px;
+    font-size: 3rem;
+    color: #0f172a;
+}
+
+.quemSomosFundadorTexto p {
+    color: #64748b;
+    line-height: 2;
+    margin-bottom: 24px;
+    font-size: 1.05rem;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1100px) {
+
+    .quemSomosMissao {
+        grid-template-columns: 1fr;
+    }
+
+    .quemSomosFundador {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .quemSomosTimeline {
+        flex-direction: column;
+    }
+
+    .quemSomosLinha {
+        width: 4px;
+        height: 70px;
+    }
+
+}
+
+@media(max-width:700px) {
+
+    .quemSomosHeroConteudo,
+    .quemSomosMissao,
+    .quemSomosDiferenciais,
+    .quemSomosFluxo,
+    .quemSomosFundador {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .quemSomosHero h1 {
+        font-size: 2.6rem;
+    }
+
+    .quemSomosMissao h2,
+    .quemSomosFundadorTexto h2,
+    .quemSomosFluxo h2,
+    .quemSomosDiferenciais h2 {
+        font-size: 2rem;
+    }
+
+    .quemSomosFundadorFoto img {
+        width: 260px;
+        height: 260px;
+    }
+
+}
