@@ -1,25 +1,28 @@
 import React from "react";
-import "./empresa.css";
+import "./portfolio.css";
 import {
     useState
 } from "react";
 
 import Marcou from "./marcou";
-export default function EmpresaPortfolio(
 
+export default function EmpresaPortfolio(
     {
         candidato
     }
 ) {
+
     const [
         abrirEntrevista,
         setAbrirEntrevista
     ] = useState(false);
+
     return (
 
         <div
             className="empresaPortfolioContainer"
         >
+
             <div
                 className="empresaPortfolioAcoes"
             >
@@ -32,12 +35,13 @@ export default function EmpresaPortfolio(
                         )
                     }
                 >
-                    Marcar Entrevista
+                    Marcar Entrevista com o candidato
                 </button>
 
             </div>
 
             {
+
                 abrirEntrevista && (
 
                     <Marcou
@@ -57,147 +61,274 @@ export default function EmpresaPortfolio(
                     />
 
                 )
+
             }
-            <h2>
-                Habilidades
-            </h2>
 
-            {
-                candidato.habilidades_completas?.map(
-                    item => (
+            <section
+                className="empresaPortfolioSecao"
+            >
 
-                        <div
-                            key={item.id}
-                        >
+                <h2
+                    className="empresaPortfolioTitulo"
+                >
+                    Habilidades
+                </h2>
 
-                            <strong>
-                                {
-                                    item.habilidade
-                                }
-                            </strong>
+                <div
+                    className="empresaPortfolioLista"
+                >
 
-                            {" - "}
+                    {
 
-                            {
-                                item.nivel_habilidade
-                            }
+                        candidato.habilidades_completas?.map(
+                            item => (
 
-                            {
-                                item.tempo_experiencia && (
-                                    <>
-                                        {" • "}
+                                <div
+                                    key={item.id}
+                                    className="empresaPortfolioCard"
+                                >
+
+                                    <div
+                                        className="empresaPortfolioCardTitulo"
+                                    >
+
                                         {
-                                            item.tempo_experiencia
+                                            item.habilidade
                                         }
-                                    </>
-                                )
-                            }
 
-                        </div>
+                                    </div>
 
-                    )
-                )
-            }
+                                    <div
+                                        className="empresaPortfolioCardDescricao"
+                                    >
 
-            <h2>
-                Experiências
-            </h2>
+                                        <span
+                                            className="empresaPortfolioBadge"
+                                        >
 
-            {
-                candidato.experiencias?.map(
-                    item => (
+                                            {
+                                                item.nivel_habilidade
+                                            }
 
-                        <div
-                            key={item.id}
-                        >
+                                        </span>
 
-                            <strong>
-                                {
-                                    item.cargo
-                                }
-                            </strong>
+                                        {
 
-                            <br />
+                                            item.tempo_experiencia && (
 
-                            {
-                                item.empresa
-                            }
+                                                <span
+                                                    className="empresaPortfolioTempo"
+                                                >
 
-                            <br />
+                                                    {
 
-                            {
-                                item.area_profissional
-                            }
+                                                        item.tempo_experiencia
 
-                        </div>
+                                                    }
 
-                    )
-                )
-            }
+                                                </span>
 
-            <h2>
-                Formação
-            </h2>
+                                            )
 
-            {
-                candidato.formacoes?.map(
-                    item => (
+                                        }
 
-                        <div
-                            key={item.id}
-                        >
+                                    </div>
 
-                            <strong>
-                                {
-                                    item.curso
-                                }
-                            </strong>
+                                </div>
 
-                            <br />
+                            )
+                        )
 
-                            {
-                                item.instituicao
-                            }
+                    }
 
-                            <br />
+                </div>
 
-                            {
-                                item.nivel_formacao
-                            }
+            </section>
 
-                        </div>
+            <section
+                className="empresaPortfolioSecao"
+            >
 
-                    )
-                )
-            }
+                <h2
+                    className="empresaPortfolioTitulo"
+                >
+                    Experiências
+                </h2>
 
-            <h2>
-                Idiomas
-            </h2>
+                <div
+                    className="empresaPortfolioLista"
+                >
 
-            {
-                candidato.idiomas?.map(
-                    item => (
+                    {
 
-                        <div
-                            key={item.id}
-                        >
+                        candidato.experiencias?.map(
+                            item => (
 
-                            {
-                                item.idioma
-                            }
+                                <div
+                                    key={item.id}
+                                    className="empresaPortfolioCard"
+                                >
 
-                            {" - "}
+                                    <div
+                                        className="empresaPortfolioCardTitulo"
+                                    >
 
-                            {
-                                item.nivel
-                            }
+                                        {
+                                            item.cargo
+                                        }
 
-                        </div>
+                                    </div>
 
-                    )
-                )
-            }
+                                    <div
+                                        className="empresaPortfolioCardSubtitulo"
+                                    >
+
+                                        {
+                                            item.empresa
+                                        }
+
+                                    </div>
+
+                                    <div
+                                        className="empresaPortfolioCardDescricao"
+                                    >
+
+                                        {
+                                            item.area_profissional
+                                        }
+
+                                    </div>
+
+                                </div>
+
+                            )
+                        )
+
+                    }
+
+                </div>
+
+            </section>
+
+            <section
+                className="empresaPortfolioSecao"
+            >
+
+                <h2
+                    className="empresaPortfolioTitulo"
+                >
+                    Formação
+                </h2>
+
+                <div
+                    className="empresaPortfolioLista"
+                >
+
+                    {
+
+                        candidato.formacoes?.map(
+                            item => (
+
+                                <div
+                                    key={item.id}
+                                    className="empresaPortfolioCard"
+                                >
+
+                                    <div
+                                        className="empresaPortfolioCardTitulo"
+                                    >
+
+                                        {
+                                            item.curso
+                                        }
+
+                                    </div>
+
+                                    <div
+                                        className="empresaPortfolioCardSubtitulo"
+                                    >
+
+                                        {
+                                            item.instituicao
+                                        }
+
+                                    </div>
+
+                                    <div
+                                        className="empresaPortfolioCardDescricao"
+                                    >
+
+                                        {
+                                            item.nivel_formacao
+                                        }
+
+                                    </div>
+
+                                </div>
+
+                            )
+                        )
+
+                    }
+
+                </div>
+
+            </section>
+
+            <section
+                className="empresaPortfolioSecao"
+            >
+
+                <h2
+                    className="empresaPortfolioTitulo"
+                >
+                    Idiomas
+                </h2>
+
+                <div
+                    className="empresaPortfolioLista"
+                >
+
+                    {
+
+                        candidato.idiomas?.map(
+                            item => (
+
+                                <div
+                                    key={item.id}
+                                    className="empresaPortfolioIdiomaCard"
+                                >
+
+                                    <span
+                                        className="empresaPortfolioIdiomaNome"
+                                    >
+
+                                        {
+                                            item.idioma
+                                        }
+
+                                    </span>
+
+                                    <span
+                                        className="empresaPortfolioIdiomaNivel"
+                                    >
+
+                                        {
+                                            item.nivel
+                                        }
+
+                                    </span>
+
+                                </div>
+
+                            )
+                        )
+
+                    }
+
+                </div>
+
+            </section>
 
         </div>
 

@@ -198,6 +198,53 @@
 
 }
 
+.desempenhoEmpresaBotaoAviso {
+
+    margin-top: 8px;
+
+    margin-bottom: 18px;
+
+    padding: 16px 18px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(180deg,
+            #eff6ff,
+            #dbeafe);
+
+    border: 1px solid #93c5fd;
+
+    color: #1e3a8a;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1.7;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, .08);
+
+}
+
+.desempenhoEmpresaBotaoAviso strong {
+
+    color: #1d4ed8;
+
+    font-weight: 700;
+
+}
+
+.desempenhoEmpresaBotaoAviso::before {
+
+    content: "ℹ️ ";
+
+    font-size: 18px;
+
+    margin-right: 4px;
+
+}
+
 .desempenhoPortfolioIncompleto::before {
 
     content: "⚠ ";

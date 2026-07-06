@@ -1,13 +1,49 @@
 import React from "react";
 
 import "./empresa.css";
+import Rodape from "../inicio/componentes/rodape"
 
 export default function Entrevistas(
     {
         entrevistas
     }
 ) {
+    const meses = [
 
+        "janeiro",
+        "fevereiro",
+        "março",
+        "abril",
+        "maio",
+        "junho",
+        "julho",
+        "agosto",
+        "setembro",
+        "outubro",
+        "novembro",
+        "dezembro"
+
+    ];
+
+    function formatarData(
+        data
+    ) {
+
+        if (!data) {
+
+            return "";
+
+        }
+
+        const [
+            ano,
+            mes,
+            dia
+        ] = data.split("-");
+
+        return `${parseInt(dia, 10)} de ${meses[parseInt(mes, 10) - 1]} de ${ano}`;
+
+    }
     return (
 
         <div
@@ -70,7 +106,9 @@ export default function Entrevistas(
                                 {" "}
 
                                 {
-                                    entrevista.dia
+                                    formatarData(
+                                        entrevista.dia
+                                    )
                                 }
 
                             </p>
@@ -85,12 +123,17 @@ export default function Entrevistas(
 
                                 {
                                     entrevista.hora
+                                        ?.split(":")
+                                        .slice(0, 2)
+                                        .join(":")
                                 }
 
                             </p>
 
                             <p>
-
+                                <span className="empresaEntrevistaStatusspan">
+                                    Descriçaõ do trabalho: <span> </span>
+                                </span>
                                 {
                                     entrevista.descricao
                                 }
@@ -98,7 +141,11 @@ export default function Entrevistas(
                             </p>
 
                             <div
-                                className="empresaEntrevistaStatus"
+                                className={
+                                    entrevista.aprovado === 1
+                                        ? "empresaEntrevistaStatus"
+                                        : "empresaEntrevistaStatus empresaEntrevistaStatusPendente"
+                                }
                             >
 
                                 {
@@ -113,14 +160,9 @@ export default function Entrevistas(
                                 entrevista.aprovado === 1 && (
 
                                     <div
-                                        className="empresaEntrevistaAceita"
                                     >
 
-                                        <p>
-
-                                            Candidato aceitou entrevista
-
-                                        </p>
+                                        <br />
 
                                         <a
                                             href={
@@ -145,7 +187,7 @@ export default function Entrevistas(
                     )
                 )
             }
-
+            <br />
         </div>
 
     );

@@ -10,7 +10,7 @@ import {
     API_URL
 } from "../../config";
 
-import "./empresa.css";
+import "./marcou.css";
 
 export default function Marcou({ empresaPublica, candidatoId, fechar }) {
     const [
@@ -204,7 +204,9 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
         setDescricao(
             item.descricao || ""
         );
-
+        setContato(
+            item.contato || ""
+        );
         if (
             item.dia
         ) {
@@ -248,6 +250,11 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
         }
 
     }
+    const horaValida =
+        /^\d{2}:\d{2}$/.test(
+            String(hora || "")
+        );
+
     const formularioCompleto =
 
         String(
@@ -262,20 +269,20 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
 
         &&
 
-        String(
-            hora || ""
-        ).trim() !== ""
+        horaValida
 
         &&
 
         String(
             descricao || ""
         ).trim() !== ""
+
         &&
 
         String(
             contato || ""
         ).trim() !== "";
+
     return (
 
         <div
@@ -301,19 +308,21 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
                             empresa.
 
                         </p>
+                        <div style={{ width: "50%", display: "flex", margin: "auto" }} >
+                            <GoogleLogin
+                                onSuccess={
+                                    verificarEmpresa
+                                }
+                                onError={() => {
 
-                        <GoogleLogin
-                            onSuccess={
-                                verificarEmpresa
-                            }
-                            onError={() => {
+                                    alert(
+                                        "Erro Google"
+                                    );
 
-                                alert(
-                                    "Erro Google"
-                                );
+                                }}
+                            />
+                        </div>
 
-                            }}
-                        />
 
                     </div>
 
@@ -327,7 +336,7 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
                     >
 
                         <h3>
-                            Cargos já utilizados
+                            Selecione um cargo já utilizado anteriormente para preencher os campos automaticamente.
                         </h3>
 
                         {

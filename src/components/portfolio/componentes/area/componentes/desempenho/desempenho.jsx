@@ -302,7 +302,7 @@ export default function Desempenho() {
 
                                             <strong>
 
-                                                Data:
+                                                Data da entrevista:
 
                                             </strong>
 
@@ -376,7 +376,7 @@ export default function Desempenho() {
 
                                             <strong>
 
-                                                Contato:
+                                                Contato da empresa:
 
                                             </strong>
 
@@ -422,20 +422,24 @@ export default function Desempenho() {
 
                                 {
                                     empresa.aprovado === 0 && (
+                                        <div>
+                                            <p className="desempenhoEmpresaBotaoAviso">
+                                                Aceite a entrevista se desejar então seus dados serao publicados para a empresa <strong>  {empresa.empresa}</strong>
+                                            </p>
+                                            <button
+                                                className="desempenhoEmpresaBotao"
+                                                onClick={
+                                                    () =>
+                                                        aceitarEntrevista(
+                                                            empresa.id
+                                                        )
+                                                }
+                                            >
 
-                                        <button
-                                            className="desempenhoEmpresaBotao"
-                                            onClick={
-                                                () =>
-                                                    aceitarEntrevista(
-                                                        empresa.id
-                                                    )
-                                            }
-                                        >
+                                                Aceitar entrevista
 
-                                            Aceitar entrevista
+                                            </button></div>
 
-                                        </button>
 
                                     )
                                 }
@@ -497,6 +501,38 @@ export default function Desempenho() {
         if (
             resposta.ok
         ) {
+
+            setListaAtual(
+                lista => {
+
+                    if (!lista) {
+
+                        return lista;
+
+                    }
+
+                    return {
+
+                        ...lista,
+
+                        lista: lista.lista.map(
+                            empresa =>
+
+                                empresa.id === entrevistaId
+
+                                    ? {
+                                        ...empresa,
+                                        aprovado: 1
+                                    }
+
+                                    : empresa
+
+                        )
+
+                    };
+
+                }
+            );
 
             carregarDados();
 
@@ -640,7 +676,7 @@ export default function Desempenho() {
                 className="desempenhoListaTituloo"
             >
 
-                Relatórios
+                Relatórios do seu perfil
 
             </h2>
 
@@ -674,7 +710,7 @@ export default function Desempenho() {
                         className="desempenhoRelatorioTitulo"
                     >
 
-                        Perfil Visto
+                        Empresas Alcançadas
 
                     </div>
 
@@ -706,7 +742,7 @@ export default function Desempenho() {
                         className="desempenhoRelatorioTitulo"
                     >
 
-                        Perfil Aberto
+
 
                     </div>
 

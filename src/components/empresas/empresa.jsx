@@ -3,6 +3,8 @@ import React, {
     useState
 } from "react";
 import Entrevistas from "./entrevistas";
+import Rodape from "../inicio/componentes/rodape"
+
 import {
     useParams
 } from "react-router-dom";
@@ -23,7 +25,20 @@ export default function Empresas() {
     ] = useState(
         "candidatos"
     );
+    const [
+        habilidades,
+        setHabilidades
+    ] = useState([]);
 
+    const [
+        habilidadeFiltro,
+        setHabilidadeFiltro
+    ] = useState("");
+
+    const [
+        candidatosOriginais,
+        setCandidatosOriginais
+    ] = useState([]);
     const [
         entrevistas,
         setEntrevistas
@@ -106,7 +121,9 @@ export default function Empresas() {
             setEmpresa(
                 dados.empresa
             );
-
+            setHabilidades(
+                dados.habilidades || []
+            );
             const embaralhados =
                 [...(
                     dados.candidatos || []
@@ -114,6 +131,10 @@ export default function Empresas() {
                     () =>
                         Math.random() - 0.5
                 );
+
+            setCandidatosOriginais(
+                embaralhados
+            );
 
             setCandidatos(
                 embaralhados
@@ -194,7 +215,55 @@ export default function Empresas() {
         } catch { }
 
     }
+    useEffect(() => {
 
+        if (
+            !habilidadeFiltro.trim()
+        ) {
+
+            setCandidatos(
+                candidatosOriginais
+            );
+
+            setIndiceAtual(0);
+
+            return;
+
+        }
+
+        const filtrados =
+            candidatosOriginais.filter(
+                candidato =>
+
+                    candidato
+                        .habilidades_completas
+                        .some(
+                            habilidade =>
+
+                                habilidade
+                                    .habilidade
+                                    .toLowerCase()
+                                ===
+                                habilidadeFiltro
+                                    .toLowerCase()
+                        )
+            );
+
+        setCandidatos(
+            filtrados
+        );
+
+        setIndiceAtual(
+            0
+        );
+
+    }, [
+
+        habilidadeFiltro,
+
+        candidatosOriginais
+
+    ]);
     return (
 
         <div
@@ -242,6 +311,48 @@ export default function Empresas() {
                 {empresa}
 
             </h1>
+            {
+                aba === "candidatos" && (
+
+                    <>
+
+                        <input
+                            className="empresaFiltroHabilidadeInput"
+                            type="text"
+                            list="empresaListaHabilidades"
+                            value={habilidadeFiltro}
+                            onChange={
+                                e =>
+                                    setHabilidadeFiltro(
+                                        e.target.value
+                                    )
+                            }
+                            placeholder="Filtrar por habilidade"
+                        />
+
+                        <datalist
+                            id="empresaListaHabilidades"
+                        >
+
+                            {
+                                habilidades.map(
+                                    habilidade => (
+
+                                        <option
+                                            key={habilidade}
+                                            value={habilidade}
+                                        />
+
+                                    )
+                                )
+                            }
+
+                        </datalist>
+
+                    </>
+
+                )
+            }
             {
                 aba === "candidatos"
                 &&
@@ -304,24 +415,29 @@ export default function Empresas() {
                                     habilidade => (
 
                                         <div
-                                            key={
-                                                habilidade.id
-                                            }
+                                            key={habilidade.id}
+                                            className="empresaListaHabilidadeCard"
                                         >
 
-                                            <strong>
+                                            <div
+                                                className="empresaListaHabilidadeNome"
+                                            >
 
                                                 {
                                                     habilidade.habilidade
                                                 }
 
-                                            </strong>
+                                            </div>
 
-                                            {" - "}
+                                            <div
+                                                className="empresaListaHabilidadeNivel"
+                                            >
 
-                                            {
-                                                habilidade.nivel_habilidade
-                                            }
+                                                {
+                                                    habilidade.nivel_habilidade
+                                                }
+
+                                            </div>
 
                                         </div>
 
@@ -435,6 +551,8 @@ export default function Empresas() {
 
                 )
             }
+            <br /><br /><br />
+            <Rodape />
         </div>
 
     );

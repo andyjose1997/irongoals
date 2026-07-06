@@ -1,0 +1,354 @@
+.empresaPortfolioContainer {
+
+    margin-top: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 45px;
+
+}
+
+.empresaPortfolioAcoes {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+}
+
+.empresaPortfolioBotaoEntrevista {
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 16px 28px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #1d4ed8);
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+    margin: auto;
+    display: flex;
+    transition: .25s;
+
+    box-shadow:
+        0 18px 35px rgba(37,
+            99,
+            235,
+            .25);
+
+}
+
+.empresaPortfolioBotaoEntrevista:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 24px 45px rgba(37,
+            99,
+            235,
+            .35);
+
+}
+
+.empresaPortfolioSecao {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+.empresaPortfolioTitulo {
+
+    font-size: 26px;
+
+    font-weight: 800;
+
+    color: #0f172a;
+
+    position: relative;
+
+    padding-left: 18px;
+
+}
+
+.empresaPortfolioTitulo::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 6px;
+
+    height: 26px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(180deg,
+            #2563eb,
+            #60a5fa);
+
+}
+
+.empresaPortfolioLista {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.empresaPortfolioCard {
+
+    padding: 24px;
+
+    border-radius: 22px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    transition: .25s;
+
+    box-shadow:
+        0 14px 35px rgba(15,
+            23,
+            42,
+            .05);
+
+}
+
+.empresaPortfolioCard:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 24px 55px rgba(15,
+            23,
+            42,
+            .08);
+
+}
+
+.empresaPortfolioCardTitulo {
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin-bottom: 10px;
+
+}
+
+.empresaPortfolioCardSubtitulo {
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+    margin-bottom: 12px;
+
+}
+
+.empresaPortfolioCardDescricao {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    align-items: center;
+
+    color: #475569;
+
+    line-height: 1.7;
+
+}
+
+.empresaPortfolioBadge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(135deg,
+            #dbeafe,
+            #bfdbfe);
+
+    color: #1d4ed8;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border: 1px solid #bfdbfe;
+
+}
+
+.empresaPortfolioTempo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    color: #475569;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+.empresaPortfolioIdiomaCard {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 24px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid #e2e8f0;
+
+    transition: .25s;
+
+    box-shadow:
+        0 14px 35px rgba(15,
+            23,
+            42,
+            .05);
+
+}
+
+.empresaPortfolioIdiomaCard:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 24px 55px rgba(15,
+            23,
+            42,
+            .08);
+
+}
+
+.empresaPortfolioIdiomaNome {
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+
+}
+
+.empresaPortfolioIdiomaNivel {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(135deg,
+            #2563eb,
+            #1d4ed8);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+.empresaPortfolioCard+.empresaPortfolioCard {
+
+    margin-top: 4px;
+
+}
+
+.empresaPortfolioLista:empty::before {
+
+    content: "Nenhuma informação cadastrada.";
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    border: 2px dashed #cbd5e1;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
