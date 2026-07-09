@@ -173,7 +173,7 @@ export default function Entrevistas(
                                             className="empresaEntrevistaPortfolio"
                                         >
 
-                                            Ver Portfólio
+                                            Ver Portfólio Público
 
                                         </a>
 

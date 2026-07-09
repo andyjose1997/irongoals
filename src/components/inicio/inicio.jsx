@@ -1,18 +1,29 @@
 import React from "react";
 
-// imports
 import Header from "./componentes/header";
 import Corpo from "./componentes/corpo";
 import Rodape from "./componentes/rodape";
 
+import "./inicio.css";
+
 export default function Inicio() {
+
     return (
-        <div>
+
+        <div className="igInicioPagina">
+
             <Header />
-            <Corpo />
+
+            <main className="igInicioConteudo">
+
+                <Corpo />
+
+            </main>
+
             <Rodape />
+
         </div>
-    )
+
+    );
+
 }
-
-

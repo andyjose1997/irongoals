@@ -48,8 +48,8 @@
 
 .empresaFiltroHabilidadeInput {
 
-    width: 100%;
-    max-width: 520px;
+    width: 95% !important;
+    max-width: 520px !important;
     margin: 30px auto;
     justify-content: center;
     display: flex;
@@ -175,7 +175,7 @@
 
 .empresaListaCard {
 
-    width: 100%;
+    width: 90%;
 
     max-width: 1000px;
 
@@ -362,6 +362,16 @@
     font-weight: 700;
 
     letter-spacing: .3px;
+
+}
+
+.empresaAbasContainer button:disabled {
+
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    filter: grayscale(.2);
 
 }
 
@@ -662,7 +672,8 @@
 .empresaEntrevistaPortfolio {
 
     margin-top: 15px;
-
+    width: fit-content !important;
+    min-width: 200px;
     display: inline-flex;
 
     align-items: center;
@@ -801,5 +812,250 @@
             #fdba74);
 
     color: #c2410c;
+
+}
+
+/* ==========================================
+   RESPONSIVO
+========================================== */
+
+@media (max-width:1200px) {
+
+    .empresaListaContainer {
+        padding: 55px 20px 80px;
+    }
+
+    .empresaListaCard {
+        padding: 35px;
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .empresaListaTitulo {
+        font-size: 34px;
+    }
+
+    .empresaListaCard {
+        padding: 30px;
+    }
+
+    .empresaListaFoto {
+        width: 150px;
+        height: 150px;
+    }
+
+    .empresaListaHabilidades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .empresaEntrevistasContainer {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .empresaListaContainer {
+        padding: 40px 16px 70px;
+    }
+
+    .empresaListaTitulo {
+        font-size: 28px;
+    }
+
+    .empresaAbasContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .empresaAbasContainer button {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .empresaFiltroHabilidadeInput {
+        width: 100%;
+        max-width: 100%;
+        margin: 24px 0;
+    }
+
+    .empresaListaCard {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .empresaListaCabecalho {
+        gap: 16px;
+    }
+
+    .empresaListaFoto {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 16px;
+    }
+
+    .empresaListaCabecalho h2 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .empresaListaCabecalho p {
+        text-align: center;
+        font-size: .95rem;
+    }
+
+    .empresaListaHabilidades {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .empresaListaHabilidadeCard {
+        padding: 16px;
+    }
+
+    .empresaListaNavegacao {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .empresaListaSeta,
+    .empresaListaAbrir {
+        width: 100%;
+    }
+
+    .empresaListaSeta {
+        height: 54px;
+        font-size: 22px;
+    }
+
+    .empresaListaAbrir {
+        height: 54px;
+        padding: 0;
+    }
+
+    .empresaEntrevistaCard {
+        padding: 22px;
+    }
+
+    .empresaEntrevistaCard h2 {
+        font-size: 1.3rem;
+    }
+
+}
+
+@media (max-width:560px) {
+
+    .empresaListaContainer {
+        padding: 30px 12px 60px;
+    }
+
+    .empresaListaTitulo {
+        font-size: 24px;
+    }
+
+    .empresaListaCard {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .empresaListaFoto {
+        width: 110px;
+        height: 110px;
+        border-width: 4px;
+    }
+
+    .empresaListaCabecalho h2 {
+        font-size: 1.25rem;
+    }
+
+    .empresaListaCabecalho p {
+        font-size: .88rem;
+    }
+
+    .empresaFiltroHabilidadeInput {
+        padding: 14px 16px;
+        font-size: .9rem;
+        border-radius: 14px;
+    }
+
+    .empresaListaHabilidadeNome {
+        font-size: 15px;
+    }
+
+    .empresaListaHabilidadeNivel {
+        font-size: 12px;
+    }
+
+    .empresaListaSeta,
+    .empresaListaAbrir {
+        height: 50px;
+        border-radius: 14px;
+    }
+
+    .empresaAbasContainer button {
+        padding: 12px 18px;
+        font-size: .9rem;
+    }
+
+    .empresaEntrevistaCard {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .empresaEntrevistaCard h2 {
+        font-size: 1.1rem;
+    }
+
+    .empresaEntrevistaPortfolio {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width:380px) {
+
+    .empresaListaContainer {
+        padding: 24px 8px 50px;
+    }
+
+    .empresaListaTitulo {
+        font-size: 20px;
+    }
+
+    .empresaListaCard {
+        padding: 15px;
+    }
+
+    .empresaListaFoto {
+        width: 95px;
+        height: 95px;
+    }
+
+    .empresaListaCabecalho h2 {
+        font-size: 1.05rem;
+    }
+
+    .empresaListaCabecalho p {
+        font-size: .82rem;
+    }
+
+    .empresaListaSeta,
+    .empresaListaAbrir {
+        height: 46px;
+        font-size: .85rem;
+    }
+
+    .empresaListaHabilidadeCard {
+        padding: 14px;
+    }
+
+    .empresaEntrevistaCard {
+        padding: 16px;
+    }
 
 }

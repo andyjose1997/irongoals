@@ -11,8 +11,53 @@ export default function Header() {
 
     const [usuario, setUsuario] = useState(null);
 
+    const [mostrarHeader, setMostrarHeader] = useState(true);
+
     useEffect(() => {
         carregarUsuario();
+    }, []);
+
+    useEffect(() => {
+
+        let ultimoScroll = window.scrollY;
+
+        function controlarScroll() {
+
+            const scrollAtual = window.scrollY;
+
+            if (scrollAtual <= 20) {
+
+                setMostrarHeader(true);
+
+            } else if (scrollAtual > ultimoScroll) {
+
+                setMostrarHeader(false);
+
+            } else {
+
+                setMostrarHeader(true);
+
+            }
+
+            ultimoScroll = scrollAtual;
+
+        }
+
+        window.addEventListener(
+            "scroll",
+            controlarScroll,
+            { passive: true }
+        );
+
+        return () => {
+
+            window.removeEventListener(
+                "scroll",
+                controlarScroll
+            );
+
+        };
+
     }, []);
 
     async function carregarUsuario() {
@@ -22,8 +67,10 @@ export default function Header() {
             const token = localStorage.getItem("token");
 
             if (!token) {
+
                 setUsuario(null);
                 return;
+
             }
 
             const resposta = await fetch(
@@ -36,8 +83,10 @@ export default function Header() {
             );
 
             if (!resposta.ok) {
+
                 setUsuario(null);
                 return;
+
             }
 
             const dados = await resposta.json();
@@ -47,18 +96,24 @@ export default function Header() {
         } catch (erro) {
 
             console.error(erro);
+
             setUsuario(null);
 
         }
+
     }
 
     return (
-        <header className="igHeaderPrincipalContainer">
+
+        <header
+            className={`igHeaderPrincipalContainer ${mostrarHeader ? "" : "igHeaderOculto"}`}
+        >
 
             <div
                 className="igHeaderMarcaArea"
                 onClick={() => navigate("/")}
             >
+
                 <img
                     src={logoIronGoals}
                     alt="IronGoals"
@@ -66,56 +121,77 @@ export default function Header() {
                 />
 
                 <h1 className="igHeaderTituloSistema">
+
                     IronGoals
+
                 </h1>
+
             </div>
 
             <nav className="igHeaderMenuNavegacao">
 
                 {location.pathname !== "/" && (
+
                     <button
                         className="igHeaderBotaoMenu"
                         onClick={() => navigate("/")}
                     >
+
                         Home
+
                     </button>
+
                 )}
 
                 {location.pathname !== "/sobre" && (
+
                     <button
                         className="igHeaderBotaoMenu"
                         onClick={() => navigate("/sobre")}
                     >
+
                         Sobre
+
                     </button>
+
                 )}
 
                 {location.pathname !== "/pacotes" && (
+
                     <button
                         className="igHeaderBotaoMenu"
                         onClick={() => navigate("/pacotes")}
                     >
+
                         Ver Pacotes
+
                     </button>
+
                 )}
 
                 {!usuario ? (
 
                     location.pathname !== "/login" && (
+
                         <button
                             className="igHeaderBotaoLoginDestaque"
                             onClick={() => navigate("/login")}
                         >
+
                             Fazer Login
+
                         </button>
+
                     )
 
                 ) : (
 
-                    <div style={{ background: "#2563eb" }}
+                    <div
+                        style={{ background: "#2563eb" }}
                         className="igHeaderPerfilUsuarioArea"
                         onClick={() => navigate("/portfolio/desempenho")}
                     >
+
                         <img
                             src={
                                 usuario?.foto ||
@@ -125,9 +201,15 @@ export default function Header() {
                             className="igHeaderFotoUsuario"
                         />
 
-                        <span style={{ color: "white" }} className="igHeaderNomeUsuario">
+                        <span
+                            style={{ color: "white" }}
+                            className="igHeaderNomeUsuario"
+                        >
+
                             {usuario?.nome}
+
                         </span>
+
                     </div>
 
                 )}
@@ -135,5 +217,7 @@ export default function Header() {
             </nav>
 
         </header>
+
     );
+
 }

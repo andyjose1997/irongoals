@@ -1,62 +1,107 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./botoes.css";
-
+import {
+    useNavigate,
+    useLocation
+} from "react-router-dom";
 export default function Botoes() {
 
     const navigate = useNavigate();
 
+    const [
+        aberto,
+        setAberto
+    ] = useState(true);
+    const location = useLocation();
+    const botoes = [
+        {
+            emoji: "📊",
+            texto: "Desempenho",
+            rota: "/portfolio/desempenho"
+        },
+        {
+            emoji: "👤",
+            texto: "Informações",
+            rota: "/portfolio/infos"
+        },
+        {
+            emoji: "💼",
+            texto: "Experiências",
+            rota: "/portfolio/experiencias"
+        },
+        {
+            emoji: "🎓",
+            texto: "Formação",
+            rota: "/portfolio/formacao"
+        },
+        {
+            emoji: "⭐",
+            texto: "Habilidades",
+            rota: "/portfolio/habilidades"
+        },
+        {
+            emoji: "🌎",
+            texto: "Idiomas",
+            rota: "/portfolio/idiomas"
+        }
+    ];
+
     return (
-        <div className="perfilBotoesContainer">
+
+        <div
+            className={`perfilBotoesContainer ${aberto
+                ? ""
+                : "perfilBotoesFechado"
+                }`}
+        >
 
             <button
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/desempenho")}
+                className="perfilBotaoSeta"
+                onClick={() =>
+                    setAberto(!aberto)
+                }
             >
-                Desempenho
+
+                {
+                    aberto
+                        ? "⬆️"
+                        : "⬅️"
+                }
+
             </button>
 
-            <button
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/infos")}
-            >
-                Informações Pessoais
-            </button>
+            {
+                aberto &&
+                botoes.map(botao => (
 
-            <button
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/experiencias")}
-            >
-                Experiências
-            </button>
+                    <button
+                        key={botao.rota}
+                        className={`perfilBotaoAcao ${location.pathname === botao.rota
+                                ? "perfilBotaoAtivo"
+                                : ""
+                            }`} title={botao.texto}
+                        onClick={() => navigate(botao.rota)}
+                    >
 
-            <button
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/formacao")}
-            >
-                Formação
-            </button>
+                        <span className="perfilBotaoTexto">
 
-            <button
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/habilidades")}
-            >
-                Habilidades
-            </button>
-            <button
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/idiomas")}
-            >
-                Idiomas
-            </button>
+                            {botao.texto}
 
-            <button
-                style={{ display: "none" }}
-                className="perfilBotaoAcao"
-                onClick={() => navigate("/portfolio/configuracoes")}
-            >
-                Configurações
-            </button>
+                        </span>
+
+                        <span className="perfilBotaoEmoji">
+
+                            {botao.emoji}
+
+                        </span>
+
+                    </button>
+
+                ))
+            }
 
         </div>
+
     );
+
 }

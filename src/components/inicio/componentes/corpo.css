@@ -3,7 +3,7 @@
 }
 
 .igCorpoHeroSection {
-    min-height: 75vh;
+    min-height: auto !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,4 +99,180 @@
 .igCorpoCardInfo p {
     color: #6b7280;
     line-height: 1.7;
+}
+
+/* ======================================
+RESPONSIVO
+====================================== */
+
+@media (max-width: 1200px) {
+
+    .igCorpoHeroTitulo {
+
+        font-size: 3rem;
+
+    }
+
+    .igCorpoCardsGrid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .igCorpoHeroSection {
+
+        min-height: auto;
+
+        padding: 70px 30px;
+
+    }
+
+    .igCorpoHeroTitulo {
+
+        font-size: 2.5rem;
+
+        max-width: 700px;
+
+    }
+
+    .igCorpoHeroDescricao {
+
+        font-size: 1.1rem;
+
+        max-width: 600px;
+
+    }
+
+    .igCorpoTituloSecao {
+
+        font-size: 2.2rem;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .igCorpoHeroSection {
+
+        padding: 60px 20px;
+
+    }
+
+    .igCorpoHeroTitulo {
+
+        font-size: 2.1rem;
+
+        line-height: 1.25;
+
+    }
+
+    .igCorpoHeroDescricao {
+
+        font-size: 1rem;
+
+        line-height: 1.7;
+
+        margin-bottom: 35px;
+
+    }
+
+    .igCorpoHeroBotoesArea {
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+    .igCorpoBotaoPrincipal,
+
+    .igCorpoBotaoSecundario {
+
+        width: 100%;
+
+        max-width: 420px;
+
+    }
+
+    .igCorpoComoFuncionaSection {
+
+        padding: 70px 20px;
+
+    }
+
+    .igCorpoCardsGrid {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+    .igCorpoCardInfo {
+
+        padding: 28px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .igCorpoHeroSection {
+
+        padding: 50px 18px;
+
+    }
+
+    .igCorpoHeroTitulo {
+
+        font-size: 1.75rem;
+
+    }
+
+    .igCorpoHeroDescricao {
+
+        font-size: .95rem;
+
+    }
+
+    .igCorpoTituloSecao {
+
+        font-size: 1.8rem;
+
+        margin-bottom: 40px;
+
+    }
+
+    .igCorpoCardInfo {
+
+        padding: 24px;
+
+    }
+
+    .igCorpoCardIcone {
+
+        font-size: 2.5rem;
+
+    }
+
+    .igCorpoCardInfo h3 {
+
+        font-size: 1.1rem;
+
+    }
+
+    .igCorpoCardInfo p {
+
+        font-size: .95rem;
+
+    }
+
 }

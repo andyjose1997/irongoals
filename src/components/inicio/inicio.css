@@ -1,0 +1,37 @@
+.igInicioPagina {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #ffffff;
+
+    overflow-x: hidden;
+
+}
+
+.igInicioConteudo {
+
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+@media (max-width:768px) {
+
+    .igInicioConteudo {
+
+        width: 100%;
+
+    }
+
+}

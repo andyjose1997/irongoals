@@ -204,7 +204,7 @@
 
 .idiomasNomeIdioma {
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.8rem !important;
     font-weight: 800;
     color: #0f172a;
 }
@@ -213,6 +213,10 @@
     padding: 8px 14px;
     border-radius: 999px;
     font-size: .75rem;
+    width: 90% !important;
+    text-align: center;
+    display: flex;
+    margin: auto;
     font-weight: 800;
     color: #2563eb;
     background:
@@ -276,18 +280,238 @@
     font-weight: 600;
 }
 
-@media (max-width: 768px) {
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width:1200px) {
+
+    .idiomasContainer {
+        width: 94%;
+    }
+
+    .idiomasListaContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .idiomasTituloPrincipal {
+        font-size: 2rem;
+    }
+
+    .idiomasSubtituloPrincipal {
+        font-size: 1rem;
+    }
+
+    .idiomasFormularioContainer {
+        padding: 28px;
+        border-radius: 24px;
+    }
 
     .idiomasListaContainer {
         grid-template-columns: 1fr;
     }
 
+    .idiomasCardTopo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .idiomasContainer {
+        width: 92%;
+    }
+
+    .idiomasTituloArea {
+        margin-bottom: 28px;
+    }
+
+    .idiomasTituloPrincipal {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .idiomasSubtituloPrincipal {
+        font-size: .95rem;
+        line-height: 1.6;
+    }
+
+    .idiomasBotaoAdicionar {
+        height: 62px;
+        border-radius: 20px;
+        font-size: .95rem;
+        margin-bottom: 25px;
+    }
+
+    .idiomasFormularioContainer {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .idiomasInputCampo {
+        padding: 14px 16px;
+        font-size: .92rem;
+        border-radius: 15px;
+    }
+
     .idiomasFormularioAcoes {
         flex-direction: column;
+        gap: 12px;
+    }
+
+    .idiomasBotaoSalvar,
+    .idiomasBotaoCancelar {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .idiomasCardItem {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .idiomasCardTopo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .idiomasNomeIdioma {
+        font-size: 1.2rem;
+    }
+
+    .idiomasNivelBadge {
+        font-size: .72rem;
     }
 
     .idiomasAcoes {
         flex-direction: column;
+        gap: 10px;
+    }
+
+    .idiomasBotaoEditar,
+    .idiomasBotaoExcluir,
+    .idiomasBotaoExcluirConfirmar {
+        width: fit-content;
+        min-width: 200px;
+        padding: 10px;
+    }
+
+    .idiomasVazioCard {
+        padding: 40px 20px;
+    }
+
+}
+
+@media (max-width:560px) {
+
+    .idiomasContainer {
+        width: calc(100% - 24px);
+    }
+
+    .idiomasTituloPrincipal {
+        font-size: 1.5rem;
+    }
+
+    .idiomasSubtituloPrincipal {
+        font-size: .9rem;
+    }
+
+    .idiomasBotaoAdicionar {
+        height: 58px;
+        border-radius: 18px;
+        font-size: .9rem;
+    }
+
+    .idiomasFormularioContainer {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .idiomasInputCampo {
+        padding: 13px 14px;
+        font-size: .9rem;
+        border-radius: 14px;
+    }
+
+    .idiomasCardItem {
+        padding: 18px;
+        border-radius: 20px;
+        gap: 18px;
+    }
+
+    .idiomasNomeIdioma {
+        font-size: 1.05rem;
+    }
+
+    .idiomasNivelBadge {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        font-size: .72rem;
+    }
+
+    .idiomasBotaoEditar,
+    .idiomasBotaoExcluir,
+    .idiomasBotaoExcluirConfirmar,
+    .idiomasBotaoSalvar,
+    .idiomasBotaoCancelar {
+        height: 50px;
+        font-size: .88rem;
+        border-radius: 14px;
+    }
+
+    .idiomasVazioCard {
+        padding: 35px 18px;
+        font-size: .9rem;
+    }
+
+}
+
+@media (max-width:380px) {
+
+    .idiomasContainer {
+        width: calc(100% - 16px);
+    }
+
+    .idiomasTituloPrincipal {
+        font-size: 1.3rem;
+    }
+
+    .idiomasSubtituloPrincipal {
+        font-size: .85rem;
+    }
+
+    .idiomasFormularioContainer,
+    .idiomasCardItem,
+    .idiomasVazioCard {
+        padding: 16px;
+    }
+
+    .idiomasInputCampo {
+        font-size: .85rem;
+    }
+
+    .idiomasNomeIdioma {
+        font-size: 1rem;
+    }
+
+    .idiomasBotaoEditar,
+    .idiomasBotaoExcluir,
+    .idiomasBotaoExcluirConfirmar,
+    .idiomasBotaoSalvar,
+    .idiomasBotaoCancelar {
+        height: 48px;
+        font-size: .84rem;
     }
 
 }

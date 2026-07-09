@@ -431,20 +431,50 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
                         />
 
                         <label>
-                            Descrição
-                        </label>
+                            Descrição <br />
+                            <span className="desc" >
+                                Descreva a oportunidade com o máximo de detalhes possível. Informe as principais atividades, requisitos, tipo de contratação (CLT, PJ, estágio, temporário ou freelancer), jornada e horário de trabalho, faixa salarial ou valor do serviço, benefícios, local de atuação (presencial, híbrido ou remoto) e qualquer outra informação importante para que os candidatos compreendam a vaga.
+                            </span>                        </label>
 
                         <textarea
-                            rows="6"
+                            rows="29"
                             value={descricao}
                             onChange={e =>
                                 setDescricao(
                                     e.target.value
                                 )
                             }
+                            placeholder={`Exemplo: Estamos contratando um Atendente de Loja para fazer parte da nossa equipe.
+
+• Tipo de contratação: CLT
+• Salário: R$ 2.100,00
+• Horário: Segunda a sábado, das 09:00 às 18:00
+• Modalidade: Presencial em Campinas/SP
+
+Atividades:
+• Atendimento aos clientes.
+• Organização da loja e reposição de produtos.
+• Operação do caixa quando necessário.
+• Apoio na limpeza e organização do ambiente.
+
+Requisitos:
+• Ensino médio completo.
+• Boa comunicação e atendimento ao público.
+• Não é necessário experiência.
+
+Benefícios:
+• Vale transporte.
+• Vale alimentação.
+• Bonificação por desempenho.
+
+Será um prazer conhecer seu perfil!`}
                         />
                         <label>
                             Contato
+                            <br />
+                            <span className="desc">
+                                Informe o principal meio de contato que será utilizado antes e durante o processo seletivo. Você pode informar um telefone, WhatsApp, e-mail ou o link da reunião (Zoom, Google Meet, Microsoft Teams ou outra plataforma), caso a entrevista seja realizada online.
+                            </span>
                         </label>
 
                         <input
@@ -455,7 +485,10 @@ export default function Marcou({ empresaPublica, candidatoId, fechar }) {
                                 )
                             }
                             placeholder="Telefone, WhatsApp, e-mail ou outra forma de contato"
-                        />
+                        /> <br /><br />
+                        <span className="desc">
+                            Após enviar a solicitação de entrevista, aguarde a confirmação do candidato. Somente depois que ele aceitar a entrevista, o perfil público completo será disponibilizado para sua empresa.
+                        </span>
                         <button
                             className="empresaMarcouBotaoEnviar"
                             disabled={

@@ -592,11 +592,7 @@ export default function PortfolioPublico() {
 
                         <div style={{ marginBottom: "42px" }} className="portfolioPublicoCompartilharLinkArea">
 
-                            <input
-                                readOnly
-                                value={window.location.href}
-                                className="portfolioPublicoCompartilharInput"
-                            />
+
 
                             <button
                                 className="portfolioPublicoCompartilharCopiar"

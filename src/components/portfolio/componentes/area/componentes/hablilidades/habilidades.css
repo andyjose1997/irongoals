@@ -536,21 +536,287 @@
     font-weight: 600;
 }
 
-@media (max-width: 768px) {
+/* ========================================
+   RESPONSIVO
+======================================== */
+
+@media (max-width:1200px) {
+
+    .habilidadesContainer {
+        width: 94%;
+    }
+
+    .habilidadesListaContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .habilidadesTituloPrincipal {
+        font-size: 2rem;
+    }
+
+    .habilidadesSubtituloPrincipal {
+        font-size: 1rem;
+    }
+
+    .habilidadesFormularioContainer {
+        padding: 28px;
+        border-radius: 24px;
+    }
+
+    .habilidadesFormularioGrid {
+        grid-template-columns: 1fr;
+    }
 
     .habilidadesListaContainer {
         grid-template-columns: 1fr;
     }
 
-    .habilidadesInformacoesGrid {
-        grid-template-columns: 1fr;
+    .habilidadesCardTopo {
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .habilidadesContainer {
+        width: 92%;
+    }
+
+    .habilidadesTituloArea {
+        margin-bottom: 28px;
+    }
+
+    .habilidadesTituloPrincipal {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .habilidadesSubtituloPrincipal {
+        font-size: .95rem;
+        line-height: 1.6;
+    }
+
+    .habilidadesBotaoAdicionar {
+        height: 62px;
+        border-radius: 20px;
+        font-size: .95rem;
+        margin-bottom: 25px;
+    }
+
+    .habilidadesFormularioContainer {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .habilidadesInputCampo,
+    .habilidadesTextareaCampo {
+        font-size: .92rem;
+        padding: 14px 16px;
+        border-radius: 15px;
+    }
+
+    .habilidadesTextareaCampo {
+        min-height: 130px;
     }
 
     .habilidadesAcoesFormulario {
         flex-direction: column;
+        gap: 12px;
+    }
+
+    .habilidadesBotaoSalvar,
+    .habilidadesBotaoCancelar {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .habilidadesCardItem {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .habilidadesTitulo {
+        font-size: 1.2rem;
+    }
+
+    .habilidadesNivelBadge {
+        font-size: .72rem;
+    }
+
+    .habilidadesInformacoesGrid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .habilidadesDescricaoBox {
+        padding: 16px;
+    }
+
+    .habilidadesDescricaoTexto {
+        font-size: .92rem;
+        line-height: 1.7;
     }
 
     .habilidadesCardAcoes {
         flex-direction: column;
     }
+
+    .habilidadesBotaoEditar,
+    .habilidadesBotaoExcluir,
+    .habilidadesBotaoExcluirConfirmar {
+        width: fit-content;
+        min-width: 200px;
+        padding: 10px;
+    }
+
+    .habilidadesVazioCard {
+        padding: 40px 20px;
+    }
+
+}
+
+@media (max-width:560px) {
+
+    .habilidadesContainer {
+        width: calc(100% - 24px);
+    }
+
+    .habilidadesTituloPrincipal {
+        font-size: 1.5rem;
+    }
+
+    .habilidadesSubtituloPrincipal {
+        font-size: .9rem;
+    }
+
+    .habilidadesBotaoAdicionar {
+        height: 58px;
+        border-radius: 18px;
+        font-size: .9rem;
+    }
+
+    .habilidadesFormularioContainer {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .habilidadesLabelCampo {
+        font-size: .75rem;
+    }
+
+    .habilidadesInputCampo,
+    .habilidadesTextareaCampo {
+        padding: 13px 14px;
+        font-size: .9rem;
+        border-radius: 14px;
+    }
+
+    .habilidadesTextareaCampo {
+        min-height: 120px;
+    }
+
+    .habilidadesCardItem {
+        padding: 18px;
+        border-radius: 20px;
+        gap: 18px;
+    }
+
+    .habilidadesTitulo {
+        font-size: 1.05rem;
+    }
+
+    .habilidadesNivelBadge {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        font-size: .72rem;
+    }
+
+    .habilidadesInfoBox {
+        padding: 13px;
+    }
+
+    .habilidadesInfoLabel {
+        font-size: .68rem;
+    }
+
+    .habilidadesInfoValor {
+        font-size: .88rem;
+    }
+
+    .habilidadesDescricaoTitulo {
+        font-size: .72rem;
+    }
+
+    .habilidadesDescricaoTexto {
+        font-size: .88rem;
+    }
+
+    .habilidadesBotaoEditar,
+    .habilidadesBotaoExcluir,
+    .habilidadesBotaoExcluirConfirmar,
+    .habilidadesBotaoSalvar,
+    .habilidadesBotaoCancelar {
+        height: 50px;
+        font-size: .88rem;
+        border-radius: 14px;
+    }
+
+    .habilidadesVazioCard {
+        padding: 35px 18px;
+        font-size: .9rem;
+    }
+
+}
+
+@media (max-width:380px) {
+
+    .habilidadesContainer {
+        width: calc(100% - 16px);
+    }
+
+    .habilidadesTituloPrincipal {
+        font-size: 1.3rem;
+    }
+
+    .habilidadesSubtituloPrincipal {
+        font-size: .85rem;
+    }
+
+    .habilidadesFormularioContainer,
+    .habilidadesCardItem,
+    .habilidadesVazioCard {
+        padding: 16px;
+    }
+
+    .habilidadesInputCampo,
+    .habilidadesTextareaCampo {
+        font-size: .85rem;
+    }
+
+    .habilidadesTitulo {
+        font-size: 1rem;
+    }
+
+    .habilidadesDescricaoTexto {
+        font-size: .84rem;
+    }
+
+    .habilidadesBotaoEditar,
+    .habilidadesBotaoExcluir,
+    .habilidadesBotaoExcluirConfirmar,
+    .habilidadesBotaoSalvar,
+    .habilidadesBotaoCancelar {
+        height: 48px;
+        font-size: .84rem;
+    }
+
 }

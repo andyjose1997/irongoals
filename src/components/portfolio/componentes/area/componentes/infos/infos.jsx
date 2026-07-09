@@ -23,14 +23,41 @@ export default function Infos() {
     const [dados, setDados] = useState({});
     const [editando, setEditando] = useState(null);
     const [valor, setValor] = useState("");
-
+    const [carregandoCampo, setCarregandoCampo] = useState(null);
     useEffect(() => {
         carregarDados();
     }, []);
-
     async function carregarDados() {
 
         try {
+
+            const token = localStorage.getItem("token");
+
+            const resposta = await fetch(
+                `${API_URL}/infos`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+
+            const json = await resposta.json();
+
+            setDados(json);
+
+        } catch (erro) {
+
+            console.error(erro);
+
+        }
+
+    }
+    async function salvarCampo(campo) {
+
+        try {
+
+            setCarregandoCampo(campo);
 
             const token = localStorage.getItem("token");
 
@@ -58,6 +85,8 @@ export default function Infos() {
 
         try {
 
+            setCarregandoCampo(campo);
+
             const token = localStorage.getItem("token");
 
             await fetch(
@@ -75,24 +104,29 @@ export default function Infos() {
                 }
             );
 
-            setDados({
-                ...dados,
-                [campo]: valor
-            });
+            await carregarDados();
 
             setEditando(null);
+
             setValor("");
 
         } catch (erro) {
 
             console.error(erro);
 
+        } finally {
+
+            setCarregandoCampo(null);
+
         }
+
     }
 
     async function apagarCampo(campo) {
 
         try {
+
+            setCarregandoCampo(campo);
 
             const token = localStorage.getItem("token");
 
@@ -106,16 +140,18 @@ export default function Infos() {
                 }
             );
 
-            setDados({
-                ...dados,
-                [campo]: null
-            });
+            await carregarDados();
 
         } catch (erro) {
 
             console.error(erro);
 
+        } finally {
+
+            setCarregandoCampo(null);
+
         }
+
     }
     function formatarValor(campo, valor) {
 
@@ -204,8 +240,17 @@ export default function Infos() {
 
                             </div>
 
-                            {editando === campo.chave ? (
+                            {carregandoCampo === campo.chave ? (
 
+                                <div className="infosCampoCarregando">
+
+                                    <div className="infosMiniSpinner"></div>
+
+                                    <span>Atualizando...</span>
+
+                                </div>
+
+                            ) : editando === campo.chave ? (
                                 <div className="infosEdicaoContainer">
 
                                     <Input
@@ -300,6 +345,7 @@ export default function Infos() {
 
                                             <button
                                                 className="infosBotaoEditar"
+                                                disabled={carregandoCampo !== null}
                                                 onClick={() => {
 
                                                     setEditando(
@@ -317,6 +363,7 @@ export default function Infos() {
 
                                             <button
                                                 className="infosBotaoApagar"
+                                                disabled={carregandoCampo !== null}
                                                 onClick={() => {
 
                                                     if (
@@ -365,9 +412,9 @@ export default function Infos() {
                                     </>
 
                                 ) : (
-
                                     <button
                                         className="infosBotaoAdicionar"
+                                        disabled={carregandoCampo !== null}
                                         onClick={() => {
 
                                             setEditando(

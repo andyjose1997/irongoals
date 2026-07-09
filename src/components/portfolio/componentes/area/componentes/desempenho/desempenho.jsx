@@ -1,6 +1,7 @@
 import React, {
     useEffect,
-    useState
+    useState,
+    useRef
 } from "react";
 import Divulgacoes from "./divulgacoes/divulgacoes";
 import {
@@ -8,6 +9,7 @@ import {
 } from "../../../../../../config";
 import "./desempenho.css"
 export default function Desempenho() {
+    const listaRef = useRef(null);
     const [
         mostrarDivulgacoes,
         setMostrarDivulgacoes
@@ -33,7 +35,26 @@ export default function Desempenho() {
         carregarDados();
 
     }, []);
+    function abrirRelatorio(titulo, lista) {
 
+        setListaAtual({
+            titulo,
+            lista
+        });
+
+        setTimeout(() => {
+
+            listaRef.current?.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "end"
+
+            });
+
+        }, 80);
+
+    }
     async function carregarDados() {
 
         const token =
@@ -220,6 +241,7 @@ export default function Desempenho() {
         return (
 
             <div
+                ref={listaRef}
                 className="desempenhoListaContainer"
             >
 
@@ -248,220 +270,222 @@ export default function Desempenho() {
                 }
 
                 {
-                    listaAtual.lista.map(
-                        (
-                            empresa,
-                            index
-                        ) => (
+                    [...listaAtual.lista]
+                        .reverse()
+                        .map(
+                            (
+                                empresa,
+                                index
+                            ) => (
 
-                            <div
-                                key={index}
-                                className="desempenhoEmpresaCard"
-                            >
-
-                                <strong
-                                    className="desempenhoEmpresaNome"
+                                <div
+                                    key={index}
+                                    className="desempenhoEmpresaCard"
                                 >
 
+                                    <strong
+                                        className="desempenhoEmpresaNome"
+                                    >
+
+                                        {
+                                            empresa.empresa
+                                        }
+
+                                    </strong>
+
                                     {
-                                        empresa.empresa
-                                    }
+                                        empresa.cargo && (
 
-                                </strong>
-
-                                {
-                                    empresa.cargo && (
-
-                                        <p
-                                            className="desempenhoEmpresaLinha"
-                                        >
-
-                                            <strong>
-
-                                                Cargo:
-
-                                            </strong>
-
-                                            {" "}
-
-                                            {
-                                                empresa.cargo
-                                            }
-
-                                        </p>
-
-                                    )
-                                }
-
-                                {
-                                    empresa.dia && (
-
-                                        <p
-                                            className="desempenhoEmpresaLinha"
-                                        >
-
-                                            <strong>
-
-                                                Data da entrevista:
-
-                                            </strong>
-
-                                            {" "}
-
-                                            {
-                                                formatarData(
-                                                    empresa.dia
-                                                )
-                                            }
-
-                                            {" "}
-
-                                            às
-
-                                            {" "}
-
-                                            {
-                                                Number.isInteger(
-                                                    empresa.hora
-                                                )
-
-                                                    ? `${String(
-                                                        Math.floor(
-                                                            empresa.hora / 3600
-                                                        )
-                                                    ).padStart(2, "0")}:${String(
-                                                        Math.floor(
-                                                            (empresa.hora % 3600) / 60
-                                                        )
-                                                    ).padStart(2, "0")}`
-
-                                                    : empresa.hora
-                                            }
-
-                                        </p>
-
-                                    )
-                                }
-
-                                {
-                                    empresa.descricao && (
-
-                                        <div
-                                            className="desempenhoEmpresaDescricao"
-                                        >
-
-                                            <strong>
-
-                                                Descrição:
-
-                                            </strong>
-
-                                            {" "}
-
-                                            {
-                                                empresa.descricao
-                                            }
-
-                                        </div>
-
-                                    )
-                                }
-
-                                {
-                                    empresa.contato && (
-
-                                        <p
-                                            className="desempenhoEmpresaLinha desempenhoEmpresaContato"
-                                        >
-
-                                            <strong>
-
-                                                Contato da empresa:
-
-                                            </strong>
-
-                                            {" "}
-
-                                            {
-                                                (() => {
-
-                                                    const link =
-                                                        obterLinkContato(
-                                                            empresa.contato
-                                                        );
-
-                                                    if (!link) {
-
-                                                        return empresa.contato;
-
-                                                    }
-
-                                                    return (
-
-                                                        <a
-                                                            href={link}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                        >
-
-                                                            {
-                                                                empresa.contato
-                                                            }
-
-                                                        </a>
-
-                                                    );
-
-                                                })()
-                                            }
-
-                                        </p>
-
-                                    )
-                                }
-
-                                {
-                                    empresa.aprovado === 0 && (
-                                        <div>
-                                            <p className="desempenhoEmpresaBotaoAviso">
-                                                Aceite a entrevista se desejar então seus dados serao publicados para a empresa <strong>  {empresa.empresa}</strong>
-                                            </p>
-                                            <button
-                                                className="desempenhoEmpresaBotao"
-                                                onClick={
-                                                    () =>
-                                                        aceitarEntrevista(
-                                                            empresa.id
-                                                        )
-                                                }
+                                            <p
+                                                className="desempenhoEmpresaLinha"
                                             >
 
-                                                Aceitar entrevista
+                                                <strong>
 
-                                            </button></div>
+                                                    Cargo:
+
+                                                </strong>
+
+                                                {" "}
+
+                                                {
+                                                    empresa.cargo
+                                                }
+
+                                            </p>
+
+                                        )
+                                    }
+
+                                    {
+                                        empresa.dia && (
+
+                                            <p
+                                                className="desempenhoEmpresaLinha"
+                                            >
+
+                                                <strong>
+
+                                                    Data da entrevista:
+
+                                                </strong>
+
+                                                {" "}
+
+                                                {
+                                                    formatarData(
+                                                        empresa.dia
+                                                    )
+                                                }
+
+                                                {" "}
+
+                                                às
+
+                                                {" "}
+
+                                                {
+                                                    Number.isInteger(
+                                                        empresa.hora
+                                                    )
+
+                                                        ? `${String(
+                                                            Math.floor(
+                                                                empresa.hora / 3600
+                                                            )
+                                                        ).padStart(2, "0")}:${String(
+                                                            Math.floor(
+                                                                (empresa.hora % 3600) / 60
+                                                            )
+                                                        ).padStart(2, "0")}`
+
+                                                        : empresa.hora
+                                                }
+
+                                            </p>
+
+                                        )
+                                    }
+
+                                    {
+                                        empresa.descricao && (
+
+                                            <div
+                                                className="desempenhoEmpresaDescricao"
+                                            >
+
+                                                <strong>
+
+                                                    Descrição:
+
+                                                </strong>
+
+                                                {" "}
+
+                                                {
+                                                    empresa.descricao
+                                                }
+
+                                            </div>
+
+                                        )
+                                    }
+
+                                    {
+                                        empresa.contato && (
+
+                                            <p
+                                                className="desempenhoEmpresaLinha desempenhoEmpresaContato"
+                                            >
+
+                                                <strong>
+
+                                                    Contato da empresa:
+
+                                                </strong>
+
+                                                {" "}
+
+                                                {
+                                                    (() => {
+
+                                                        const link =
+                                                            obterLinkContato(
+                                                                empresa.contato
+                                                            );
+
+                                                        if (!link) {
+
+                                                            return empresa.contato;
+
+                                                        }
+
+                                                        return (
+
+                                                            <a
+                                                                href={link}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+
+                                                                {
+                                                                    empresa.contato
+                                                                }
+
+                                                            </a>
+
+                                                        );
+
+                                                    })()
+                                                }
+
+                                            </p>
+
+                                        )
+                                    }
+
+                                    {
+                                        empresa.aprovado === 0 && (
+                                            <div>
+                                                <p className="desempenhoEmpresaBotaoAviso">
+                                                    Aceite a entrevista se desejar então seus dados serao publicados para a empresa <strong>  {empresa.empresa}</strong>
+                                                </p>
+                                                <button
+                                                    className="desempenhoEmpresaBotao"
+                                                    onClick={
+                                                        () =>
+                                                            aceitarEntrevista(
+                                                                empresa.id
+                                                            )
+                                                    }
+                                                >
+
+                                                    Aceitar entrevista
+
+                                                </button></div>
 
 
-                                    )
-                                }
+                                        )
+                                    }
 
-                                {
-                                    empresa.aprovado === 1 && (
+                                    {
+                                        empresa.aprovado === 1 && (
 
-                                        <div
-                                            className="desempenhoEmpresaAceita"
-                                        >
+                                            <div
+                                                className="desempenhoEmpresaAceita"
+                                            >
 
-                                            ✅ Entrevista aceita
+                                                ✅ Entrevista aceita
 
-                                        </div>
+                                            </div>
 
-                                    )
-                                }
+                                        )
+                                    }
 
-                            </div>
+                                </div>
 
+                            )
                         )
-                    )
                 }
 
             </div>
@@ -687,12 +711,10 @@ export default function Desempenho() {
                 <div
                     className="desempenhoRelatorioCard"
                     onClick={() =>
-                        setListaAtual({
-                            titulo:
-                                "Empresas que visualizaram seu perfil",
-                            lista:
-                                desempenho.empresas_viram
-                        })
+                        abrirRelatorio(
+                            "Empresas que visualizaram seu perfil",
+                            desempenho.empresas_viram
+                        )
                     }
                 >
 
@@ -710,7 +732,7 @@ export default function Desempenho() {
                         className="desempenhoRelatorioTitulo"
                     >
 
-                        Empresas Alcançadas
+                        EMPRESAS ALCANÇADAS
 
                     </div>
 
@@ -719,12 +741,10 @@ export default function Desempenho() {
                 <div
                     className="desempenhoRelatorioCard"
                     onClick={() =>
-                        setListaAtual({
-                            titulo:
-                                "Empresas que abriram seu perfil",
-                            lista:
-                                desempenho.empresas_abriram
-                        })
+                        abrirRelatorio(
+                            "Empresas que abriram seu perfil",
+                            desempenho.empresas_abriram
+                        )
                     }
                 >
 
@@ -742,7 +762,7 @@ export default function Desempenho() {
                         className="desempenhoRelatorioTitulo"
                     >
 
-
+                        PERFIL VISTO
 
                     </div>
 
@@ -751,12 +771,10 @@ export default function Desempenho() {
                 <div
                     className="desempenhoRelatorioCard"
                     onClick={() =>
-                        setListaAtual({
-                            titulo:
-                                "Empresas que marcaram entrevista",
-                            lista:
-                                desempenho.empresas_agendaram
-                        })
+                        abrirRelatorio(
+                            "Empresas que marcaram entrevista",
+                            desempenho.empresas_agendaram
+                        )
                     }
                 >
 
@@ -774,7 +792,7 @@ export default function Desempenho() {
                         className="desempenhoRelatorioTitulo"
                     >
 
-                        Entrevistas Agendadas
+                        ENTREVISTAS AGENDADAS
 
                     </div>
 
@@ -783,12 +801,10 @@ export default function Desempenho() {
                 <div
                     className="desempenhoRelatorioCard"
                     onClick={() =>
-                        setListaAtual({
-                            titulo:
-                                "Entrevistas aceitas",
-                            lista:
-                                desempenho.empresas_aceitaram
-                        })
+                        abrirRelatorio(
+                            "Entrevistas aceitas",
+                            desempenho.empresas_aceitaram
+                        )
                     }
                 >
 
@@ -806,7 +822,7 @@ export default function Desempenho() {
                         className="desempenhoRelatorioTitulo"
                     >
 
-                        Entrevistas Aceitas
+                        ENTREVISTAS ACEITAS
 
                     </div>
 

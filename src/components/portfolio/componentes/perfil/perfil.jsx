@@ -173,9 +173,9 @@ export default function Perfil() {
 
                         <button
                             className="portfolioBotaoInicio"
-                            onClick={() => navigate("/")}
+                            onClick={() => navigate("/sobre")}
                         >
-                            Início
+                            Sobre
                         </button>
 
                         <button

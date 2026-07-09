@@ -289,18 +289,27 @@ export default function Empresas() {
                 </button>
 
                 <button
+                    disabled={entrevistas.length === 0}
                     className={
                         aba === "entrevistas"
                             ? "empresaAbaAtiva"
                             : ""
                     }
-                    onClick={() =>
-                        setAba(
-                            "entrevistas"
-                        )
-                    }
+                    onClick={() => {
+
+                        if (entrevistas.length === 0) {
+                            return;
+                        }
+
+                        setAba("entrevistas");
+
+                    }}
                 >
                     Entrevistas
+                    {
+                        entrevistas.length > 0 &&
+                        ` (${entrevistas.length})`
+                    }
                 </button>
 
             </div>

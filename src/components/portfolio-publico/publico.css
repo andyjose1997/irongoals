@@ -1,6 +1,6 @@
 .portfolioPublicoContainer {
 
-    width: 100%;
+    width: 97%;
 
     max-width: 1400px;
 
@@ -13,6 +13,32 @@
     flex-direction: column;
 
     gap: 30px;
+
+}
+
+.portfolioPublicoHeroFoto {
+
+    position: relative;
+    z-index: 2;
+
+}
+
+.portfolioPublicoHeroFoto::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -15px;
+
+    border-radius: inherit;
+
+    background: radial-gradient(rgba(96, 165, 250, .45),
+            transparent 70%);
+
+    filter: blur(18px);
+
+    z-index: -1;
 
 }
 
@@ -626,20 +652,21 @@
 
 }
 
+/* ===========================
+OVERLAY
+=========================== */
+
 .portfolioPublicoCompartilharModal {
 
     position: fixed;
 
     top: 50%;
-
     left: 50%;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(.96);
 
-    width: 520px;
-
-    max-width: 94vw;
+    width: 540px;
+    max-width: calc(100vw - 30px);
 
     background: #ffffff;
 
@@ -647,83 +674,163 @@
 
     overflow: hidden;
 
+    border: 1px solid rgba(255, 255, 255, .6);
+
     box-shadow:
-        0 40px 120px rgba(0, 0, 0, .22);
+        0 40px 120px rgba(15, 23, 42, .30),
+        0 10px 40px rgba(15, 23, 42, .12);
+
+    animation: modalPortfolioEntrada .35s ease forwards;
 
     z-index: 999999;
 
 }
 
-.portfolioPublicoCompartilharFechar {
+@keyframes modalPortfolioEntrada {
 
-    position: absolute;
+    from {
 
-    top: 20px;
+        opacity: 0;
 
-    right: 20px;
+        transform:
+            translate(-50%, -45%) scale(.92);
 
-    width: 42px;
+    }
 
-    height: 42px;
+    to {
 
-    border: none;
+        opacity: 1;
 
-    border-radius: 50%;
+        transform:
+            translate(-50%, -50%) scale(1);
 
-    background: rgba(255, 255, 255, .15);
-
-    color: white;
-
-    cursor: pointer;
+    }
 
 }
 
+/* ===========================
+TOPO
+=========================== */
+
 .portfolioPublicoCompartilharTopo {
 
-    padding: 40px;
+    position: relative;
+
+    padding: 45px 35px;
 
     text-align: center;
 
     background:
         linear-gradient(135deg,
             #2563eb,
-            #1d4ed8);
+            #1d4ed8,
+            #1e40af);
 
-    color: white;
+    overflow: hidden;
 
 }
 
-.portfolioPublicoCompartilharFoto {
+.portfolioPublicoCompartilharTopo::before {
 
-    width: 110px;
+    content: "";
 
-    height: 110px;
+    position: absolute;
 
-    object-fit: cover;
+    width: 260px;
+    height: 260px;
 
-    border-radius: 30px;
+    right: -120px;
+    top: -120px;
 
-    margin-bottom: 18px;
+    border-radius: 50%;
 
-    border: 4px solid rgba(255, 255, 255, .25);
+    background:
+        rgba(255, 255, 255, .08);
+
+}
+
+.portfolioPublicoCompartilharTopo::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    left: -70px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .05);
 
 }
 
 .portfolioPublicoCompartilharTopo h2 {
 
-    font-size: 1.8rem;
+    position: relative;
 
-    margin-bottom: 0px;
+    z-index: 2;
 
-    font-weight: 800;
+    color: white;
+
+    font-size: 2rem;
+
+    font-weight: 900;
+
+    margin: 0;
 
 }
 
-.portfolioPublicoCompartilharTopo p {
+/* ===========================
+BOTÃO FECHAR
+=========================== */
 
-    opacity: .9;
+.portfolioPublicoCompartilharFechar {
+
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    color: white;
+
+    background:
+        rgba(255, 255, 255, .18);
+
+    backdrop-filter: blur(10px);
+
+    transition: .25s;
+
+    z-index: 20;
 
 }
+
+.portfolioPublicoCompartilharFechar:hover {
+
+    transform: rotate(90deg);
+
+    background:
+        rgba(255, 255, 255, .30);
+
+}
+
+/* ===========================
+QR CODE
+=========================== */
 
 .portfolioPublicoCompartilharQrArea {
 
@@ -731,47 +838,161 @@
 
     justify-content: center;
 
-    padding: 30px;
+    padding: 35px;
 
 }
+
+.portfolioPublicoCompartilharQrArea canvas {
+
+    padding: 16px;
+
+    border-radius: 24px;
+
+    background: white;
+
+    box-shadow:
+
+        0 20px 45px rgba(15, 23, 42, .10);
+
+}
+
+/* ===========================
+LINK
+=========================== */
 
 .portfolioPublicoCompartilharLinkArea {
 
     display: flex;
 
-    gap: 10px;
+    gap: 14px;
 
-    padding: 0 30px;
+    padding: 0 30px 35px;
 
 }
 
 .portfolioPublicoCompartilharInput {
 
     flex: 1;
+    width: 90%;
+    height: 58px;
 
-    border: 1px solid #e2e8f0;
+    border: none;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
-    padding: 14px;
+    padding: 0 18px;
 
     background: #f8fafc;
+
+    border: 2px solid #e2e8f0;
+
+    font-size: .92rem;
+
+    color: #0f172a;
+
+}
+
+.portfolioPublicoCompartilharInput:focus {
+
+    outline: none;
+
+    border-color: #2563eb;
 
 }
 
 .portfolioPublicoCompartilharCopiar {
 
-    width: 60px;
+    width: 100%;
+    padding: 10px;
 
     border: none;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
     cursor: pointer;
 
-    background: #2563eb;
+    font-size: 22px;
 
     color: white;
+
+    background:
+
+        linear-gradient(135deg,
+            #2563eb,
+            #3b82f6);
+
+    box-shadow:
+
+        0 12px 30px rgba(37, 99, 235, .28);
+
+    transition: .25s;
+
+}
+
+.portfolioPublicoCompartilharCopiar:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+
+        0 22px 40px rgba(37, 99, 235, .35);
+
+}
+
+/* ===========================
+RESPONSIVO
+=========================== */
+
+@media(max-width:650px) {
+
+    .portfolioPublicoCompartilharModal {
+
+        width: calc(100vw - 20px);
+
+        border-radius: 24px;
+
+    }
+
+    .portfolioPublicoCompartilharTopo {
+
+        padding: 35px 20px;
+
+    }
+
+    .portfolioPublicoCompartilharTopo h2 {
+
+        font-size: 1.45rem;
+
+    }
+
+    .portfolioPublicoCompartilharQrArea {
+
+        padding: 22px;
+
+    }
+
+    .portfolioPublicoCompartilharQrArea canvas {
+
+        width: 180px !important;
+        height: 180px !important;
+
+    }
+
+    .portfolioPublicoCompartilharLinkArea {
+
+        flex-direction: column;
+
+        padding: 0 20px 25px;
+
+    }
+
+    .portfolioPublicoCompartilharCopiar {
+
+        width: 100%;
+        height: 56px;
+
+    }
 
 }
 
@@ -955,5 +1176,339 @@
     line-height: 1.5;
 
     opacity: .95;
+
+}
+
+/* ===================================================
+   RESPONSIVO
+=================================================== */
+
+@media (max-width:1200px) {
+
+    .portfolioPublicoContainer {
+        padding: 30px;
+    }
+
+    .portfolioPublicoHero {
+        padding: 40px;
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .portfolioPublicoContainer {
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .portfolioPublicoHero {
+        padding: 35px;
+    }
+
+    .portfolioPublicoHeroConteudo {
+        flex-direction: column;
+        text-align: center;
+        gap: 28px;
+    }
+
+    .portfolioPublicoHeroTexto {
+        align-items: center;
+    }
+
+    .portfolioPublicoHeroTexto h1 {
+        font-size: 2.4rem;
+    }
+
+    .portfolioPublicoHeroTexto h2 {
+        font-size: 1.15rem;
+    }
+
+    .portfolioPublicoContatoRapido {
+        justify-content: center;
+    }
+
+    .portfolioPublicoResumo,
+    .portfolioPublicoHabilidades,
+    .portfolioPublicoExperiencias,
+    .portfolioPublicoFormacoes,
+    .portfolioPublicoInformacoes,
+    .portfolioPublicoIdiomas {
+        padding: 30px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .portfolioPublicoContainer {
+        padding: 18px;
+        gap: 20px;
+    }
+
+    .portfolioPublicoHero {
+        padding: 28px 22px;
+        border-radius: 24px;
+    }
+
+    .portfolioPublicoHeroFoto {
+        width: 140px;
+        height: 140px;
+        border-radius: 24px;
+    }
+
+    .portfolioPublicoHeroTexto h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+    }
+
+    .portfolioPublicoHeroTexto h2 {
+        font-size: 1rem;
+    }
+
+    .portfolioPublicoHeroTexto p {
+        font-size: .95rem;
+        line-height: 1.7;
+    }
+
+    .portfolioPublicoContatoRapido {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .portfolioPublicoContatoRapido span,
+    .portfolioPublicoContatoRapido a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .portfolioPublicoResumo,
+    .portfolioPublicoHabilidades,
+    .portfolioPublicoExperiencias,
+    .portfolioPublicoFormacoes,
+    .portfolioPublicoInformacoes,
+    .portfolioPublicoIdiomas {
+        padding: 22px;
+        border-radius: 22px;
+    }
+
+    .portfolioPublicoResumo h2,
+    .portfolioPublicoHabilidades h2,
+    .portfolioPublicoExperiencias h2,
+    .portfolioPublicoFormacoes h2,
+    .portfolioPublicoInformacoes h2,
+    .portfolioPublicoIdiomas h2 {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
+
+    .portfolioPublicoSkillGrid,
+    .portfolioPublicoFormacaoGrid,
+    .portfolioPublicoInfoGrid,
+    .portfolioPublicoIdiomasGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolioPublicoProjetoCard,
+    .portfolioPublicoSkillCard,
+    .portfolioPublicoFormacaoCard,
+    .portfolioPublicoIdiomaCard,
+    .portfolioPublicoInfoGrid div {
+        padding: 20px;
+    }
+
+    .portfolioPublicoProjetoCard h3 {
+        font-size: 1.15rem;
+    }
+
+    .portfolioPublicoProjetoCard h4 {
+        font-size: .95rem;
+    }
+
+    .portfolioPublicoProjetoCard p {
+        font-size: .92rem;
+    }
+
+    .portfolioPublicoTituloComAcao {
+        align-items: center;
+    }
+
+    .portfolioPublicoExpandirBotao {
+        width: 40px;
+        height: 40px;
+    }
+
+    .portfolioPublicoCompartilharModal {
+        width: calc(100% - 24px);
+        border-radius: 24px;
+    }
+
+    .portfolioPublicoCompartilharTopo {
+        padding: 30px 20px;
+    }
+
+    .portfolioPublicoCompartilharTopo h2 {
+        font-size: 1.4rem;
+    }
+
+    .portfolioPublicoCompartilharQrArea {
+        padding: 24px;
+    }
+
+    .portfolioPublicoCompartilharQrArea canvas {
+        width: 180px !important;
+        height: 180px !important;
+    }
+
+    .portfolioPublicoCompartilharLinkArea {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .portfolioPublicoCompartilharInput {
+        width: 100%;
+    }
+
+    .portfolioPublicoCompartilharCopiar {
+        width: 100%;
+        height: 52px;
+    }
+
+    .portfolioPublicoBotaoCompartilhar {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+}
+
+@media (max-width:560px) {
+
+    .portfolioPublicoContainer {
+        padding: 12px;
+    }
+
+    .portfolioPublicoHero {
+        padding: 22px 18px;
+    }
+
+    .portfolioPublicoHeroFoto {
+        width: 120px;
+        height: 120px;
+    }
+
+    .portfolioPublicoHeroTexto h1 {
+        font-size: 1.65rem;
+    }
+
+    .portfolioPublicoHeroTexto h2 {
+        font-size: .95rem;
+    }
+
+    .portfolioPublicoHeroTexto p,
+    .portfolioPublicoCidade {
+        font-size: .88rem;
+    }
+
+    .portfolioPublicoResumo,
+    .portfolioPublicoHabilidades,
+    .portfolioPublicoExperiencias,
+    .portfolioPublicoFormacoes,
+    .portfolioPublicoInformacoes,
+    .portfolioPublicoIdiomas {
+        padding: 18px;
+    }
+
+    .portfolioPublicoResumo h2,
+    .portfolioPublicoHabilidades h2,
+    .portfolioPublicoExperiencias h2,
+    .portfolioPublicoFormacoes h2,
+    .portfolioPublicoInformacoes h2,
+    .portfolioPublicoIdiomas h2 {
+        font-size: 1.3rem;
+    }
+
+    .portfolioPublicoSkillCard,
+    .portfolioPublicoProjetoCard,
+    .portfolioPublicoFormacaoCard,
+    .portfolioPublicoIdiomaCard,
+    .portfolioPublicoInfoGrid div {
+        padding: 16px;
+        border-radius: 18px;
+    }
+
+    .portfolioPublicoSkillCard h3,
+    .portfolioPublicoProjetoCard h3,
+    .portfolioPublicoFormacaoCard h3,
+    .portfolioPublicoIdiomaCard h3 {
+        font-size: 1rem;
+    }
+
+    .portfolioPublicoSkillCard p,
+    .portfolioPublicoProjetoCard p,
+    .portfolioPublicoInfoGrid p {
+        font-size: .88rem;
+    }
+
+    .portfolioPublicoContatoRapido span,
+    .portfolioPublicoContatoRapido a {
+        font-size: .82rem;
+    }
+
+    .portfolioPublicoCompartilharTopo {
+        padding: 24px 16px;
+    }
+
+    .portfolioPublicoCompartilharTopo h2 {
+        font-size: 1.2rem;
+    }
+
+    .portfolioPublicoCompartilharQrArea canvas {
+        width: 160px !important;
+        height: 160px !important;
+    }
+
+}
+
+@media (max-width:380px) {
+
+    .portfolioPublicoContainer {
+        padding: 8px;
+    }
+
+    .portfolioPublicoHeroTexto h1 {
+        font-size: 1.4rem;
+    }
+
+    .portfolioPublicoHeroTexto h2 {
+        font-size: .9rem;
+    }
+
+    .portfolioPublicoResumo,
+    .portfolioPublicoHabilidades,
+    .portfolioPublicoExperiencias,
+    .portfolioPublicoFormacoes,
+    .portfolioPublicoInformacoes,
+    .portfolioPublicoIdiomas {
+        padding: 15px;
+    }
+
+    .portfolioPublicoResumo h2,
+    .portfolioPublicoHabilidades h2,
+    .portfolioPublicoExperiencias h2,
+    .portfolioPublicoFormacoes h2,
+    .portfolioPublicoInformacoes h2,
+    .portfolioPublicoIdiomas h2 {
+        font-size: 1.15rem;
+    }
+
+    .portfolioPublicoBotaoCompartilhar {
+        width: 54px;
+        height: 54px;
+        font-size: 20px;
+    }
 
 }

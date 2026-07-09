@@ -227,9 +227,9 @@
 .experienciasBotaoCancelar {
     flex: 1;
 
-    background: #f1f5f9;
+    background: #df0707;
 
-    color: #475569;
+    color: #ffffff;
 }
 
 .experienciasBotaoCancelar:hover {
@@ -582,18 +582,380 @@
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
+
+/* ====================================================== */
+/* 1200px */
+/* ====================================================== */
+
+@media (max-width:1200px) {
+
+    .experienciasContainer {
+
+        width: 100%;
+
+        padding: 0 18px;
+
+        box-sizing: border-box;
+
+    }
+
+    .experienciasFormularioCard {
+
+        padding: 28px;
+
+    }
+
+    .experienciasBotaoSalvar,
+    .experienciasBotaoCancelar {
+
+        padding: 0 80px;
+
+    }
+
+}
+
+/* ====================================================== */
+/* 992px */
+/* ====================================================== */
+
+@media (max-width:992px) {
+
+    .experienciasTituloPrincipal {
+
+        font-size: 2rem;
+
+    }
+
+    .experienciasSubtituloPrincipal {
+
+        font-size: .95rem;
+
+    }
+
+    .experienciasFormularioGrid {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    }
+
+    .experienciasResumoGrid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .experienciasBotaoSalvar,
+    .experienciasBotaoCancelar {
+
+        padding: 0;
+
+        flex: 1;
+
+    }
+
+    .experienciasBotaoEditar,
+    .experienciasBotaoApagar {
+        padding: 10px !important;
+        padding: 0;
+        width: fit-content !important;
+        min-width: 200px;
+        flex: 1;
+
+    }
+
+}
+
+/* ====================================================== */
+/* 768px */
+/* ====================================================== */
+
+@media (max-width:768px) {
+
+    .experienciasContainer {
+
+        padding: 0 12px;
+
+    }
+
+    .experienciasTituloPrincipal {
+
+        font-size: 1.8rem;
+
+    }
+
+    .experienciasSubtituloPrincipal {
+
+        font-size: .92rem;
+
+    }
+
+    .experienciasFormularioCard {
+
+        padding: 22px;
+
+        border-radius: 22px;
+
+    }
+
+    .experienciasFormularioTitulo {
+
+        font-size: 1.2rem;
+
+    }
+
+    .experienciasFormularioGrid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+    .experienciasInputCampo {
+
+        height: 54px;
+
+    }
+
+    .experienciasTextareaCampo {
+
+        min-height: 130px;
+
+    }
+
+    .experienciasAcoesFormulario {
+
+        flex-direction: column;
+
+    }
+
+    .experienciasBotaoSalvar,
+    .experienciasBotaoCancelar {
+
+        width: fit-content !important;
+        min-width: 200px !important;
+        padding: 10px !important;
+        padding: 0;
+
+    }
 
     .experienciasCardItem {
-        padding: 24px;
+
+        padding: 22px;
+
+        border-radius: 22px;
+
     }
 
     .experienciasCardTopo {
+
         flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    .experienciasCardInfoPrincipal {
+
+        width: 100%;
+
+        min-width: 0;
+
+    }
+
+    .experienciasCargoTexto {
+
+        font-size: 1.2rem;
+
+    }
+
+    .experienciasEmpresaTexto {
+
+        font-size: .95rem;
+
+    }
+
+    .experienciasAreaBadge {
+
+        align-self: flex-start;
+
+    }
+
+    .experienciasResumoGrid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .experienciasDetalhesLinha {
+
+        gap: 8px;
+
+    }
+
+    .experienciasDetalhesLinha span {
+
+        width: 100%;
+
+        text-align: center;
+
     }
 
     .experienciasAcoesCard {
+
         flex-direction: column;
+
+    }
+
+    .experienciasBotaoEditar,
+    .experienciasBotaoApagar {
+
+        width: 100%;
+
+        padding: 0;
+
+    }
+
+}
+
+/* ====================================================== */
+/* 480px */
+/* ====================================================== */
+
+@media (max-width:480px) {
+
+    .experienciasContainer {
+
+        padding: 0 8px;
+
+    }
+
+    .experienciasTituloPrincipal {
+
+        font-size: 1.55rem;
+
+    }
+
+    .experienciasSubtituloPrincipal {
+
+        font-size: .88rem;
+
+    }
+
+    .experienciasBotaoAdicionar {
+
+        height: 62px;
+
+        font-size: .92rem;
+
+        border-radius: 18px;
+
+    }
+
+    .experienciasFormularioCard {
+
+        padding: 16px;
+
+        border-radius: 18px;
+
+    }
+
+    .experienciasCampoGrupo {
+
+        gap: 8px;
+
+    }
+
+    .experienciasLabelCampo {
+
+        font-size: .75rem;
+
+    }
+
+    .experienciasInputCampo {
+
+        height: 50px;
+
+        font-size: .9rem;
+
+        border-radius: 14px;
+
+        padding: 0 14px;
+
+    }
+
+    .experienciasTextareaCampo {
+
+        min-height: 120px;
+
+        padding: 14px;
+
+    }
+
+    .experienciasCardItem {
+
+        padding: 16px;
+
+        border-radius: 18px;
+
+    }
+
+    .experienciasCargoTexto {
+
+        font-size: 1.05rem;
+
+    }
+
+    .experienciasEmpresaTexto {
+
+        font-size: .9rem;
+
+    }
+
+    .experienciasResumoItem {
+
+        padding: 12px;
+
+    }
+
+    .experienciasDescricaoBox {
+
+        padding: 14px;
+
+    }
+
+    .experienciasDescricaoTexto {
+
+        font-size: .9rem;
+
+    }
+
+    .experienciasDetalhesLinha span {
+
+        font-size: .78rem;
+
+        padding: 8px 12px;
+
+    }
+
+    .experienciasVazioCard {
+
+        padding: 35px 20px;
+
+    }
+
+    .experienciasVazioTitulo {
+
+        font-size: 1rem;
+
+    }
+
+    .experienciasVazioTexto {
+
+        font-size: .9rem;
+
     }
 
 }

@@ -33,6 +33,104 @@
 
 }
 
+.infosCampoCarregando {
+
+    min-height: 170px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    animation: infosFade .25s ease;
+
+}
+
+.infosMiniSpinner {
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 50%;
+
+    border: 4px solid #dbeafe;
+
+    border-top-color: #2563eb;
+
+    animation: infosSpinner .8s linear infinite;
+
+}
+
+.infosCampoCarregando span {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #64748b;
+
+    letter-spacing: .3px;
+
+}
+
+@keyframes infosSpinner {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@keyframes infosFade {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+.infosBotaoEditar:disabled,
+.infosBotaoApagar:disabled,
+.infosBotaoAdicionar:disabled {
+
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+
+    box-shadow: none !important;
+
+    filter: grayscale(.15);
+
+}
+
 .infosCardCampo {
     background:
         linear-gradient(145deg,

@@ -526,8 +526,9 @@ export default function Divulgacoes({
                                 Categorias
 
                             </h2>
-
-                            <input
+                            <h4>
+                                Informe as categorias e cidades de seu interesse para encontrarmos empresas mais compatíveis com o seu perfil.
+                            </h4>                            <input
 
                                 className="divulgacoesCampo"
 

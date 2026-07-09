@@ -3,6 +3,14 @@
     min-height: 100vh;
 }
 
+.pacotesConteudo {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
 /* ===========================================================
    HERO
 =========================================================== */
@@ -470,5 +478,377 @@
 
     box-shadow:
         0 50px 120px rgba(37, 99, 235, .40);
+
+}
+
+/* ===========================================================
+   RESPONSIVO
+=========================================================== */
+
+@media (max-width:1200px) {
+
+    .pacotesHeroConteudo,
+    .pacotesExplicacao,
+    .pacotesFuncionamento,
+    .pacotesImportante {
+
+        padding-left: 30px;
+        padding-right: 30px;
+
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .pacotesHero {
+
+        min-height: auto;
+        border-radius: 0;
+
+    }
+
+    .pacotesHeroConteudo {
+
+        padding: 120px 30px 90px;
+        text-align: center;
+
+    }
+
+    .pacotesHeroConteudo h1 {
+
+        max-width: 100%;
+
+    }
+
+    .pacotesHeroConteudo p {
+
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+    .pacotesExplicacao {
+
+        padding: 90px 30px;
+
+    }
+
+    .pacotesFuncionamento {
+
+        padding: 20px 30px 90px;
+
+    }
+
+    .pacotesPromocao {
+
+        padding: 90px 30px;
+
+    }
+
+    .pacotesPromocaoCard {
+
+        padding: 55px 45px;
+
+    }
+
+    .pacotesImportante {
+
+        margin: 90px auto;
+
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .pacotesHero {
+
+        min-height: auto;
+
+    }
+
+    .pacotesHeroConteudo {
+
+        padding: 110px 22px 70px;
+
+    }
+
+    .pacotesHeroConteudo span {
+
+        font-size: .82rem;
+        letter-spacing: 1px;
+        padding: 9px 18px;
+
+    }
+
+    .pacotesHeroConteudo h1 {
+
+        margin-top: 24px;
+        font-size: 2.5rem;
+        line-height: 1.15;
+
+    }
+
+    .pacotesHeroConteudo p {
+
+        margin-top: 25px;
+        font-size: 1rem;
+        line-height: 1.8;
+
+    }
+
+    .pacotesExplicacao {
+
+        padding: 70px 22px;
+
+    }
+
+    .pacotesExplicacao h2 {
+
+        font-size: 2rem;
+        margin-bottom: 35px;
+
+    }
+
+    .pacotesExplicacao p {
+
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: 18px auto;
+
+    }
+
+    .pacotesFuncionamento {
+
+        padding: 0 22px 70px;
+
+    }
+
+    .pacotesFuncionamento h2 {
+
+        font-size: 2rem;
+        margin-bottom: 40px;
+
+    }
+
+    .pacotesGrid {
+
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+    }
+
+    .pacotesCard {
+
+        padding: 30px;
+
+    }
+
+    .pacotesCard h3 {
+
+        font-size: 1.25rem;
+
+    }
+
+    .pacotesCard p {
+
+        font-size: .97rem;
+        line-height: 1.8;
+
+    }
+
+    .pacotesFuncionamento::after {
+
+        margin-top: 60px;
+
+    }
+
+    .pacotesPromocao {
+
+        padding: 70px 22px;
+
+    }
+
+    .pacotesPromocao h2 {
+
+        font-size: 2rem;
+        margin-bottom: 35px;
+
+    }
+
+    .pacotesPromocaoCard {
+
+        padding: 40px 28px;
+        border-radius: 24px;
+        text-align: center;
+
+    }
+
+    .pacotesPromocaoCard::before {
+
+        width: 240px;
+        height: 240px;
+        right: -90px;
+        top: -90px;
+
+    }
+
+    .pacotesPromocaoCard::after {
+
+        width: 170px;
+        height: 170px;
+        left: -70px;
+        bottom: -70px;
+
+    }
+
+    .pacotesPromocaoCard h3 {
+
+        font-size: 1rem;
+        letter-spacing: 1px;
+
+    }
+
+    .pacotesPromocaoCard h1 {
+
+        margin: 18px 0;
+        font-size: 2.8rem;
+
+    }
+
+    .pacotesPromocaoCard p {
+
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 100%;
+
+    }
+
+    .pacotesImportante {
+
+        margin: 70px auto;
+        padding: 0 22px;
+
+    }
+
+    .pacotesImportante h2 {
+
+        font-size: 2rem;
+        margin-bottom: 30px;
+
+    }
+
+    .pacotesImportante p {
+
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: 18px auto;
+
+    }
+
+    .pacotesImportante p:last-child {
+
+        padding: 25px;
+        border-radius: 18px;
+
+    }
+
+}
+
+@media (max-width:480px) {
+
+    .pacotesHeroConteudo {
+
+        padding: 95px 18px 55px;
+
+    }
+
+    .pacotesHeroConteudo span {
+
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        font-size: .78rem;
+        padding: 10px 14px;
+
+    }
+
+    .pacotesHeroConteudo h1 {
+
+        font-size: 2rem;
+        margin-top: 20px;
+
+    }
+
+    .pacotesHeroConteudo p {
+
+        font-size: .95rem;
+
+    }
+
+    .pacotesExplicacao {
+
+        padding: 55px 18px;
+
+    }
+
+    .pacotesFuncionamento {
+
+        padding: 0 18px 55px;
+
+    }
+
+    .pacotesCard {
+
+        padding: 24px;
+
+    }
+
+    .pacotesPromocao {
+
+        padding: 55px 18px;
+
+    }
+
+    .pacotesPromocaoCard {
+
+        padding: 32px 22px;
+
+    }
+
+    .pacotesPromocaoCard h1 {
+
+        font-size: 2.3rem;
+
+    }
+
+    .pacotesPromocaoCard h3 {
+
+        font-size: .92rem;
+
+    }
+
+    .pacotesPromocaoCard p {
+
+        font-size: .95rem;
+
+    }
+
+    .pacotesImportante {
+
+        margin: 55px auto;
+        padding: 0 18px;
+
+    }
+
+    .pacotesImportante p:last-child {
+
+        padding: 22px;
+
+    }
 
 }

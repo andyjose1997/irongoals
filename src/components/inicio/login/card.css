@@ -1,104 +1,317 @@
 .igLoginCardInformacoes {
-    flex: 1;
 
-    background: linear-gradient(135deg,
-            #0f172a,
-            #1e293b);
+    width: 90% !important;
 
-    border-radius: 28px;
+    background:
+        radial-gradient(circle at top right, rgba(96, 165, 250, .18), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(59, 130, 246, .12), transparent 40%),
+        linear-gradient(135deg, #07162d, #0f172a 45%, #1e3a8a);
 
-    padding: 45px;
+    border-radius: 32px;
+
+    padding: 48px;
 
     color: white;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     gap: 22px;
 
     position: relative;
+
     overflow: hidden;
 
+    border: 1px solid rgba(255, 255, 255, .08);
+
     box-shadow:
-        0 20px 50px rgba(15, 23, 42, 0.25);
+        0 30px 80px rgba(15, 23, 42, .28);
+
 }
 
 .igLoginCardInformacoes::before {
+
     content: "";
 
     position: absolute;
 
-    width: 300px;
-    height: 300px;
-
-    top: -120px;
-    right: -120px;
+    width: 340px;
+    height: 340px;
 
     border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(96, 165, 250, .18),
+            transparent 70%);
+
+    top: -150px;
+    right: -150px;
+
+}
+
+.igLoginCardInformacoes::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(59, 130, 246, .10),
+            transparent 70%);
+
+    bottom: -130px;
+    left: -130px;
 
 }
 
 .igLoginNumerosTitulo {
+
     margin: 0;
 
-    font-size: 2rem;
+    font-size: 2.2rem;
+
+    line-height: 1.25;
+
     font-weight: 800;
-    line-height: 1.3;
 
     color: white;
 
     position: relative;
+
     z-index: 2;
+
 }
 
 .igLoginNumeroBox {
-    background: rgba(255, 255, 255, 0.06);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    border-radius: 18px;
-
-    padding: 20px 24px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-
-    backdrop-filter: blur(12px);
 
     position: relative;
+
     z-index: 2;
 
-    transition: 0.25s ease;
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 22px 24px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .08);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform .28s,
+        background .28s,
+        border-color .28s,
+        box-shadow .28s;
+
 }
 
 .igLoginNumeroBox:hover {
-    transform: translateY(-4px);
 
-    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-6px);
+
+    background: rgba(255, 255, 255, .12);
+
+    border-color: rgba(96, 165, 250, .45);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, .22);
+
 }
 
 .igLoginNumeroBox strong {
-    font-size: 2.4rem;
+
+    font-size: 2.5rem;
+
     font-weight: 800;
 
     color: #60a5fa;
+
+    line-height: 1;
+
 }
 
 .igLoginNumeroBox span {
-    color: #cbd5e1;
+
+    color: rgba(255, 255, 255, .88);
+
     font-size: 1rem;
-    line-height: 1.6;
+
+    line-height: 1.65;
+
 }
 
 .igLoginTextoInfo {
-    margin: 0;
-
-    color: #cbd5e1;
-
-    font-size: 1rem;
-    line-height: 1.9;
 
     position: relative;
+
     z-index: 2;
+
+    margin: 8px 0 0;
+
+    color: rgba(255, 255, 255, .82);
+
+    line-height: 1.9;
+
+    font-size: 1rem;
+
+}
+
+/* =======================================
+RESPONSIVO
+======================================= */
+
+@media (max-width:1200px) {
+
+    .igLoginCardInformacoes {
+
+        padding: 42px;
+
+    }
+
+    .igLoginNumerosTitulo {
+
+        font-size: 2rem;
+
+    }
+
+    .igLoginNumeroBox strong {
+
+        font-size: 2.3rem;
+
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .igLoginCardInformacoes {
+
+        padding: 38px;
+
+    }
+
+    .igLoginNumerosTitulo {
+
+        text-align: center;
+
+        font-size: 2rem;
+
+    }
+
+    .igLoginTextoInfo {
+
+        text-align: center;
+
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .igLoginCardInformacoes {
+
+        padding: 32px 26px;
+
+        border-radius: 24px;
+
+        gap: 18px;
+
+    }
+
+    .igLoginNumerosTitulo {
+
+        font-size: 1.75rem;
+
+    }
+
+    .igLoginNumeroBox {
+
+        padding: 18px 20px;
+
+        border-radius: 18px;
+
+    }
+
+    .igLoginNumeroBox strong {
+
+        font-size: 2rem;
+
+    }
+
+    .igLoginNumeroBox span {
+
+        font-size: .95rem;
+
+    }
+
+    .igLoginTextoInfo {
+
+        font-size: .95rem;
+
+    }
+
+}
+
+@media (max-width:480px) {
+
+    .igLoginCardInformacoes {
+
+        padding: 24px 18px;
+
+        border-radius: 20px;
+
+        gap: 16px;
+
+    }
+
+    .igLoginNumerosTitulo {
+
+        font-size: 1.45rem;
+
+    }
+
+    .igLoginNumeroBox {
+
+        padding: 16px;
+
+        border-radius: 16px;
+
+    }
+
+    .igLoginNumeroBox strong {
+
+        font-size: 1.75rem;
+
+    }
+
+    .igLoginNumeroBox span {
+
+        font-size: .9rem;
+
+        line-height: 1.55;
+
+    }
+
+    .igLoginTextoInfo {
+
+        font-size: .9rem;
+
+        line-height: 1.7;
+
+    }
+
 }
