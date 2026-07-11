@@ -4,4 +4,4 @@ const isLocalhost =
 
 export const API_URL = isLocalhost
     ? "http://localhost:8888"
-    : "https://irongoalsbackend.onrender.com";
+    : "https://irongoalsbackend-1.onrender.com";
