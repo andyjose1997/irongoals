@@ -281,7 +281,7 @@ export default function PortfolioPublico() {
                                             {
                                                 habilidade.tempo_experiencia && (
                                                     <p className="portfolioPublicoSkillTempo">
-                                                        {habilidade.tempo_experiencia}
+                                                        {habilidade.tempo_experiencia} de Experiencia
                                                     </p>
                                                 )
                                             }
