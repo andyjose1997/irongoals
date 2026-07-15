@@ -101,8 +101,26 @@ export default function Desempenho() {
     if (!desempenho) {
 
         return (
-            <div>
-                Carregando...
+            <div
+                className="divulgacoesProcessando"
+            >
+
+                <div
+                    className="divulgacoesSpinner"
+                />
+
+                <h2>
+
+                    Carregando suas informações...
+
+                </h2>
+
+                <p>
+
+                    Aguarde alguns instantes.
+
+                </p>
+
             </div>
         );
 

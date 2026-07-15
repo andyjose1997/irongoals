@@ -91,13 +91,88 @@ export default function Divulgacoes({
         setMensagem
 
     ] = useState("");
+    const [
+        etapaAtual,
+        setEtapaAtual
+    ] = useState(0);
 
     useEffect(() => {
 
         carregar();
 
     }, []);
+    useEffect(() => {
 
+        if (!processando) {
+
+            setEtapaAtual(0);
+
+            return;
+
+        }
+
+        setEtapaAtual(0);
+
+        const tempo1 = setTimeout(() => {
+
+            setEtapaAtual(1);
+
+        }, 10000);
+
+        const tempo2 = setTimeout(() => {
+
+            setEtapaAtual(2);
+
+        }, 20000);
+
+        const tempo3 = setTimeout(() => {
+
+            setEtapaAtual(3);
+
+        }, 30000);
+
+        let alternando;
+
+        const iniciarAlternancia = setTimeout(() => {
+
+            let mostrandoTerceira = true;
+
+            alternando = setInterval(() => {
+
+                if (mostrandoTerceira) {
+
+                    setEtapaAtual(2);
+
+                    setTimeout(() => {
+
+                        setEtapaAtual(3);
+
+                    }, 5000);
+
+                }
+
+                mostrandoTerceira = !mostrandoTerceira;
+
+            }, 10000);
+
+        }, 100000);
+
+        return () => {
+
+            clearTimeout(tempo1);
+            clearTimeout(tempo2);
+            clearTimeout(tempo3);
+            clearTimeout(iniciarAlternancia);
+
+            if (alternando) {
+
+                clearInterval(alternando);
+
+            }
+
+        };
+
+    }, [processando]);
     async function carregar() {
 
         const token =
@@ -390,37 +465,61 @@ export default function Divulgacoes({
                     className="divulgacoesEtapas"
                 >
 
-                    <div
-                        className="divulgacoesEtapa"
-                    >
+                    {
 
-                        ✔ Preparando seu perfil profissional
+                        etapaAtual === 0 && (
 
-                    </div>
+                            <div className="divulgacoesEtapa">
 
-                    <div
-                        className="divulgacoesEtapa"
-                    >
+                                ✔ Preparando seu perfil profissional
 
-                        ✔ Localizando empresas compatíveis
+                            </div>
 
-                    </div>
+                        )
 
-                    <div
-                        className="divulgacoesEtapa"
-                    >
+                    }
 
-                        ✔ Enviando seu perfil
+                    {
 
-                    </div>
+                        etapaAtual === 1 && (
 
-                    <div
-                        className="divulgacoesEtapa"
-                    >
+                            <div className="divulgacoesEtapa">
 
-                        ✔ Finalizando divulgação
+                                ✔ Localizando empresas compatíveis
 
-                    </div>
+                            </div>
+
+                        )
+
+                    }
+
+                    {
+
+                        etapaAtual === 2 && (
+
+                            <div className="divulgacoesEtapa">
+
+                                ✔ Enviando seu perfil
+
+                            </div>
+
+                        )
+
+                    }
+
+                    {
+
+                        etapaAtual === 3 && (
+
+                            <div className="divulgacoesEtapa">
+
+                                ✔ Finalizando divulgação
+
+                            </div>
+
+                        )
+
+                    }
 
                 </div>
 
@@ -468,7 +567,7 @@ export default function Divulgacoes({
 
             <button
                 className="divulgacoesBotaoVoltar"
-                onClick={voltar}
+                onClick={() => window.location.href = window.location.href}
             >
 
                 ← Voltar

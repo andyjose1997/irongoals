@@ -1,157 +1,292 @@
+/* ======================================
+CONTAINER
+====================================== */
+
 .perfilBotoesContainer {
+
     width: fit-content;
 
     display: flex;
+
     flex-wrap: wrap;
 
-    gap: 18px;
+    gap: 22px;
 
     padding: 30px;
 
-    background: #ffffff;
+    margin-top: 28px;
 
-    border-radius: 24px;
-
-    box-shadow:
-        0 25px 60px rgba(15, 23, 42, 0.08);
-
-    margin-top: 25px;
-}
-
-.perfilBotaoAtivo {
+    border-radius: 30px;
 
     background:
         linear-gradient(180deg,
-            #3b82f6,
-            #2563eb) !important;
+            rgba(255, 255, 255, .94),
+            rgba(248, 250, 252, .90));
 
-    color: white;
+    backdrop-filter: blur(28px);
 
-    border-color: #2563eb;
+    -webkit-backdrop-filter: blur(28px);
 
-    box-shadow:
-        0 15px 35px rgba(37, 99, 235, .35);
-
-}
-
-.perfilBotaoAtivo .perfilBotaoTexto,
-.perfilBotaoAtivo .perfilBotaoEmoji {
-
-    color: white;
-
-}
-
-.perfilBotaoAtivo::before {
-
-    display: none;
-
-}
-
-.perfilBotaoAtivo:hover {
-
-    background:
-        linear-gradient(180deg,
-            #4f8df8,
-            #2563eb) !important;
-
-    transform: translateY(-4px);
+    border: 1px solid rgba(226, 232, 240, .9);
 
     box-shadow:
-        0 18px 40px rgba(37, 99, 235, .45);
+        0 20px 60px rgba(15, 23, 42, .08),
+        inset 0 1px rgba(255, 255, 255, .9);
 
 }
+
+/* ======================================
+BOTÃO
+====================================== */
 
 .perfilBotaoAcao {
-    flex: 1 1 calc(33.333% - 12px);
-
-    min-width: 120px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(180deg,
-            #d3d2d2,
-            #a1a1a1fa);
-
-    color: #0f172a;
-
-    font-size: 1rem;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: all 0.25s ease;
 
     position: relative;
 
     overflow: hidden;
+
+    flex: 1 1 calc(33.333% - 15px);
+
+    min-width: 170px;
+
+    height: 140px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    border-radius: 22px;
+
+    border: 1px solid #e8eef5;
+
+    background:
+
+        linear-gradient(180deg,
+            #ffffff,
+            #fafbfc);
+
+    cursor: pointer;
+
+    transition:
+        transform .30s,
+        box-shadow .30s,
+        border-color .30s,
+        background .30s;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, .05);
+
 }
 
+/* brilho azul */
+
 .perfilBotaoAcao::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(circle at top,
+
+            rgba(37, 99, 235, .13),
+
+            transparent 70%);
+
+    opacity: 0;
+
+    transition: .35s;
+
+}
+
+/* reflexo */
+
+.perfilBotaoAcao::after {
+
     content: "";
 
     position: absolute;
 
     top: 0;
-    left: -120%;
 
-    width: 100%;
+    left: -140%;
+
+    width: 70%;
+
     height: 100%;
 
     background:
-        linear-gradient(90deg,
+
+        linear-gradient(110deg,
+
             transparent,
-            rgba(255, 255, 255, 0.8),
+
+            rgba(255, 255, 255, .8),
+
             transparent);
 
-    transition: 0.7s;
+    transition: .8s;
+
+}
+
+/* ======================================
+HOVER
+====================================== */
+
+.perfilBotaoAcao:hover {
+
+    transform:
+
+        translateY(-8px);
+
+    border-color: #bfdbfe;
+
+    background:
+
+        linear-gradient(180deg,
+
+            #ffffff,
+
+            #f6fbff);
+
+    box-shadow:
+
+        0 24px 45px rgba(37, 99, 235, .16);
+
 }
 
 .perfilBotaoAcao:hover::before {
-    left: 120%;
-}
 
-.perfilBotaoAcao:hover {
-    transform: translateY(-6px);
-
-    border-color: #2563eb;
-
-    box-shadow:
-        0 20px 40px rgba(37, 99, 235, 0.18);
-
-    background:
-        linear-gradient(180deg,
-            #ffffff,
-            #eff6ff);
-}
-
-.perfilBotaoAcao:active {
-    transform: translateY(-2px);
-}
-
-.perfilBotaoEmoji {
-
-    display: none;
-
-    font-size: 28px;
+    opacity: 1;
 
 }
+
+.perfilBotaoAcao:hover::after {
+
+    left: 160%;
+
+}
+
+/* ======================================
+ÁREA DO ÍCONE
+====================================== */
+
+.perfilBotaoIcone {
+
+    width: 58px;
+
+    height: 58px;
+
+    object-fit: contain;
+
+    transition:
+        transform .30s,
+        filter .30s;
+
+}
+
+.perfilBotaoAcao:hover .perfilBotaoIcone {
+
+    transform:
+
+        scale(1.12);
+
+}
+
+/* ======================================
+TEXTO
+====================================== */
 
 .perfilBotaoTexto {
 
-    display: flex;
+    font-size: .97rem;
+
+    font-weight: 700;
+
+    color: #334155;
+
+    letter-spacing: .2px;
+
+    transition: .3s;
+
+    text-align: center;
+
+    line-height: 1.4;
 
 }
+
+/* ======================================
+BOTÃO ATIVO
+====================================== */
+
+.perfilBotaoAtivo {
+
+    border: 2px solid #2563eb;
+
+    background:
+
+        linear-gradient(180deg,
+
+            #f7fbff,
+
+            #edf6ff);
+
+    box-shadow:
+
+        0 25px 50px rgba(37, 99, 235, .22);
+
+}
+
+.perfilBotaoAtivo::before {
+
+    opacity: 1;
+
+}
+
+.perfilBotaoAtivo .perfilBotaoTexto {
+
+    color: #2563eb;
+
+}
+
+.perfilBotaoAtivo .perfilBotaoIcone {
+
+    transform: scale(1.08);
+
+}
+
+.perfilBotaoAtivo:hover {
+
+    transform:
+
+        translateY(-8px);
+
+}
+
+/* ======================================
+BOTÃO DA SETA
+====================================== */
 
 .perfilBotaoSeta {
+
     display: none;
+
 }
+
+/* ======================================
+RESPONSIVO
+====================================== */
 
 @media (max-width:990px) {
 
@@ -171,28 +306,33 @@
 
         align-items: center;
 
-        gap: 10px;
+        gap: 14px;
 
-        padding: 14px 10px;
+        padding: 16px 12px;
 
-        border-radius: 26px;
+        border-radius: 28px;
 
-        background: rgba(255, 255, 255, .78);
+        background:
 
-        backdrop-filter: blur(24px);
+            linear-gradient(180deg,
+                rgba(255, 255, 255, .92),
+                rgba(248, 250, 252, .88));
 
-        -webkit-backdrop-filter: blur(24px);
+        backdrop-filter: blur(26px);
 
-        border: 1px solid rgba(255, 255, 255, .55);
+        -webkit-backdrop-filter: blur(26px);
+
+        border: 1px solid rgba(226, 232, 240, .85);
 
         box-shadow:
-            0 30px 60px rgba(15, 23, 42, .16),
-            inset 0 1px rgba(255, 255, 255, .75);
+
+            0 30px 70px rgba(15, 23, 42, .16),
+            inset 0 1px rgba(255, 255, 255, .9);
 
         z-index: 99999;
 
         transition:
-            width .35s,
+
             padding .35s,
             transform .35s,
             box-shadow .35s;
@@ -202,63 +342,49 @@
     .perfilBotoesContainer:hover {
 
         box-shadow:
-            0 40px 70px rgba(15, 23, 42, .22),
-            inset 0 1px rgba(255, 255, 255, .8);
+
+            0 38px 80px rgba(15, 23, 42, .22),
+            inset 0 1px rgba(255, 255, 255, .9);
 
     }
 
     .perfilBotaoAcao {
 
-        width: 52px;
+        width: 64px;
 
-        height: 52px;
+        height: 64px;
 
-        min-width: 52px;
+        min-width: 64px;
 
         padding: 0;
 
-        border: none;
-        padding: 6px;
+        gap: 0;
 
-        border-radius: 18px;
+        border-radius: 20px;
 
-        display: flex;
+        flex: none;
 
-        align-items: center;
+        background:
 
-        justify-content: center;
-
-        background: linear-gradient(180deg,
+            linear-gradient(180deg,
                 #ffffff,
-                #edf2f7);
+                #f8fafc);
 
         box-shadow:
-            0 8px 18px rgba(15, 23, 42, .10);
 
-        transition:
-            transform .28s,
-            background .28s,
-            box-shadow .28s;
+            0 10px 22px rgba(15, 23, 42, .08);
 
     }
 
     .perfilBotaoAcao:hover {
 
         transform:
+
             translateX(-4px) scale(1.08);
 
-        background: linear-gradient(180deg,
-                #ffffff,
-                #dbeafe);
-
         box-shadow:
-            0 16px 30px rgba(37, 99, 235, .22);
 
-    }
-
-    .perfilBotaoAcao:active {
-
-        transform: scale(.94);
+            0 18px 35px rgba(37, 99, 235, .18);
 
     }
 
@@ -268,84 +394,105 @@
 
     }
 
-    .perfilBotaoEmoji {
+    .perfilBotaoIcone {
+
+        width: 34px;
+
+        height: 34px;
+
+    }
+
+    .perfilBotaoAtivo {
+
+        border: 2px solid #2563eb;
+
+        background:
+
+            linear-gradient(180deg,
+                #eff6ff,
+                #dbeafe);
+
+        box-shadow:
+
+            0 18px 35px rgba(37, 99, 235, .28);
+
+    }
+
+    .perfilBotaoAtivo .perfilBotaoIcone {
+
+        transform: scale(1.12);
+
+    }
+
+    /* ===========================
+       BOTÃO ABRIR / FECHAR
+    =========================== */
+
+    .perfilBotaoSeta {
+
+        width: 64px;
+
+        height: 64px;
 
         display: flex;
 
         align-items: center;
 
         justify-content: center;
-
-        font-size: 25px;
-
-        line-height: 1;
-
-        transition:
-            transform .25s;
-
-    }
-
-    .perfilBotaoAcao:hover .perfilBotaoEmoji {
-
-        transform: scale(1.15);
-
-    }
-
-    .perfilBotaoSeta {
-        display: block;
-        width: 52px;
-
-        height: 52px;
 
         border: none;
 
-        border-radius: 18px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        background: linear-gradient(180deg,
-                #2563eb,
-                #1d4ed8);
-
-        color: white;
-
-        font-size: 21px;
+        border-radius: 20px;
 
         cursor: pointer;
 
+        background:
+
+            linear-gradient(180deg,
+                #3b82f6,
+                #2563eb);
+
+        color: white;
+
+        font-size: 22px;
+
         box-shadow:
-            0 15px 30px rgba(37, 99, 235, .35);
+
+            0 18px 35px rgba(37, 99, 235, .35);
 
         transition:
-            transform .30s,
-            box-shadow .30s,
-            background .30s;
+
+            transform .35s,
+            box-shadow .35s,
+            background .35s;
 
     }
 
     .perfilBotaoSeta:hover {
 
         transform:
-            scale(1.08) rotate(180deg);
+
+            rotate(180deg) scale(1.08);
 
         box-shadow:
-            0 22px 40px rgba(37, 99, 235, .45);
+
+            0 24px 42px rgba(37, 99, 235, .45);
 
     }
 
     .perfilBotaoSeta:active {
 
-        transform: scale(.95);
+        transform: scale(.94);
 
     }
 
+    /* ===========================
+       MENU FECHADO
+    =========================== */
+
     .perfilBotoesFechado {
 
-        padding: 12px 8px;
+        padding: 12px;
 
     }
 
@@ -353,15 +500,25 @@
 
         opacity: 0;
 
-        transform:
-            translateX(40px) scale(.7);
+        width: 0;
 
-        pointer-events: none;
         height: 0;
 
         margin: 0;
 
+        padding: 0;
+
         overflow: hidden;
+
+        transform:
+
+            translateX(45px) scale(.6);
+
+        pointer-events: none;
+
+        box-shadow: none;
+
+        border: none;
 
     }
 
@@ -370,5 +527,44 @@
         transform: rotate(180deg);
 
     }
+
+}
+
+/* ======================================
+ANIMAÇÕES
+====================================== */
+
+.perfilBotaoAcao,
+.perfilBotaoSeta {
+
+    will-change:
+        transform,
+        box-shadow,
+        opacity;
+
+}
+
+.perfilBotaoAcao:active {
+
+    transform:
+
+        scale(.97);
+
+}
+
+.perfilBotaoIcone {
+    border-radius: 10px;
+    image-rendering: auto;
+    width: 50px;
+    height: 50px;
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+}
+
+.perfilBotaoTexto {
+
+    user-select: none;
 
 }

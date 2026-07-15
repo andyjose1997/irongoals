@@ -4,6 +4,15 @@ import {
     useNavigate,
     useLocation
 } from "react-router-dom";
+import desempenhoImg from "./emojis/desempenho.png";
+import informacoesImg from "./emojis/informacoes.png";
+import experienciasImg from "./emojis/experiencias.png";
+import formacaoImg from "./emojis/formacao.png";
+import habilidadesImg from "./emojis/habilidades.png";
+import idiomasImg from "./emojis/idiomas.png";
+
+
+
 export default function Botoes() {
 
     const navigate = useNavigate();
@@ -13,34 +22,36 @@ export default function Botoes() {
         setAberto
     ] = useState(true);
     const location = useLocation();
+
+
     const botoes = [
         {
-            emoji: "📊",
+            imagem: desempenhoImg,
             texto: "Desempenho",
             rota: "/portfolio/desempenho"
         },
         {
-            emoji: "👤",
+            imagem: informacoesImg,
             texto: "Informações",
             rota: "/portfolio/infos"
         },
         {
-            emoji: "💼",
+            imagem: experienciasImg,
             texto: "Experiências",
             rota: "/portfolio/experiencias"
         },
         {
-            emoji: "🎓",
+            imagem: formacaoImg,
             texto: "Formação",
             rota: "/portfolio/formacao"
         },
         {
-            emoji: "⭐",
+            imagem: habilidadesImg,
             texto: "Habilidades",
             rota: "/portfolio/habilidades"
         },
         {
-            emoji: "🌎",
+            imagem: idiomasImg,
             texto: "Idiomas",
             rota: "/portfolio/idiomas"
         }
@@ -77,11 +88,18 @@ export default function Botoes() {
                     <button
                         key={botao.rota}
                         className={`perfilBotaoAcao ${location.pathname === botao.rota
-                                ? "perfilBotaoAtivo"
-                                : ""
-                            }`} title={botao.texto}
+                            ? "perfilBotaoAtivo"
+                            : ""
+                            }`}
+                        title={botao.texto}
                         onClick={() => navigate(botao.rota)}
                     >
+
+                        <img
+                            src={botao.imagem}
+                            alt={botao.texto}
+                            className="perfilBotaoIcone"
+                        />
 
                         <span className="perfilBotaoTexto">
 
@@ -89,14 +107,7 @@ export default function Botoes() {
 
                         </span>
 
-                        <span className="perfilBotaoEmoji">
-
-                            {botao.emoji}
-
-                        </span>
-
                     </button>
-
                 ))
             }
 
