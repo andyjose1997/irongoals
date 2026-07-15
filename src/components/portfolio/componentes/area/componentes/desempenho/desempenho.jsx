@@ -709,7 +709,33 @@ export default function Desempenho() {
                         }
 
                     </p>
+                    {
+                        desempenho.empresas_divulgadas?.length > 0 && (
 
+                            <p
+                                className="desempenhoMetricaDescricao"
+                            >
+
+                                Parabéns! Seu perfil profissional já foi divulgado para empresas como{" "}
+
+                                <strong>
+
+                                    {
+                                        desempenho.empresas_divulgadas
+                                            .map(
+                                                item => item.empresa
+                                            )
+                                            .join(", ")
+                                    }
+
+                                </strong>
+
+                                , aumentando suas oportunidades de ser encontrado por recrutadores.
+
+                            </p>
+
+                        )
+                    }
                 </div>
 
             </div>

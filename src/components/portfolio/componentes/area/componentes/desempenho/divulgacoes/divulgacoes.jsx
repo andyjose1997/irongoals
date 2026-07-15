@@ -120,7 +120,7 @@ export default function Divulgacoes({
 
             setEtapaAtual(1);
 
-        }, 10000);
+        }, 20000);
 
         const tempo2 = setTimeout(() => {
 
@@ -156,9 +156,9 @@ export default function Divulgacoes({
 
                 mostrandoTerceira = !mostrandoTerceira;
 
-            }, 10000);
+            }, 20000);
 
-        }, 100000);
+        }, 200000);
 
         return () => {
 
@@ -970,7 +970,8 @@ export default function Divulgacoes({
                             className="divulgacoesSemCreditosTexto"
                         >
 
-                            Quando adquirir novos créditos, esta área será liberada para iniciar novas divulgações.
+                            Quando adquirir novos créditos, esta área será liberada para iniciar novas divulgações. <br />
+                            Volte para acompanhar seu progresso.
 
                         </p>
 
