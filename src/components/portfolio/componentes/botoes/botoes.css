@@ -293,9 +293,8 @@ RESPONSIVO
     .perfilBotoesContainer {
 
         position: fixed;
-
         top: 50%;
-
+        width: 50px;
         right: 18px;
 
         transform: translateY(-50%);
@@ -350,11 +349,11 @@ RESPONSIVO
 
     .perfilBotaoAcao {
 
-        width: 64px;
+        width: 44px;
 
-        height: 64px;
-
-        min-width: 64px;
+        height: 44px;
+        border-radius: 10px !important;
+        min-width: 44px;
 
         padding: 0;
 
@@ -430,9 +429,9 @@ RESPONSIVO
 
     .perfilBotaoSeta {
 
-        width: 64px;
+        width: 44px;
 
-        height: 64px;
+        height: 44px;
 
         display: flex;
 
