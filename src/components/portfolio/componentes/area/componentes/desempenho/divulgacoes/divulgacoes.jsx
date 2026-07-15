@@ -83,7 +83,10 @@ export default function Divulgacoes({
         setProcessando
 
     ] = useState(false);
-
+    const [
+        finalizandoAnimacao,
+        setFinalizandoAnimacao
+    ] = useState(false);
     const [
 
         mensagem,
@@ -392,18 +395,34 @@ export default function Divulgacoes({
                 }
 
             );
-
         const dados =
             await resposta.json();
+
+        setFinalizandoAnimacao(
+            true
+        );
+
+        await new Promise(
+
+            resolve =>
+
+                setTimeout(
+                    resolve,
+                    2000
+                )
+
+        );
 
         setProcessando(
             false
         );
 
+        setFinalizandoAnimacao(
+            false
+        );
+
         if (
-
             !dados.sucesso
-
         ) {
 
             setMensagem(
@@ -438,7 +457,13 @@ export default function Divulgacoes({
         return (
 
             <div
-                className="divulgacoesProcessando"
+                className={
+                    finalizandoAnimacao
+
+                        ? "divulgacoesProcessando divulgacoesProcessandoSaindo"
+
+                        : "divulgacoesProcessando"
+                }
             >
 
                 <div
