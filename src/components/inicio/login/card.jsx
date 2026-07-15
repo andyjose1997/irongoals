@@ -187,12 +187,20 @@ export default function Card() {
                 )
 
             }
-
             <p
                 className="igLoginTextoInfo"
             >
+                <span className="igLoginTextoInfoEstrelas"></span>
 
-                Crie gratuitamente seu perfil profissional e permita que empresas compatíveis encontrem você.
+                {
+
+                    estatisticas?.usuarios < 150
+
+                        ? "Você pode fazer parte dos primeiros 150 candidatos fundadores da IronGoals e receber 300 créditos gratuitos para divulgar seu perfil profissional."
+
+                        : "Crie gratuitamente seu perfil profissional e permita que empresas compatíveis encontrem você."
+
+                }
 
             </p>
 

@@ -160,13 +160,293 @@
 
     z-index: 2;
 
-    margin: 8px 0 0;
+    margin-top: 32px;
 
-    color: rgba(255, 255, 255, .82);
+    padding: 22px 24px 22px 78px;
 
-    line-height: 1.9;
+    border-radius: 22px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, .18),
+            rgba(255, 255, 255, .08));
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, .18);
+
+    color: rgba(255, 255, 255, .96);
 
     font-size: 1rem;
+
+    line-height: 1.8;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .18);
+
+    transition:
+        transform .35s,
+        box-shadow .35s,
+        border-color .35s;
+
+}
+
+.igLoginTextoInfo::before {
+
+    content: "🚀";
+
+    position: absolute;
+
+    left: 22px;
+
+    top: 50%;
+
+    transform: translateY(-50%) rotate(-45deg);
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    background: rgba(255, 255, 255, .15);
+
+    backdrop-filter: blur(10px);
+
+    animation: igLoginPulseIcon 2s infinite;
+
+    z-index: 3;
+
+}
+
+.igLoginTextoInfo::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -150%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background: linear-gradient(110deg,
+            transparent,
+            rgba(255, 255, 255, .35),
+            transparent);
+
+    animation: igLoginBrilho 4s linear infinite;
+
+    z-index: 2;
+
+}
+
+.igLoginTextoInfoEstrelas {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+.igLoginTextoInfoEstrelas::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: -250px;
+
+    width: 2px;
+
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    box-shadow:
+
+        15px 20px #fff,
+        38px 95px rgba(255, 255, 255, .9),
+        62px 40px #fff,
+        84px 170px rgba(255, 255, 255, .8),
+        120px 65px #fff,
+        145px 210px rgba(255, 255, 255, .8),
+        180px 120px #fff,
+        215px 40px rgba(255, 255, 255, .9),
+        250px 180px #fff,
+        285px 80px rgba(255, 255, 255, .7),
+        320px 220px #fff,
+        360px 60px rgba(255, 255, 255, .9),
+        400px 160px #fff,
+        445px 20px #fff,
+        480px 240px rgba(255, 255, 255, .8),
+        520px 130px #fff,
+        560px 70px rgba(255, 255, 255, .9),
+        610px 180px #fff,
+        660px 30px #fff,
+        720px 220px rgba(255, 255, 255, .9);
+
+    animation: igLoginEstrelas 1.8s linear infinite;
+
+    opacity: .85;
+
+}
+
+.igLoginTextoInfoEstrelas::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: -250px;
+
+    width: 3px;
+
+    height: 22px;
+
+    border-radius: 20px;
+
+    background: transparent;
+
+    box-shadow:
+
+        50px 40px rgba(255, 255, 255, .7),
+        170px 120px rgba(255, 255, 255, .8),
+        290px 70px rgba(255, 255, 255, .8),
+        410px 180px rgba(255, 255, 255, .7),
+        560px 40px rgba(255, 255, 255, .8),
+        680px 140px rgba(255, 255, 255, .7);
+
+    animation: igLoginRiscos 1s linear infinite;
+
+    opacity: .5;
+
+}
+
+.igLoginTextoInfo:hover {
+
+    transform: translateY(-4px);
+
+    border-color: rgba(255, 255, 255, .35);
+
+    box-shadow:
+        0 28px 60px rgba(0, 0, 0, .28);
+
+}
+
+.igLoginTextoInfo strong {
+
+    color: #ffffff;
+
+    font-weight: 800;
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+.igLoginTextoInfo * {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+@keyframes igLoginPulseIcon {
+
+    0% {
+
+        transform: translateY(-50%) scale(1);
+
+    }
+
+    50% {
+
+        transform: translateY(-50%) scale(1.08);
+
+    }
+
+    100% {
+
+        transform: translateY(-50%) scale(1);
+
+    }
+
+}
+
+@keyframes igLoginBrilho {
+
+    from {
+
+        left: -150%;
+
+    }
+
+    to {
+
+        left: 170%;
+
+    }
+
+}
+
+@keyframes igLoginEstrelas {
+
+    from {
+
+        transform: translate(120px, -220px);
+
+    }
+
+    to {
+
+        transform: translate(-120px, 320px);
+
+    }
+
+}
+
+@keyframes igLoginRiscos {
+
+    from {
+
+        transform: translate(140px, -250px) rotate(28deg);
+
+    }
+
+    to {
+
+        transform: translate(-140px, 350px) rotate(28deg);
+
+    }
 
 }
 
