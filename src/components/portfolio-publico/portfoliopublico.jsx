@@ -228,7 +228,10 @@ export default function PortfolioPublico() {
                             {perfil.contatos?.site && (
                                 <a
                                     href={
-                                        perfil.contatos.site
+                                        perfil.contatos.site.startsWith("http://") ||
+                                            perfil.contatos.site.startsWith("https://")
+                                            ? perfil.contatos.site
+                                            : `https://${perfil.contatos.site}`
                                     }
                                     target="_blank"
                                     rel="noreferrer"
