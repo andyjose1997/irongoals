@@ -34,6 +34,7 @@ const VALORES_INICIAIS = {
 
 export default function Experiencias() {
     const inputRefs = useRef([]);
+    const formularioRef = useRef(null);
     const [experiencias, setExperiencias] = useState([]);
     const [formulario, setFormulario] = useState(VALORES_INICIAIS);
     const [editandoId, setEditandoId] = useState(null);
@@ -153,6 +154,19 @@ export default function Experiencias() {
 
         setEditandoId(experiencia.id);
         setMostrarFormulario(true);
+        setTimeout(() => {
+
+            const topo =
+                formularioRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                200;
+
+            window.scrollTo({
+                top: topo,
+                behavior: "smooth"
+            });
+
+        }, 50);
     }
 
     async function salvarExperiencia() {
@@ -374,8 +388,10 @@ export default function Experiencias() {
             )}
 
             {mostrarFormulario && (
-                <div className="experienciasFormularioCard">
-
+                <div
+                    ref={formularioRef}
+                    className="experienciasFormularioCard"
+                >
                     <h3 className="experienciasFormularioTitulo">
                         {
                             editandoId
