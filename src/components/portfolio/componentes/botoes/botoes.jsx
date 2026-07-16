@@ -75,8 +75,8 @@ export default function Botoes() {
 
                 {
                     aberto
-                        ? "⬆️"
-                        : "⬅️"
+                        ? "🔼"
+                        : "🔽"
                 }
 
             </button>
