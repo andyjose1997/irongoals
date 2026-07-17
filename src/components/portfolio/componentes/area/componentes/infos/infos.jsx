@@ -14,7 +14,7 @@ const CAMPOS = [
     { chave: "estado_civil", titulo: "Estado Civil" },
     { chave: "nacionalidade", titulo: "Nacionalidade" },
     { chave: "possui_cnh", titulo: "Possui CNH" },
-    { chave: "possui_veiculo", titulo: "Possui Veículo" },
+    { chave: "possui_veiculo", titulo: "Possui Veículo? Qual?" },
     { chave: "disponibilidade", titulo: "Disponibilidade" }
 ];
 

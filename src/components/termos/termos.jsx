@@ -267,7 +267,7 @@ export default function Termos() {
 
                     <p>
 
-                        Estes termos poderão ser atualizados sempre que necessário para acompanhar a evolução da plataforma. Alterações relevantes poderão exigir um novo aceite.
+                        Estes termos poderão ser atualizados sempre que necessário para acompanhar a evolução da plataforma.
 
                     </p>
 
@@ -279,7 +279,7 @@ export default function Termos() {
 
                     <p>
 
-                        Ao clicar em <strong>"Li e Aceito os Termos"</strong>, você declara que leu, compreendeu e concorda com todas as condições de utilização da plataforma IronGoals.
+                        Ao clicar em <strong>"Li e Aceito os Termos"</strong>, você declara que leu, compreendeu e concorda com todas as condições de utilização da plataforma IronGoals. Você também declara ser maior de 18 anos ou possuir capacidade legal para aceitar estes termos e assumir integral responsabilidade pelas informações fornecidas e pela utilização da plataforma.
 
                     </p>
 

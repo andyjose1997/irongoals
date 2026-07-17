@@ -72,7 +72,7 @@ const VALORES_INICIAIS = {
 };
 
 export default function Formacao() {
-
+    const formularioRef = useRef(null);
     const inputRefs = useRef([]);
 
     const [formacoes, setFormacoes] =
@@ -216,7 +216,19 @@ export default function Formacao() {
         setMostrarFormulario(
             true
         );
+        setTimeout(() => {
 
+            const topo =
+                formularioRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                200;
+
+            window.scrollTo({
+                top: topo,
+                behavior: "smooth"
+            });
+
+        }, 50);
     }
 
     async function salvarFormacao() {
@@ -526,8 +538,10 @@ export default function Formacao() {
 
             {mostrarFormulario && (
 
-                <div className="formacaoFormularioCard">
-
+                <div
+                    ref={formularioRef}
+                    className="formacaoFormularioCard"
+                >
                     <h3 className="formacaoFormularioTitulo">
 
                         {

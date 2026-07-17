@@ -39,7 +39,7 @@ const VALORES_INICIAIS = {
 };
 
 export default function Habilidades() {
-
+    const formularioRef = useRef(null);
     const inputRefs = useRef([]);
 
     const [habilidades, setHabilidades] =
@@ -183,6 +183,19 @@ export default function Habilidades() {
         setMostrarFormulario(
             true
         );
+        setTimeout(() => {
+
+            const topo =
+                formularioRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                200;
+
+            window.scrollTo({
+                top: topo,
+                behavior: "smooth"
+            });
+
+        }, 50);
     }
 
     function editarHabilidade(
@@ -220,6 +233,20 @@ export default function Habilidades() {
         setMostrarFormulario(
             true
         );
+        setTimeout(() => {
+
+            const topo =
+                formularioRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                200;
+
+            window.scrollTo({
+                top: topo,
+                behavior: "smooth"
+            });
+
+        }, 50);
+
     }
 
     async function salvarHabilidade() {
@@ -462,8 +489,10 @@ export default function Habilidades() {
 
             {mostrarFormulario && (
 
-                <div className="habilidadesFormularioContainer">
-
+                <div
+                    ref={formularioRef}
+                    className="habilidadesFormularioContainer"
+                >
                     <div className="habilidadesFormularioGrid">
 
                         {CAMPOS_HABILIDADE.map(

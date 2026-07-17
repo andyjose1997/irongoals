@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { API_URL } from "../../../../../../config";
 import "./idiomas.css";
 
@@ -8,7 +9,7 @@ const VALORES_INICIAIS = {
 };
 
 export default function Idiomas() {
-
+    const formularioRef = useRef(null);
     const [idiomas, setIdiomas] =
         useState([]);
 
@@ -78,6 +79,19 @@ export default function Idiomas() {
         setMostrarFormulario(
             true
         );
+        setTimeout(() => {
+
+            const topo =
+                formularioRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                200;
+
+            window.scrollTo({
+                top: topo,
+                behavior: "smooth"
+            });
+
+        }, 50);
     }
 
     function editarIdioma(
@@ -101,6 +115,19 @@ export default function Idiomas() {
         setMostrarFormulario(
             true
         );
+        setTimeout(() => {
+
+            const topo =
+                formularioRef.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                200;
+
+            window.scrollTo({
+                top: topo,
+                behavior: "smooth"
+            });
+
+        }, 50);
     }
 
     async function salvarIdioma() {
@@ -219,8 +246,10 @@ export default function Idiomas() {
 
             {mostrarFormulario && (
 
-                <div className="idiomasFormularioContainer">
-
+                <div
+                    ref={formularioRef}
+                    className="idiomasFormularioContainer"
+                >
                     <input
                         className="idiomasInputCampo"
                         placeholder="Idioma"

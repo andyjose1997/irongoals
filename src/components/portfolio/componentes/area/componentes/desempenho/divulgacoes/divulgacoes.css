@@ -954,3 +954,21 @@
     }
 
 }
+
+.divulgacoesProcessando {
+
+    opacity: 1;
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+}
+
+.divulgacoesProcessandoSaindo {
+
+    opacity: 0;
+
+    transform: scale(.98);
+
+}
