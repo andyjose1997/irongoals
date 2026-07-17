@@ -22,7 +22,7 @@ export default function Corpo() {
 
             buscarCandidatosLanding();
 
-        }, 5000);
+        }, 17000);
 
         return () => clearInterval(intervalo);
 
