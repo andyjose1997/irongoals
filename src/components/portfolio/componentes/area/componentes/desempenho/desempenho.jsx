@@ -716,21 +716,25 @@ export default function Desempenho() {
                                 className="desempenhoMetricaDescricao"
                             >
 
-                                Parabéns! Seu perfil profissional já foi divulgado para empresas como{" "}
+                                Seu perfil profissional já foi divulgado para empresas como{" "}
 
                                 <strong>
-
                                     {
                                         desempenho.empresas_divulgadas
-                                            .map(
-                                                item => item.empresa
-                                            )
+                                            .map(item => item.empresa)
                                             .join(", ")
                                     }
-
                                 </strong>
 
-                                , aumentando suas oportunidades de ser encontrado por recrutadores.
+                                {" "}e outras{" "}
+
+                                <strong>
+                                    {
+                                        desempenho.creditos_usados - 3
+                                    }
+                                </strong>
+
+                                {" "}empresas, ampliando sua visibilidade perante recrutadores e aumentando suas oportunidades de participar de processos seletivos.
 
                             </p>
 
