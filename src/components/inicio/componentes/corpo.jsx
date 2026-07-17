@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./corpo.css";
-
+import { API_URL } from "../../../config";
 export default function Corpo() {
 
     const navigate = useNavigate();
 
     const [logado, setLogado] = useState(false);
+    const [candidatosLanding, setCandidatosLanding] = useState([]);
+
 
     useEffect(() => {
 
@@ -14,8 +16,92 @@ export default function Corpo() {
             !!localStorage.getItem("token")
         );
 
+        buscarCandidatosLanding();
+
+        const intervalo = setInterval(() => {
+
+            buscarCandidatosLanding();
+
+        }, 5000);
+
+        return () => clearInterval(intervalo);
+
     }, []);
 
+    const FRASES = [
+
+        "Perfil profissional disponível para empresas.",
+
+        "Em busca de novas oportunidades profissionais.",
+
+        "Disponível para ser encontrado por recrutadores.",
+
+        "Compartilhando seu perfil com empresas compatíveis.",
+
+        "Preparado para novas oportunidades de carreira.",
+
+        "Perfil atualizado na plataforma.",
+
+        "Conectando competências às empresas certas.",
+
+        "Aumentando sua visibilidade profissional.",
+
+        "Expandindo suas oportunidades de trabalho.",
+
+        "Fazendo parte da comunidade IronGoals."
+
+    ];
+    async function buscarCandidatosLanding() {
+
+        try {
+
+            const resposta = await fetch(
+                `${API_URL}/landing/candidatos`
+            );
+
+            if (!resposta.ok) {
+                return;
+            }
+
+            const dados = await resposta.json();
+
+            const frasesDisponiveis = [...FRASES];
+
+            const candidatos = dados.map((candidato) => {
+
+                if (frasesDisponiveis.length === 0) {
+
+                    frasesDisponiveis.push(...FRASES);
+
+                }
+
+                const indice = Math.floor(
+                    Math.random() * frasesDisponiveis.length
+                );
+
+                const frase = frasesDisponiveis.splice(indice, 1)[0];
+
+                return {
+
+                    ...candidato,
+
+                    frase
+
+                };
+
+            });
+
+            setCandidatosLanding(candidatos);
+
+        }
+
+        catch (erro) {
+
+            console.log(erro);
+
+        }
+
+    }
     return (
         <main className="igCorpoPrincipalContainer">
 
@@ -25,12 +111,59 @@ export default function Corpo() {
                     Conectamos profissionais e empresas
                     através de compatibilidade inteligente.
                 </h1>
+                <div className="igCorpoComunidadeContainer">
 
-                <p className="igCorpoHeroDescricao">
-                    Crie seu perfil profissional, aumente sua visibilidade
-                    e receba oportunidades de empresas compatíveis com
-                    seus objetivos.
-                </p>
+                    <p className="igCorpoComunidadeTitulo">
+                        Alguns profissionais que utilizam a IronGoals
+                    </p>
+
+                    <div className="igCorpoComunidadeLista">
+
+                        {
+
+                            candidatosLanding.map((pessoa) => (
+
+                                <div
+                                    key={pessoa.nome + pessoa.sobrenome}
+                                    className="igCorpoComunidadeCard"
+                                >
+
+                                    <img
+                                        src={pessoa.foto}
+                                        alt={pessoa.nome}
+                                        className="igCorpoComunidadeFoto"
+                                    />
+
+                                    <div className="igCorpoComunidadeInfo">
+
+                                        <strong>
+
+                                            {pessoa.nome} {pessoa.sobrenome}
+
+                                        </strong>
+
+                                        <span>
+                                            {pessoa.frase}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            ))
+
+                        }
+
+                    </div>
+
+                    <p className="igCorpoComunidadeTexto">
+
+                        Cadastre seu perfil gratuitamente e aumente suas oportunidades de ser encontrado por empresas compatíveis.
+
+                    </p>
+
+                </div>
+
 
                 <div className="igCorpoHeroBotoesArea">
 

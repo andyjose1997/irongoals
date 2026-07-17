@@ -21,6 +21,374 @@
     margin-bottom: 25px;
 }
 
+
+/* ======================================
+COMUNIDADE
+====================================== */
+
+.igCorpoComunidadeContainer {
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 40px auto 45px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.igCorpoComunidadeContainer::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, .05);
+
+    filter: blur(90px);
+
+    top: -80px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: -1;
+
+}
+
+.igCorpoComunidadeTitulo {
+
+    color: #2563eb;
+
+    font-size: .95rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 22px;
+
+    position: relative;
+
+}
+
+.igCorpoComunidadeTitulo::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 3px;
+
+    border-radius: 50px;
+
+    background: #2563eb;
+
+    margin: 10px auto 0;
+
+}
+
+.igCorpoComunidadeLista {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.igCorpoComunidadeCard {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    background: rgba(255, 255, 255, .88);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    padding: 18px 22px;
+
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, .06);
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s,
+
+        border-color .35s;
+
+    animation: igFade .6s ease both;
+
+}
+
+.igCorpoComunidadeCard:nth-child(2) {
+
+    animation-delay: .12s;
+
+}
+
+.igCorpoComunidadeCard:nth-child(3) {
+
+    animation-delay: .24s;
+
+}
+
+.igCorpoComunidadeCard::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -130%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, .65),
+            transparent);
+
+    transition: .8s;
+
+}
+
+.igCorpoComunidadeCard:hover::before {
+
+    left: 150%;
+
+}
+
+.igCorpoComunidadeCard:hover {
+
+    transform:
+
+        translateY(-6px) scale(1.015);
+
+    border-color: #2563eb;
+
+    box-shadow:
+
+        0 20px 45px rgba(37, 99, 235, .15);
+
+}
+
+.igCorpoComunidadeFoto {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+
+    border: 3px solid #fff;
+
+    box-shadow:
+
+        0 0 0 1px #d1d5db,
+
+        0 8px 20px rgba(0, 0, 0, .08);
+
+    transition:
+
+        transform .35s,
+
+        box-shadow .35s;
+
+}
+
+.igCorpoComunidadeCard:hover .igCorpoComunidadeFoto {
+
+    transform:
+
+        scale(1.08) rotate(-2deg);
+
+    box-shadow:
+
+        0 0 0 6px rgba(37, 99, 235, .08),
+
+        0 15px 30px rgba(37, 99, 235, .18);
+
+}
+
+.igCorpoComunidadeInfo {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.igCorpoComunidadeInfo strong {
+
+    color: #111827;
+
+    font-size: 1rem;
+
+    transition: .3s;
+
+}
+
+.igCorpoComunidadeCard:hover .igCorpoComunidadeInfo strong {
+
+    color: #2563eb;
+
+}
+
+.igCorpoComunidadeInfo span {
+
+    margin-top: 4px;
+
+    color: #6b7280;
+
+    font-size: .88rem;
+
+    line-height: 1.6;
+
+}
+
+.igCorpoComunidadeTexto {
+
+    max-width: 620px;
+
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: .97rem;
+
+    line-height: 1.8;
+
+    transition: .3s;
+
+}
+
+.igCorpoComunidadeContainer:hover .igCorpoComunidadeTexto {
+
+    color: #4b5563;
+
+}
+
+@keyframes igFade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(18px) scale(.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0) scale(1);
+
+    }
+
+}
+
+/* ======================================
+RESPONSIVO
+====================================== */
+
+@media (max-width:768px) {
+
+    .igCorpoComunidadeContainer {
+
+        margin: 32px auto 38px;
+
+    }
+
+    .igCorpoComunidadeLista {
+
+        gap: 14px;
+
+    }
+
+    .igCorpoComunidadeCard {
+
+        padding: 16px;
+
+    }
+
+    .igCorpoComunidadeFoto {
+
+        width: 50px;
+
+        height: 50px;
+
+    }
+
+    .igCorpoComunidadeInfo strong {
+
+        font-size: .95rem;
+
+    }
+
+    .igCorpoComunidadeInfo span {
+
+        font-size: .82rem;
+
+    }
+
+    .igCorpoComunidadeTexto {
+
+        font-size: .9rem;
+
+        padding: 0 10px;
+
+    }
+
+}
+
 .igCorpoHeroDescricao {
     max-width: 700px;
     font-size: 1.2rem;
