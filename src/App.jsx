@@ -20,7 +20,7 @@ import Termos from "./components/termos/termos";
 import Painel from "./components/verifica/painel";
 import PainelVerificado from "./components/painel/painel";
 import Empresas from "./components/empresas/empresa";
-
+import VisitarEmpresas from "./components/visita/visita";
 
 function VerificarTermos() {
 
@@ -181,7 +181,10 @@ export default function App() {
           path="/empresa/e/:id"
           element={<Empresas />}
         />
-
+        <Route
+          path="/y"
+          element={<VisitarEmpresas />}
+        />
 
 
 
