@@ -207,7 +207,13 @@ export default function Termos() {
 
                     <p>
 
-                        Informações pessoais como telefone, WhatsApp, e-mail e endereço permanecem protegidas. Esses dados somente poderão ser compartilhados após sua autorização durante o processo de entrevista.
+                        A IronGoals foi desenvolvida para divulgar informações profissionais dos candidatos às empresas compatíveis. Informações como nome, foto, experiências profissionais, formação acadêmica, habilidades, idiomas, disponibilidade e demais dados relacionados ao perfil profissional poderão ser exibidas às empresas cadastradas na plataforma.
+
+                    </p>
+
+                    <p>
+
+                        Informações consideradas sensíveis, como telefone, WhatsApp, e-mail, endereço e outros dados de contato, permanecem protegidas e somente poderão ser compartilhadas após sua autorização durante o processo de entrevista ou quando permitido pelas funcionalidades da plataforma.
 
                     </p>
 

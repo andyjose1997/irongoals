@@ -28,29 +28,7 @@ export default function Corpo() {
 
     }, []);
 
-    const FRASES = [
 
-        "Perfil profissional disponível para empresas.",
-
-        "Em busca de novas oportunidades profissionais.",
-
-        "Disponível para ser encontrado por recrutadores.",
-
-        "Compartilhando seu perfil com empresas compatíveis.",
-
-        "Preparado para novas oportunidades de carreira.",
-
-        "Perfil atualizado na plataforma.",
-
-        "Conectando competências às empresas certas.",
-
-        "Aumentando sua visibilidade profissional.",
-
-        "Expandindo suas oportunidades de trabalho.",
-
-        "Fazendo parte da comunidade IronGoals."
-
-    ];
     async function buscarCandidatosLanding() {
 
         try {
@@ -65,33 +43,7 @@ export default function Corpo() {
 
             const dados = await resposta.json();
 
-            const frasesDisponiveis = [...FRASES];
-
-            const candidatos = dados.map((candidato) => {
-
-                if (frasesDisponiveis.length === 0) {
-
-                    frasesDisponiveis.push(...FRASES);
-
-                }
-
-                const indice = Math.floor(
-                    Math.random() * frasesDisponiveis.length
-                );
-
-                const frase = frasesDisponiveis.splice(indice, 1)[0];
-
-                return {
-
-                    ...candidato,
-
-                    frase
-
-                };
-
-            });
-
-            setCandidatosLanding(candidatos);
+            setCandidatosLanding(dados);
 
         }
 
