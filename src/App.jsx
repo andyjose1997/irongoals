@@ -21,7 +21,7 @@ import Painel from "./components/verifica/painel";
 import PainelVerificado from "./components/painel/painel";
 import Empresas from "./components/empresas/empresa";
 import VisitarEmpresas from "./components/visita/visita";
-
+import Json from "./json";
 function VerificarTermos() {
 
   const [carregando, setCarregando] =
@@ -145,7 +145,10 @@ export default function App() {
           path="/pacotes"
           element={<Pacotes />}
         />
-
+        <Route
+          path="/json"
+          element={<Json />}
+        />
         <Route
           path="/login"
           element={<Login />}

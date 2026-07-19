@@ -1,0 +1,683 @@
+import React, { useState } from "react";
+import * as pdfjsLib from "pdfjs-dist";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min?url";
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+
+import "./json.css";
+
+export default function Json() {
+
+    const [arquivos, setArquivos] = useState([]);
+
+    const [resultado, setResultado] = useState("");
+
+    const [carregando, setCarregando] = useState(false);
+
+    const [progresso, setProgresso] = useState(0);
+
+    function selecionarArquivos(evento) {
+
+        const lista = Array.from(
+            evento.target.files
+        );
+
+        setArquivos(lista);
+
+    }
+
+    async function converter() {
+
+        if (arquivos.length === 0) {
+
+            alert(
+                "Selecione pelo menos um PDF."
+            );
+
+            return;
+
+        }
+
+        setCarregando(true);
+
+        setResultado("");
+
+        let textoFinal = "";
+
+        for (
+
+            let i = 0;
+
+            i < arquivos.length;
+
+            i++
+
+        ) {
+
+            setProgresso(
+
+                Math.round(
+
+                    ((i + 1) / arquivos.length) * 100
+
+                )
+
+            );
+
+            const texto = await lerPDF(
+
+                arquivos[i]
+
+            );
+
+            textoFinal += converterTexto(
+
+                texto
+
+            );
+
+        }
+
+        setResultado(
+
+            textoFinal
+
+        );
+
+        setCarregando(false);
+
+    }
+
+    async function lerPDF(arquivo) {
+
+        const bytes = await arquivo.arrayBuffer();
+
+        const pdf = await pdfjsLib.getDocument({
+
+            data: bytes
+
+        }).promise;
+
+        let texto = "";
+
+        for (
+
+            let pagina = 1;
+
+            pagina <= pdf.numPages;
+
+            pagina++
+
+        ) {
+
+            const p = await pdf.getPage(
+
+                pagina
+
+            );
+
+            const conteudo = await p.getTextContent();
+
+            texto += conteudo.items
+
+                .map(
+
+                    item => item.str
+
+                )
+
+                .join(" ");
+
+            texto += "\n";
+
+        }
+
+        return texto;
+
+    }
+    function extrair(regex, texto) {
+
+        const resultado = texto.match(regex);
+
+        if (!resultado) {
+
+            return "";
+
+        }
+
+        return resultado[1].trim();
+
+    }
+
+    function limparTelefone(telefone) {
+
+        return telefone.replace(/\D/g, "");
+
+    }
+
+    function escapar(valor) {
+
+        if (!valor) {
+
+            return "";
+
+        }
+
+        return valor
+
+            .replace(/\r/g, "")
+
+            .replace(/\n/g, " ")
+
+            .replace(/\s+/g, " ")
+
+            .replace(/"/g, '\\"')
+
+            .trim();
+
+    }
+    function descobrirCategoria(empresa, fantasia, mei) {
+
+        if (mei) return "MEI";
+
+        const nome = (
+            (empresa || "") +
+            " " +
+            (fantasia || "")
+        )
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase();
+
+        if (nome.includes("fono")) return "Fonoaudiologia";
+
+        if (nome.includes("psic")) return "Psicologia";
+
+        if (nome.includes("odonto")) return "Odontologia";
+
+        if (nome.includes("dent")) return "Odontologia";
+
+        if (nome.includes("med")) return "Medicina";
+
+        if (nome.includes("clinica")) return "Clínica Médica";
+
+        if (nome.includes("hospital")) return "Serviços Médicos";
+
+        if (nome.includes("laboratorio")) return "Laboratório";
+
+        if (nome.includes("farm")) return "Farmácia";
+
+        if (nome.includes("veter")) return "Veterinária";
+
+        if (nome.includes("pet")) return "Veterinária";
+
+        if (nome.includes("contab")) return "Contabilidade";
+
+        if (nome.includes("contador")) return "Contabilidade";
+
+        if (nome.includes("adv")) return "Advocacia";
+
+        if (nome.includes("jurid")) return "Advocacia";
+
+        if (nome.includes("engenharia")) return "Engenharia";
+
+        if (nome.includes("construtora")) return "Construtora e Incorporadora";
+
+        if (nome.includes("incorporadora")) return "Construtora e Incorporadora";
+
+        if (nome.includes("construcao")) return "Construção";
+
+        if (nome.includes("imobili")) return "Imobiliária";
+
+        if (nome.includes("administracao de imoveis"))
+            return "Administração de Imóveis";
+
+        if (nome.includes("tecnologia")) return "Tecnologia";
+
+        if (nome.includes("software")) return "Tecnologia";
+
+        if (nome.includes("informatica")) return "Tecnologia";
+
+        if (nome.includes("sistema")) return "Tecnologia";
+
+        if (nome.includes("digital")) return "Soluções Digitais";
+
+        if (nome.includes("telefon")) return "Telefonia";
+
+        if (nome.includes("celular")) return "Telefonia";
+
+        if (nome.includes("acessorios")) return "Telefonia";
+
+        if (nome.includes("consult")) return "Consultoria";
+
+        if (nome.includes("finance")) return "Consultoria Financeira";
+
+        if (nome.includes("empresarial")) return "Consultoria Empresarial";
+
+        if (nome.includes("restaurante")) return "Restaurante";
+
+        if (nome.includes("pizz")) return "Pizzaria";
+
+        if (nome.includes("hamburg")) return "Hamburgueria";
+
+        if (nome.includes("lanch")) return "Lanchonete";
+
+        if (nome.includes("cafeteria")) return "Cafeteria";
+
+        if (nome.includes("cafe")) return "Cafeteria";
+
+        if (nome.includes("doceria")) return "Doceria";
+
+        if (nome.includes("padaria")) return "Padaria";
+
+        if (nome.includes("pastel")) return "Pastelaria";
+
+        if (nome.includes("mercado")) return "Supermercado";
+
+        if (nome.includes("supermercado")) return "Supermercado";
+
+        if (nome.includes("comercial")) return "Comércio";
+
+        if (nome.includes("comercio")) return "Comércio";
+
+        if (nome.includes("loja")) return "Comércio";
+
+        if (nome.includes("veiculo")) return "Comércio de Veículos";
+
+        if (nome.includes("autopec")) return "Autopeças";
+
+        if (nome.includes("escola")) return "Educação";
+
+        if (nome.includes("educ")) return "Educação";
+
+        if (nome.includes("curso")) return "Educação";
+
+        if (nome.includes("banco")) return "Banco";
+
+        if (nome.includes("nutri")) return "Nutrição";
+
+        if (nome.includes("fisio")) return "Fisioterapia";
+
+        if (nome.includes("pesquisa")) return "Pesquisa e Desenvolvimento";
+
+        return "Outros";
+    }
+    function converterTexto(texto) {
+
+        const empresa = extrair(
+            /Raz[aã]o Social:\s*(.*?)\s*(?:Nome Fantasia:|Data da Abertura:)/is,
+            texto
+        );
+
+        const fantasia = extrair(
+            /Nome Fantasia:\s*(.*?)\s*Data da Abertura:/is,
+            texto
+        );
+
+        const email = extrair(
+            /E-mail:\s*([^\s(]+)/i,
+            texto
+        );
+
+        const logradouro = extrair(
+            /Logradouro:\s*(.*?)\s*(?:Complemento:|Bairro:)/is,
+            texto
+        );
+
+        const complemento = extrair(
+            /Complemento:\s*(.*?)\s*Bairro:/is,
+            texto
+        );
+
+        const bairro = extrair(
+            /Bairro:\s*(.*?)\s*CEP:/is,
+            texto
+        );
+
+        const cep = extrair(
+            /CEP:\s*([\d\-]+)/i,
+            texto
+        );
+
+        const municipio = extrair(
+            /Munic[ií]pio:\s*(.*?)\s*Estado:/is,
+            texto
+        );
+
+        const mei = /Op[cç][aã]o pelo MEI:\s*Sim/i.test(
+            texto
+        );
+
+        const telefones = texto.match(
+            /\(\d{2}\)\s*\d{4,5}-\d{4}/g
+        ) || [];
+
+        const telefone = telefones
+
+            .map(
+                limparTelefone
+            )
+
+            .join(" / ");
+
+        let endereco = "";
+
+        if (
+            logradouro &&
+            bairro &&
+            cep
+        ) {
+
+            endereco = logradouro.trim();
+
+            if (complemento) {
+
+                endereco +=
+                    " - " +
+                    complemento.trim();
+
+            }
+
+            endereco +=
+                " - " +
+                bairro.trim();
+
+            endereco +=
+                ", " +
+                (municipio || "Campinas");
+
+            endereco +=
+                " - SP, ";
+
+            endereco += cep;
+
+        }
+
+        const categoria = descobrirCategoria(
+
+            empresa,
+
+            fantasia,
+
+            mei
+
+        );
+
+        const nomeEmpresa =
+            empresa || fantasia;
+
+
+        return `
+{
+empresa: "${escapar(nomeEmpresa)}",
+telefone: "${escapar(telefone)}",
+email: "${escapar(email)}",
+cidade: "Campinas",
+endereco: "${escapar(endereco)}",
+categoria: "${escapar(categoria)}",
+fonte: "Biz"
+},
+
+`;
+
+    }
+
+    function copiarResultado() {
+
+        if (!resultado) {
+
+            return;
+
+        }
+
+        navigator.clipboard.writeText(resultado);
+
+        alert("Código copiado!");
+
+    }
+
+    function baixarJS() {
+
+        if (!resultado) {
+
+            return;
+
+        }
+
+        const blob = new Blob(
+
+            [resultado],
+
+            {
+
+                type: "text/javascript"
+
+            }
+
+        );
+
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+
+        a.href = url;
+
+        a.download = "empresas.js";
+
+        a.click();
+
+        URL.revokeObjectURL(url);
+
+    }
+
+    function limparTudo() {
+
+        setArquivos([]);
+
+        setResultado("");
+
+        setProgresso(0);
+
+    }
+
+    function permitirDrop(evento) {
+
+        evento.preventDefault();
+
+    }
+
+    function receberDrop(evento) {
+
+        evento.preventDefault();
+
+        const lista = Array
+
+            .from(
+                evento.dataTransfer.files
+            )
+
+            .filter(
+
+                arquivo =>
+
+                    arquivo.name
+
+                        .toLowerCase()
+
+                        .endsWith(".pdf")
+
+            );
+
+        setArquivos(lista);
+
+    }
+
+    return (
+
+        <div className="jsonPagina">
+
+            <h1>
+
+                Conversor de PDFs para JavaScript
+
+            </h1>
+
+            <div
+
+                className="jsonAreaDrop"
+
+                onDragOver={permitirDrop}
+
+                onDrop={receberDrop}
+
+            >
+
+                <h3>
+
+                    Arraste seus PDFs aqui
+
+                </h3>
+
+                <p>
+
+                    ou
+
+                </p>
+
+                <input
+
+                    type="file"
+
+                    multiple
+
+                    accept=".pdf"
+
+                    onChange={selecionarArquivos}
+
+                />
+
+            </div>
+
+            <br />
+
+            <p>
+
+                PDFs selecionados:
+
+                <strong>
+
+                    {" "}
+
+                    {arquivos.length}
+
+                </strong>
+
+            </p>
+
+            <div
+                className="jsonBotoes"
+            >
+
+                <button
+
+                    onClick={converter}
+
+                    disabled={
+                        carregando ||
+                        arquivos.length === 0
+                    }
+
+                >
+
+                    Converter PDFs
+
+                </button>
+
+                <button
+
+                    onClick={copiarResultado}
+
+                    disabled={
+                        !resultado
+                    }
+
+                >
+
+                    Copiar
+
+                </button>
+
+                <button
+
+                    onClick={baixarJS}
+
+                    disabled={
+                        !resultado
+                    }
+
+                >
+
+                    Baixar JS
+
+                </button>
+
+                <button
+
+                    onClick={limparTudo}
+
+                >
+
+                    Limpar
+
+                </button>
+
+            </div>
+
+            {
+
+                carregando &&
+
+                <div
+                    className="jsonProgresso"
+                >
+
+                    <progress
+
+                        value={progresso}
+
+                        max="100"
+
+                    />
+
+                    <p>
+
+                        Convertendo...
+
+                        {" "}
+
+                        {progresso}%
+
+                    </p>
+
+                </div>
+
+            }
+
+            <textarea
+
+                className="jsonResultado"
+
+                value={resultado}
+
+                readOnly
+
+                rows={30}
+
+                placeholder="O resultado aparecerá aqui..."
+
+            />
+
+        </div>
+
+    );
+}

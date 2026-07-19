@@ -1,0 +1,251 @@
+.jsonPagina {
+
+    width: min(1200px, 95%);
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.jsonPagina h1 {
+
+    text-align: center;
+
+    color: #1f2937;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    margin: 0;
+
+}
+
+.jsonAreaDrop {
+
+    border: 3px dashed #2563eb;
+
+    border-radius: 16px;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #eff6ff;
+
+    transition: .25s;
+
+}
+
+.jsonAreaDrop:hover {
+
+    background: #dbeafe;
+
+    border-color: #1d4ed8;
+
+}
+
+.jsonAreaDrop h3 {
+
+    margin: 0;
+
+    color: #1d4ed8;
+
+    font-size: 24px;
+
+}
+
+.jsonAreaDrop p {
+
+    margin: 15px 0;
+
+    color: #555;
+
+}
+
+.jsonAreaDrop input {
+
+    margin-top: 10px;
+
+    font-size: 15px;
+
+}
+
+.jsonBotoes {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+}
+
+.jsonBotoes button {
+
+    flex: 1;
+
+    min-width: 180px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: .25s;
+
+}
+
+.jsonBotoes button:hover:not(:disabled) {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}
+
+.jsonBotoes button:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+
+}
+
+.jsonProgresso {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.jsonProgresso progress {
+
+    width: 100%;
+
+    height: 18px;
+
+}
+
+.jsonProgresso p {
+
+    margin: 0;
+
+    font-weight: bold;
+
+    color: #2563eb;
+
+}
+
+.jsonResultado {
+
+    width: 100%;
+
+    min-height: 650px;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid #d1d5db;
+
+    background: #111827;
+
+    color: #22c55e;
+
+    font-family: Consolas, monospace;
+
+    font-size: 14px;
+
+    resize: vertical;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+}
+
+.jsonResultado:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .15);
+
+}
+
+@media (max-width: 768px) {
+
+    .jsonPagina {
+
+        width: 95%;
+
+        padding: 20px;
+
+    }
+
+    .jsonPagina h1 {
+
+        font-size: 28px;
+
+    }
+
+    .jsonAreaDrop {
+
+        padding: 35px 15px;
+
+    }
+
+    .jsonAreaDrop h3 {
+
+        font-size: 20px;
+
+    }
+
+    .jsonBotoes {
+
+        flex-direction: column;
+
+    }
+
+    .jsonBotoes button {
+
+        width: 100%;
+
+    }
+
+    .jsonResultado {
+
+        min-height: 450px;
+
+        font-size: 13px;
+
+    }
+
+}
