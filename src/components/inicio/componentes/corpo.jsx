@@ -5,7 +5,7 @@ import { API_URL } from "../../../config";
 export default function Corpo() {
 
     const navigate = useNavigate();
-
+    const [empresasLanding, setEmpresasLanding] = useState([]);
     const [logado, setLogado] = useState(false);
     const [candidatosLanding, setCandidatosLanding] = useState([]);
 
@@ -18,17 +18,46 @@ export default function Corpo() {
 
         buscarCandidatosLanding();
 
+        buscarEmpresasLanding();
+
         const intervalo = setInterval(() => {
 
             buscarCandidatosLanding();
 
-        }, 17000);
+            buscarEmpresasLanding();
+
+        }, 25000);
 
         return () => clearInterval(intervalo);
 
     }, []);
 
 
+    async function buscarEmpresasLanding() {
+
+        try {
+
+            const resposta = await fetch(
+                `${API_URL}/landing/empresas`
+            );
+
+            if (!resposta.ok) {
+                return;
+            }
+
+            const dados = await resposta.json();
+
+            setEmpresasLanding(dados);
+
+        }
+
+        catch (erro) {
+
+            console.log(erro);
+
+        }
+
+    }
     async function buscarCandidatosLanding() {
 
         try {
@@ -107,7 +136,46 @@ export default function Corpo() {
                         }
 
                     </div>
+                    <div className="igCorpoEmpresasContainer">
 
+                        <p className="igCorpoComunidadeTitulo">
+
+                            Algumas empresas presentes na IronGoals <br /> que podem receber seu Perfil
+
+                        </p>
+
+                        <div className="igCorpoEmpresasLista">
+
+                            {
+
+                                empresasLanding.map((empresa) => (
+
+                                    <div
+                                        key={empresa.empresa}
+                                        className="igCorpoEmpresaCard"
+                                    >
+
+                                        <strong>
+
+                                            {empresa.empresa}
+
+                                        </strong>
+
+                                        <span>
+
+                                            {empresa.categoria}
+
+                                        </span>
+
+                                    </div>
+
+                                ))
+
+                            }
+
+                        </div>
+
+                    </div>
                     <p className="igCorpoComunidadeTexto">
 
                         Cadastre seu perfil gratuitamente e aumente suas oportunidades de ser encontrado por empresas compatíveis.
