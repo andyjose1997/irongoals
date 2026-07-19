@@ -510,8 +510,172 @@ fonte: "Biz"
 
         setArquivos(lista);
 
+    } function copiarCodigoPDF() {
+
+        const codigo = `(async () => {
+
+    function esperar(ms){
+        return new Promise(r=>setTimeout(r,ms));
     }
 
+    if (!window.jspdf) {
+        await new Promise(resolve=>{
+            const s=document.createElement("script");
+            s.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+            s.onload=resolve;
+            document.head.appendChild(s);
+        });
+    }
+
+    document.querySelector(".btn-reveal-email")?.click();
+    document.querySelector(".btn-reveal-phone")?.click();
+
+    await esperar(2000);
+
+    const inicio=[...document.querySelectorAll("h2")]
+        .find(h=>h.innerText.includes("Informações de Registro"));
+
+    const fim=[...document.querySelectorAll("h2")]
+        .find(h=>h.innerText.includes("Atividades"));
+
+    let texto="";
+    let atual=inicio;
+
+    while(atual && atual!==fim){
+
+        if(atual.innerText.trim())
+            texto+=atual.innerText.trim()+"\\n\\n";
+
+        atual=atual.nextElementSibling;
+    }
+
+    const cnpj=(texto.match(/\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}-\\d{2}/)?.[0] || "empresa")
+        .replace(/[^\\d]/g,"");
+
+    const { jsPDF } = window.jspdf;
+
+    const pdf=new jsPDF();
+
+    const linhas=pdf.splitTextToSize(texto,180);
+
+    pdf.setFont("courier","normal");
+    pdf.setFontSize(10);
+
+    pdf.text(linhas,10,10);
+
+    pdf.save(cnpj+".pdf");
+
+})();`;
+
+        navigator.clipboard.writeText(codigo);
+
+        alert("Código copiado!");
+
+    }
+    function copiarCodigoGeral() {
+
+        const codigo = `(async () => {
+
+    function carregarJsPDF() {
+
+        return new Promise(resolve => {
+
+            if (window.jspdf) {
+
+                resolve();
+
+                return;
+
+            }
+
+            const s=document.createElement("script");
+
+            s.src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+
+            s.onload=resolve;
+
+            document.head.appendChild(s);
+
+        });
+
+    }
+
+    await carregarJsPDF();
+
+    const links=[...document.querySelectorAll("li > a")]
+        .filter(link=>{
+
+            const status=[...link.querySelectorAll("p")]
+                .find(p=>["ATIVA","BAIXADA","INAPTA"].includes(p.innerText.trim()))
+                ?.innerText.trim();
+
+            return status==="ATIVA";
+
+        })
+        .map(link=>link.href);
+
+    if(links.length===0){
+
+        console.log("Nenhuma empresa ATIVA encontrada.");
+
+    }else{
+
+        const texto=\`const links = [
+\${links.map(l=>\`    "\${l}"\`).join(",\\n")}
+];\`;
+
+        const { jsPDF } = window.jspdf;
+
+        const pdf=new jsPDF();
+
+        pdf.setFont("courier");
+
+        pdf.setFontSize(8);
+
+        const linhas=pdf.splitTextToSize(texto,180);
+
+        let y=10;
+
+        linhas.forEach(linha=>{
+
+            if(y>285){
+
+                pdf.addPage();
+
+                y=10;
+
+            }
+
+            pdf.text(linha,10,y);
+
+            y+=4;
+
+        });
+
+        pdf.save("links.pdf");
+
+    }
+
+    setTimeout(()=>{
+
+        const proximaPagina=[...document.querySelectorAll("a")]
+            .find(a=>a.innerText.trim()==="Próxima Página");
+
+        if(proximaPagina){
+
+            window.location.href=proximaPagina.href;
+
+        }
+
+    },1500);
+
+})();`;
+
+        navigator.clipboard.writeText(codigo);
+
+        alert("Código copiado!");
+
+    }
     return (
 
         <div className="jsonPagina">
@@ -559,7 +723,22 @@ fonte: "Biz"
             </div>
 
             <br />
+            <div className="jsonBotoesCodigos">
 
+                <button onClick={copiarCodigoPDF}>
+
+                    Copiar Código para cada
+
+                </button>
+
+                <button onClick={copiarCodigoGeral}>
+
+                    Copiar Código Geral
+
+                </button>
+
+            </div>
+            <br />
             <p>
 
                 PDFs selecionados:
