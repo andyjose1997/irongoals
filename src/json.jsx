@@ -314,11 +314,16 @@ export default function Json() {
             texto
         );
 
+
         const email = extrair(
             /E-mail:\s*([^\s(]+)/i,
             texto
         );
 
+        // Ignora PDFs cujo e-mail contenha **
+        if (email.includes("**")) {
+            return "";
+        }
         const logradouro = extrair(
             /Logradouro:\s*(.*?)\s*(?:Complemento:|Bairro:)/is,
             texto
